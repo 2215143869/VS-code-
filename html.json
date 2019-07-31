@@ -48,13 +48,6 @@
 		],
 		"description": "each",
 	},
-	// "{{$value.}}": {
-	// 	"prefix": "{{$value}}",
-	// 	"body": [
-	// 		"{{$$value.${0:data}}}",
-	// 	],
-	// 	"description": "{{$value.}}"
-	// },
 	"v-text": {
 		"prefix": "v-text",
 		"body": [
