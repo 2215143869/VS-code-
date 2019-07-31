@@ -1,0 +1,1354 @@
+{
+	// Place your snippets for javascript here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	//未定义类型
+	"获取长度": {
+		"prefix": ".length",
+		"body": [
+			".length",
+		],
+	},
+	"确认选择框": {
+		"prefix": "confirm",
+		"body": [
+			"confirm($0);",
+		],
+	},
+	"内容输入框": {
+		"prefix": "prompt",
+		"body": [
+			"prompt($0);",
+		],
+	},
+	"闭包函数": {
+		"prefix": "function closure()",
+		"body": [
+			"function closure(){",
+			"\treturn",
+			"};"
+		],
+		"description": "闭包函数"
+	},
+	"外部函数": {
+		"prefix": "function outer()",
+		"body": [
+			"function outer(){",
+			"\tfunction closure(){",
+			"\t\treturn",
+			"\t};",
+			"\treturn closure;",
+			"};"
+		],
+		"description": "外部函数"
+	},
+	//事件类型
+	"拖拽的元素在区域内移动": {
+		"prefix": ".ondragover ",
+		"body": [
+			".ondragover = function(e){",
+			"e.preventDefault();",
+			"};"
+		],
+		"description": "拖拽的元素在区域内移动"
+	},
+	"阻止默认事件": {
+		"prefix": "e.preventDefault();",
+		"body": [
+			"e.preventDefault();",
+		],
+		"description": "阻止默认事件"
+	},
+	"元素结束拖拽时,在区域内": {
+		"prefix": ".ondrop ",
+		"body": [
+			".ondrop = function($0){",
+			"};"
+		],
+		"description": "元素结束拖拽时,在区域内"
+	},
+	"元素拖拽离开": {
+		"prefix": ".dragleave ",
+		"body": [
+			".dragleave = function($0){",
+			"};"
+		],
+		"description": "元素拖拽离开"
+	},
+	"元素拖拽进入": {
+		"prefix": ".dragenter ",
+		"body": [
+			".dragenter = function($0){",
+			"};"
+		],
+		"description": "元素拖拽进入"
+	},
+	"元素拖拽结束": {
+		"prefix": ".ondragend ",
+		"body": [
+			".ondragend = function($0){",
+			"};"
+		],
+		"description": "元素拖拽结束"
+	},
+	"元素拖拽中": {
+		"prefix": ".ondrag ",
+		"body": [
+			".ondrag = function($0){",
+			"};"
+		],
+		"description": "元素拖拽中"
+	},
+	"注册事件": {
+		"prefix": ".addEventListener",
+		"body": [
+			".addEventListener('${0:事件类型}' , function () {",
+			"});",
+		],
+		"description": "注册事件IE9+兼容"
+	},
+	"事件的阶段": {
+		"prefix": "e.eventPhase",
+		"body": [
+			"e.eventPhase",
+		],
+		"description": "事件的阶段"
+	},
+	"事件的真正触发对象": {
+		"prefix": "e.target",
+		"body": [
+			"e.target",
+		],
+		"description": "事件的真正触发对象"
+	},
+	"获取事件名称": {
+		"prefix": "e.type",
+		"body": [
+			"e.type",
+		],
+		"description": "获取事件名称"
+	},
+	//网页元素API
+	"document.querySelector": {
+		"prefix": "document.querySelector",
+		"body": [
+			"document.querySelector('$0');",
+		],
+	},
+	"document.querySelectorAll": {
+		"prefix": "document.querySelectorAll",
+		"body": [
+			"document.querySelectorAll('$0');",
+		],
+	},
+	"获取自定义属性": {
+		"prefix": ".getAttribute",
+		"body": [
+			".getAttribute('${0:属性名}')",
+		],
+		"description": "获取自定义属性"
+	},
+	"设置自定义属性": {
+		"prefix": ".setAttribute",
+		"body": [
+			".setAttribute('${1:属性名}','${0:属性值}');",
+		],
+		"description": "设置自定义属性"
+	},
+	"移除自定义属性": {
+		"prefix": ".removeAttribute",
+		"body": [
+			".removeAttribute('${0:属性名}');",
+		],
+		"description": "移除自定义属性"
+	},
+	"移除节点": {
+		"prefix": ".removeChild",
+		"body": [
+			"${0:父节点}.removeChild(${1:移除节点});",
+		],
+		"description": "移除节点"
+	},
+	"获取子元素节点": {
+		"prefix": ".children",
+		"body": [
+			".children",
+		],
+		"description": "获取子元素节点"
+	},
+	"创建元素节点": {
+		"prefix": "document.createElement",
+		"body": [
+			"document.createElement('${0:标签名}');",
+		],
+		"description": "创建元素节点"
+	},
+	"用新的子元素替换已有的子元素": {
+		"prefix": "replaceChild",
+		"body": [
+			"replaceChild(${0:新节点},${1:替换节点});",
+		],
+		"description": "用新的子元素替换已有的子元素"
+	},
+	"根据标签名获取元素": {
+		"prefix": "getTagName",
+		"body": [
+			"var ${0:li}List = document.getElementsByTagName('${0:li}');",
+		],
+		"description": "根据标签名获取元素"
+	},
+	"根据类名获取元素": {
+		"prefix": "getclassname",
+		"body": [
+			"var ${0:one}List = document.getElementsByClassName('${0:one}');",
+		],
+		"description": "根据类名获取元素"
+	},
+	"根据id获取元素": {
+		"prefix": "getid",
+		"body": [
+			"var ${0:box} = document.getElementById('${0:box}');",
+		],
+		"description": "根据id获取元素"
+	},
+	"在指定节点前面插入一个节点": {
+		"prefix": ".insertBefore",
+		"body": [
+			".insertBefore(${1:移动节点},${0:插入节点});",
+		],
+		"description": "在指定节点前面插入一个节点"
+	},
+	"设置循环计时器": {
+		"prefix": "setIn",
+		"body": [
+			"setInterval(function () {",
+			"\t$0",
+			"},30);",
+		],
+		"description": "设置循环计时器"
+	},
+	"设置单次计时器": {
+		"prefix": "setT",
+		"body": [
+			"setTimeout(function () {",
+			"\t$0",
+			"},1000);",
+		],
+		"description": "设置单次计时器"
+	},
+	"参照最近定位父元素获取左偏移量": {
+		"prefix": ".offL",
+		"body": [
+			".offsetLeft",
+		],
+		"description": "参照最近定位父元素获取左偏移量"
+	},
+	"参照最近定位父元素获取上偏移量": {
+		"prefix": ".offT",
+		"body": [
+			".offsetTop",
+		],
+		"description": "参照最近定位父元素获取上偏移量"
+	},
+	"获取元素真实宽度": {
+		"prefix": ".offW",
+		"body": [
+			".offsetWidth",
+		],
+		"description": "获取元素真实宽度"
+	},
+	"获取元素真实高度": {
+		"prefix": ".offH",
+		"body": [
+			".offsetHeight",
+		],
+		"description": "获取元素真实高度"
+	},
+	"移除计时器": {
+		"prefix": "clIn",
+		"body": [
+			".clearInterval(${0:timeD});",
+		],
+		"description": "移除计时器"
+	},
+	"移动节点到父元素最后": {
+		"prefix": ".appendChild",
+		"body": [
+			"${1:父元素}.appendChild(${0:操作元素});",
+		],
+		"description": "移动节点到父元素最后"
+	},
+	"获取水平滚动出去的距离": {
+		"prefix": "scrollLeft",
+		"body": [
+			"document.documentElement.scrollLeft",
+		],
+		"description": "获取水平滚动出去的距离"
+	},
+	"获取垂直滚动出去的距离": {
+		"prefix": "scrollTop",
+		"body": [
+			"document.documentElement.scrollTop",
+		],
+		"description": "获取垂直滚动出去的距离"
+	},
+	"获取相对页面坐标点": {
+		"prefix": "pageX",
+		"body": [
+			"pageX",
+		],
+		"description": "获取相对页面坐标点"
+	},
+	"获取用户拖拽过来的文件": {
+		"prefix": "e.dataTransfer.files",
+		"body": [
+			"e.dataTransfer.files[${0:0}];",
+		],
+		"description": "获取用户拖拽过来的文件"
+	},
+	"获取文件的临时路径": {
+		"prefix": "URL.createObjectURL",
+		"body": [
+			"URL.createObjectURL(${0:文件});",
+		],
+		"description": "获取文件的临时路径"
+	},
+	//语法类型
+	"改变函数的this指向,并且返回一个新函数": {
+		"prefix": ".bind",
+		"body": [
+			".bind($0)",
+		],
+		"description": "改变函数的this指向,并且返回一个新函数"
+	},
+	"改变函数的this指向,并且直接调用函数": {
+		"prefix": ".call",
+		"body": [
+			".call($0)",
+		],
+		"description": "改变函数的this指向,并且直接调用函数"
+	},
+	"改变函数的this指向,并且直接调用函数,参数为数组": {
+		"prefix": ".apply",
+		"body": [
+			".apply($0)",
+		],
+		"description": "改变函数的this指向,并且直接调用函数,参数为数组"
+	},
+	"遍历数组": {
+		"prefix": "forarr",
+		"body": [
+			"for(var ${1:i} = 0;${1:i} < ${0:arr}.length;${1:i}++){",
+			"};",
+		],
+		"description": "数组快速for循环遍历"
+	},
+	"函数": {
+		"prefix": "function",
+		"body": [
+			"function $0() {",
+			"};",
+		],
+		"description": "函数"
+	},
+	"自调用函数": {
+		"prefix": "function (w)",
+		"body": [
+			"(function (w) {",
+			"\t$0",
+			"})(window);",
+		],
+		"description": "自调用函数"
+	},
+	// "事件e兼容处理": {
+	// 	"prefix": "e = e || window.event;",
+	// 	"body": [
+	// 		"e = e || window.event;",
+	// 	],
+	// 	"description": "事件e兼容处理"
+	// },
+	"对象原型添加方法": {
+		"prefix": ".prototype",
+		"body": [
+			".prototype.${0:方法} = function () {",
+			"};",
+		],
+		"description": "对象原型添加方法"
+	},
+	"缓动动画函数": {
+		"prefix": "animationSlow",
+		"body": [
+			"animationSlow(${1:box}, {",
+			"\tleft: $2,",
+			"\ttop: $3,",
+			"\twidth: $4,",
+			"\theight: $5,",
+			"\tzIndex: 1,",
+			"\topacity: 0.5,",
+			"\tbackgroundColor: 'rgb(255,20,10)'",
+			"});",
+		],
+		"description": "缓动动画函数"
+	},
+	"for循环": {
+		"prefix": "for",
+		"body": [
+			"for (var ${1:i} = ${2:0}; ${1:i} < ${0:0}; ${1:i}++) {",
+			"};",
+		],
+	},
+	"forin": {
+		"prefix": "forin",
+		"body": [
+			"for (var key in ${0:obj}) {",
+			"};",
+		],
+	},
+	"如果..则..  否则如果..则...": {
+		"prefix": "if else else if",
+		"body": [
+			"if (${0:condition}) {",
+			"} else if () {",
+			"}",
+		],
+	},
+	"switch判断": {
+		"prefix": "switch",
+		"body": [
+			"switch ($1) {",
+			"\tcase $0:{",
+			"\t\tbreak;",
+			"\t};",
+			"\tdefault:{",
+			"\t\tbreak;",
+			"\t};",
+			"};",
+		],
+	},
+	"If Statement": {
+		"prefix": "if",
+		"body": [
+			"if (${0:condition}) {",
+			"}"
+		],
+		"description": "If Statement"
+	},
+	"If-Else Statement": {
+		"prefix": "ifelse",
+		"body": [
+			"if (${0:condition}) {",
+			"} else {",
+			"}"
+		],
+		"description": "If-Else Statement"
+	},
+	"While Statement": {
+		"prefix": "while",
+		"body": [
+			"while (${1:condition}) {",
+			"\t$0",
+			"}"
+		],
+		"description": "While Statement"
+	},
+	"Do-While Statement": {
+		"prefix": "dowhile",
+		"body": [
+			"do {",
+			"\t$0",
+			"} while (${1:condition});"
+		],
+		"description": "Do-While Statement"
+	},
+	"Log to the console": {
+		"prefix": "log",
+		"body": [
+			"console.log($0);"
+		],
+		"description": "Log to the console"
+	},
+	//数学对象类型
+	"转换成整数": {
+		"prefix": "parseInt",
+		"body": [
+			"parseInt($0);",
+		],
+	},
+	"获得nim-max之间的随机值": {
+		"prefix": "getRandom",
+		"body": [
+			"function  getRandom(${1:min}, ${0:max}) {",
+			"var min = Math.ceil(min);",
+			"var max = Math.floor(max);",
+			"return Math.floor(Math.random() * (max - min + 1) + min);",
+			"};",
+		],
+	},
+	"转换成浮点数": {
+		"prefix": "parseFloat",
+		"body": [
+			"parseFloat($0);",
+		],
+	},
+	"数学-随机数": {
+		"prefix": "Math.random",
+		"body": [
+			"Math.random()$0",
+		],
+	},
+	"数学-地板函数": {
+		"prefix": "Math.floor",
+		"body": [
+			"Math.floor($1);",
+		],
+	},
+	"数学-天花板函数": {
+		"prefix": "Math.ceil",
+		"body": [
+			"Math.ceil($1);",
+		],
+	},
+	// "数学-四舍五入": {
+	// 	"prefix": "Math.round",
+	// 	"body": [
+	// 		"Math.round($1);",
+	// 	],
+	// },
+	// "数学-圆周率": {
+	// 	"prefix": "Math.PI ",
+	// 	"body": [
+	// 		"Math.PI()$1",
+	// 	],
+	// },
+	"数学-绝对值": {
+		"prefix": "Math.abs",
+		"body": [
+			"Math.abs($0);",
+		],
+	},
+	//数组方法
+	"数组排序函数": {
+		"prefix": ".sort(function (a, b)",
+		"body": [
+			".sort(function (a, b) {",
+			"\treturn ${1:a} - ${0:b};",
+			"});$3",
+		],
+		"description": "数组排序函数"
+	},
+	"过滤数组-HTML5": {
+		"prefix": ".filter(function (${1:item})",
+		"body": [
+			".filter(function (${1:item}) {",
+			"\treturn ${1:item} < ${2:数值};",
+			"});$3",
+		],
+		"description": "过滤数组-HTML5"
+	},
+	"数组尾部添加元素": {
+		"prefix": ".push",
+		"body": [
+			".push($0);",
+		],
+		"description": "数组尾部添加元素"
+	},
+	"从前往后查找元素": {
+		"prefix": ".indexOf()",
+		"body": [
+			".indexOf($0);",
+		],
+		"description": "从前往后查找元素"
+	},
+	"遍历数组函数": {
+		"prefix": ".forEach",
+		"body": [
+			".forEach(function (ele,index) {",
+				"\t$0",
+			"});",
+		],
+		"description": "遍历数组函数"
+	},
+	"数组链接字符串": {
+		"prefix": ".join()",
+		"body": [
+			".join('$0');",
+		],
+		"description": "数组链接字符串"
+	},
+	//字符串方法
+	"替换字符串中字符": {
+		"prefix": ".replace",
+		"body": [
+			".replace(/${1:原字符}/g,'${0:替换字符}');",
+		],
+		"description": "替换字符串中字符"
+	},
+	"获取指定下标字符": {
+		"prefix": ".charAt",
+		"body": [
+			".charAt(${0:下标});",
+		],
+		"description": "获取指定下标字符"
+	},
+	"分割字符串成数组": {
+		"prefix": ".split",
+		"body": [
+			".split('${0:分割处字符}');",
+		],
+		"description": "分割字符串成数组"
+	},
+	"截取字符串(指定长度)": {
+		"prefix": ".substr",
+		"body": [
+			".substr(${1:开始下标},${0:截取长度},);",
+		],
+		"description": "截取字符串(指定长度)"
+	},
+	"截取字符串(指定下标)": {
+		"prefix": ".substring",
+		"body": [
+			".substring(${1:开始下标},${0:<结束下标},);",
+		],
+		"description": "截取字符串(指定下标)"
+	},
+	"从前往后查找字符": {
+		"prefix": ".indexOf",
+		"body": [
+			".indexOf('${0:查找字符}');",
+		],
+		"description": "从前往后查找字符"
+	},
+	"去除字符串前后空格": {
+		"prefix": ".trim()",
+		"body": [
+			".trim()$0",
+		],
+		"description": "去除字符串前后空格"
+	},
+	//日期对象方法
+	"获取当前毫秒数": {
+		"prefix": ".getTime",
+		"body": [
+			".getTime()$0",
+		],
+		"description": "获取当前毫秒数"
+	},
+	//老师代码片段
+	"jquery to ajax": {
+		"prefix": "ajax",
+		"body": [
+			"$.ajax({",
+			"url:'',",
+			"type:'get',",
+			"dataType:'json',",
+			"data:'',",
+			"success: function(data){",
+			"};",
+			"});"
+		],
+		"description": "ajax请求"
+	},
+	// "form to ajax": {
+	// 	"prefix": "form-ajax",
+	// 	"body": [
+	// 		"$('#form').on('submit',function(e){",
+	// 		"//禁用表单默认提交事件",
+	// 		"e.preventDefault();",
+	// 		"$.ajax({",
+	// 		"url:'',",
+	// 		"type:'get',",
+	// 		"dataType:'json',",
+	// 		"data:'',",
+	// 		"success: function(data){",
+	// 		"};",
+	// 		"});",
+	// 		"});"
+	// 	],
+	// 	"description": "表单提交ajax请求"
+	// },
+	"express-server": {
+		"prefix": "express",
+		"body": [
+			"//1.导入模块",
+			"const express = require('express');",
+			"//2.创建服务器",
+			"let app = express();",
+			"//3.开启服务器",
+			"app.listen(3000,()=>{",
+			"console.log('success');",
+			"});"
+		],
+		"description": "快速搭建express服务器"
+	},
+	//CSS样式类型
+	"设置左偏移": {
+		"prefix": ".style.left",
+		"body": [
+			".style.left = $0 + 'px';",
+		],
+		"description": "设置左偏移"
+	},
+	"设置上偏移": {
+		"prefix": ".style.top",
+		"body": [
+			".style.top = $0 + 'px';",
+		],
+		"description": "设置上偏移"
+	},
+	"设置背景颜色": {
+		"prefix": ".style.bgc",
+		"body": [
+			".style.backgroundColor = '$0';",
+		],
+		"description": "设置背景颜色"
+	},
+	//jQuery
+	".CSS": {
+		"prefix": ".css",
+		"body": [
+			".css({$0})",
+		],
+		"description": ".CSS"
+	},
+	"入口函数": {
+		"prefix": "$function",
+		"body": [
+			"$(function () {",
+				"\t$0",
+			"});",
+		],
+		"description": "入口函数"
+	},
+	".offset": {
+		"prefix": ".offset",
+		"body": [
+			".offset({$0})",
+		],
+		"description": ".offset"
+	},
+	"根据父元素获取边偏移": {
+		"prefix": ".position",
+		"body": [
+			".position({$0})",
+		],
+		"description": "根据父元素获取变偏移"
+	},
+	"根据父元素获取左偏移": {
+		"prefix": ".position.left",
+		"body": [
+			".position().left",
+		],
+		"description": "根据父元素获取左偏移"
+	},
+	"根据父元素获取上偏移": {
+		"prefix": ".position.top",
+		"body": [
+			".position().top",
+		],
+		"description": "根据父元素获取上偏移"
+	},
+	"动画": {
+		"prefix": ".animate",
+		"body": [
+			".animate({$0},1000)",
+		],
+		"description": "动画"
+	},
+	"宽": {
+		"prefix": "width",
+		"body": [
+			"'width': $0",
+		],
+		"description": "宽"
+	},
+	"高": {
+		"prefix": "height",
+		"body": [
+			"'height': $0",
+		],
+		"description": "高"
+	},
+	"左偏移": {
+		"prefix": "left",
+		"body": [
+			"'left': $0",
+		],
+		"description": "左偏移"
+	},
+	"上偏移": {
+		"prefix": "top",
+		"body": [
+			"'top': $0",
+		],
+		"description": "上偏移"
+	},
+	"左浮动": {
+		"prefix": "float",
+		"body": [
+			"'float': '${2:left}'$0",
+		],
+		"description": "左浮动"
+	},
+	"背景": {
+		"prefix": "background",
+		"body": [
+			"'background': '$2'$0",
+		],
+		"description": "背景"
+	},
+	"外边距": {
+		"prefix": "margin",
+		"body": [
+			"'margin': $0",
+		],
+		"description": "外边距"
+	},
+	"内边距": {
+		"prefix": "padding",
+		"body": [
+			"'padding': $0",
+		],
+		"description": "内边距"
+	},
+	"行高": {
+		"prefix": "lineHeight",
+		"body": [
+			"'lineHeight' : '$2'$0",
+		],
+		"description": "行高"
+	},
+	"中心": {
+		"prefix": "center",
+		"body": [
+			"'center'",
+		],
+		"description": "中心"
+	},
+	"边框": {
+		"prefix": "border",
+		"body": [
+			"'border' : '$1px solid $2'",
+		],
+		"description": "边框"
+	},
+	"定位": {
+		"prefix": "position",
+		"body": [
+			"'position' : '${2:absolute}',$0",
+		],
+		"description": "定位"
+	},
+	"溢出": {
+		"prefix": "overflow",
+		"body": [
+			"'overflow' : '${2:hidden}',$0",
+		],
+		"description": "溢出"
+	},
+	"文字水平对齐": {
+		"prefix": "textAlign",
+		"body": [
+			"'textAlign' : '${2:center}',$0",
+		],
+		"description": "文字水平对齐"
+	},
+	"显示元素": {
+		"prefix": ".show",
+		"body": [
+			".show();$0",
+		],
+		"description": "显示元素"
+	},
+	"相对定位": {
+		"prefix": "relative",
+		"body": [
+			"'relative'",
+		],
+		"description": "相对定位"
+	},
+	"绝对定位": {
+		"prefix": "absolute",
+		"body": [
+			"'absolute'",
+		],
+		"description": "绝对定位"
+	},
+	"隐藏元素": {
+		"prefix": ".hide",
+		"body": [
+			".hide();$0",
+		],
+		"description": "隐藏元素"
+	},
+	"透明度": {
+		"prefix": "opacity",
+		"body": [
+			"'opacity' : $0",
+		],
+		"description": "透明度"
+	},
+	"过渡": {
+		"prefix": "transition",
+		"body": [
+			"'transition' : '${0:all 1s}'",
+		],
+		"description": "过渡"
+	},
+	"字体大小": {
+		"prefix": "fontSize",
+		"body": [
+			"'fontSize' : $0",
+		],
+		"description": "字体大小"
+	},
+	"颜色": {
+		"prefix": "color",
+		"body": [
+			"'color' : '$2'$0",
+		],
+		"description": "颜色"
+	},
+	"字体": {
+		"prefix": "fontFamily",
+		"body": [
+			"'fontFamily' : '$2'$0",
+		],
+		"description": "字体"
+	},
+	"层级": {
+		"prefix": "zIndex",
+		"body": [
+			"'zIndex' : $0",
+		],
+		"description": "层级"
+	},
+	"$()": {
+		"prefix": "$$",
+		"body": [
+			"$('#$0')",
+		],
+		"description": "$()"
+	},
+	"增加class类名": {
+		"prefix": ".addClass",
+		"body": [
+			".addClass('$0')",
+		],
+		"description": "增加class类名"
+	},
+	"移除class类名": {
+		"prefix": ".removeClass",
+		"body": [
+			".removeClass('$0')",
+		],
+		"description": "移除class类名"
+	},
+	"判断是否有该class类名": {
+		"prefix": ".hasClass",
+		"body": [
+			".hasClass('$0')",
+		],
+		"description": "判断是否有该class类名"
+	},
+	"value": {
+		"prefix": ".val",
+		"body": [
+			".val('$0')",
+		],
+		"description": "value"
+	},
+	"切换class类名": {
+		"prefix": ".toggleClass",
+		"body": [
+			".toggleClass('$0')",
+		],
+		"description": "切换class类名"
+	},
+	"下一个兄弟元素": {
+		"prefix": ".next",
+		"body": [
+			".next()$0",
+		],
+		"description": "下一个兄弟元素"
+	},
+	"上一个兄弟元素": {
+		"prefix": ".prev",
+		"body": [
+			".prev()$0",
+		],
+		"description": "上一个兄弟元素"
+	},
+	"后面的所有兄弟元素": {
+		"prefix": ".nextAll",
+		"body": [
+			".nextAll()$0",
+		],
+		"description": "后面的所有兄弟元素"
+	},
+	"前面的所有兄弟元素": {
+		"prefix": ".prevAll",
+		"body": [
+			".prevAll()$0",
+		],
+		"description": "前面的所有兄弟元素"
+	},
+	"获得其他的兄弟元素": {
+		"prefix": ".siblings",
+		"body": [
+			".siblings()$0",
+		],
+		"description": "获得其他的兄弟元素"
+	},
+	"修复断链": {
+		"prefix": ".end",
+		"body": [
+			".end()$0",
+		],
+		"description": "修复断链"
+	},
+	"获得最后一个元素": {
+		"prefix": ".last",
+		"body": [
+			".last()$0",
+		],
+		"description": "获得最后一个元素"
+	},
+	"获得第一个元素": {
+		"prefix": ".first",
+		"body": [
+			".first()$0",
+		],
+		"description": "获得第一个元素"
+	},
+	"滑入": {
+		"prefix": ".slideUp",
+		"body": [
+			".slideUp()$0",
+		],
+		"description": "滑入"
+	},
+	"滑出": {
+		"prefix": ".slideDown",
+		"body": [
+			".slideDown()$0",
+		],
+		"description": "滑出"
+	},
+	"滑入滑出切换": {
+		"prefix": ".slideToggle",
+		"body": [
+			".slideToggle()$0",
+		],
+		"description": "滑入滑出切换"
+	},
+	"淡入": {
+		"prefix": ".fadeIn",
+		"body": [
+			".fadeIn()$0",
+		],
+		"description": "淡入"
+	},
+	"淡出": {
+		"prefix": ".fadeOut",
+		"body": [
+			".fadeOut()$0",
+		],
+		"description": "淡出"
+	},
+	"淡入淡出切换": {
+		"prefix": ".fadeToggle",
+		"body": [
+			".fadeToggle()$0",
+		],
+		"description": "淡入淡出切换"
+	},
+	"<tag></tag>": {
+		"prefix": "<tag>",
+		"body": [
+			"'<${1:div}$2>$0</${1:div}>'",
+		],
+		"description": "<tag>"
+	},
+	"遍历每个元素": {
+		"prefix": ".each",
+		"body": [
+			".each(function (index,element) {",
+			"\t${0:$(element)}",
+			"})",
+		],
+		"description": "遍历每个元素"
+	},
+	"添加元素": {
+		"prefix": ".append",
+		"body": [
+			".append($0)",
+		],
+		"description": "添加元素"
+	},
+	"添加元素到": {
+		"prefix": ".appendTo",
+		"body": [
+			".appendTo($0)",
+		],
+		"description": "添加元素到"
+	},
+	"获取第一个匹配元素外部宽度（默认包括补白和边框）": {
+		"prefix": ".outerWidth",
+		"body": [
+			".outerWidth()$0",
+		],
+		"description": "获取第一个匹配元素外部宽度（默认包括补白和边框）"
+	},
+	"获取第一个匹配元素外部高度（默认包括补白和边框）": {
+		"prefix": ".outerHeight",
+		"body": [
+			".outerHeight()$0",
+		],
+		"description": "获取第一个匹配元素外部高度（默认包括补白和边框）"
+	},
+	"元素标签文本内容": {
+		"prefix": ".text",
+		"body": [
+			".text($1)$0",
+		],
+		"description": "元素标签文本内容"
+	},
+	"获取父元素": {
+		"prefix": ".parent",
+		"body": [
+			".parent()$0",
+		],
+		"description": "获取父元素"
+	},
+	"鼠标移入": {
+		"prefix": "mouseenter",
+		"body": [
+			"'mouseenter'",
+		],
+		"description": "鼠标移入"
+	},
+	"鼠标移出": {
+		"prefix": "mouseleave",
+		"body": [
+			"'mouseleave'",
+		],
+		"description": "鼠标移出"
+	},
+	"值改变事件": {
+		"prefix": "change",
+		"body": [
+			"'change'",
+		],
+		"description": "值改变事件"
+	},
+	"鼠标移入(触发冒泡)": {
+		"prefix": "mouseover",
+		"body": [
+			"'mouseover'",
+		],
+		"description": "鼠标移入(触发冒泡)"
+	},
+	"鼠标移动": {
+		"prefix": "mousemove",
+		"body": [
+			"'mousemove'",
+		],
+		"description": "鼠标移动"
+	},
+	"jQ点击": {
+		"prefix": "click",
+		"body": [
+			"'click'",
+		],
+		"description": "jQ点击"
+	},
+	"jQ键盘按下": {
+		"prefix": "keydown",
+		"body": [
+			"'keydown'",
+		],
+		"description": "jQ键盘按下"
+	},
+	"jQ键盘弹起": {
+		"prefix": "keyup",
+		"body": [
+			"'keyup'",
+		],
+		"description": "jQ键盘弹起"
+	},
+	"display": {
+		"prefix": "display",
+		"body": [
+			"'display': '${1:block}'$0",
+		],
+		"description": "display"
+	},
+	"jQ绑定事件": {
+		"prefix": ".on(事件,子元素,函数)",
+		"body": [
+			".on(${0:'click'},function () {",
+			"})",
+		],
+		"description": "jQ绑定事件"
+	},
+	"改变": {
+		"prefix": "transform",
+		"body": [
+			"'transform' : $0",
+		],
+		"description": "改变"
+	},
+	"位移": {
+		"prefix": "translate",
+		"body": [
+			"'translateX($1)'$0",
+		],
+		"description": "位移"
+	},
+	"鼠标按下": {
+		"prefix": "mousedown",
+		"body": [
+			"'mousedown'",
+		],
+		"description": "鼠标按下"
+	},
+	"鼠标弹起": {
+		"prefix": "mouseup",
+		"body": [
+			"'mouseup'",
+		],
+		"description": "鼠标弹起"
+	},
+	"失去焦点": {
+		"prefix": "blur",
+		"body": [
+			"'blur'",
+		],
+		"description": "失去焦点"
+	},
+	"成为焦点": {
+		"prefix": "focus",
+		"body": [
+			"'focus'",
+		],
+		"description": "成为焦点"
+	},
+	"旋转": {
+		"prefix": "rotate",
+		"body": [
+			"'rotate($1deg)'$0",
+		],
+		"description": "旋转"
+	},
+	"清空元素中内容": {
+		"prefix": "empty",
+		"body": [
+			"'empty(=)'$0",
+		],
+		"description": "清空元素中内容"
+	},
+	"操作属性": {
+		"prefix": ".attr",
+		"body": [
+			".attr('$0')",
+		],
+		"description": "操作属性"
+	},
+	"结束队列中的动画": {
+		"prefix": ".stop(true,false)",
+		"body": [
+			".stop(true,false)",
+		],
+		"description": "结束队列中的动画"
+	},
+	"触发事件": {
+		"prefix": ".trigger(触发事件)",
+		"body": [
+			".trigger(${0:'click'})",
+		],
+		"description": "触发事件"
+	},
+	// ajax
+	"$.ajax": {
+		"prefix": "$.ajax",
+		"body": [
+			"$.ajax({",
+			"\ttype:'${1:post}',",
+			"\turl:'$2',",
+			"\tdata:{$3},",
+			"\tdataType:'json',",
+			"\tsuccess:function(${0:backData}){",
+			"\t}",
+			"});",
+		],
+		"description": "$.ajax"
+	},
+	"$.ajaxFormData": {
+		"prefix": "$.ajaxFormData",
+		"body": [
+			"var fd = new FormData($('form')[0]);",
+			"$.ajax({",
+			"\ttype:'${1:post}',",
+			"\turl:'$2',",
+			"\tdata:,",
+			"\tcontentType:false,",
+			"\tprocessData:false,",
+			"\tsuccess:function(${0:backData}){",
+			"\t}",
+			"});",
+		],
+		"description": "$.ajaxFormData"
+	},
+	"JSON.转js对象": {
+		"prefix": "JSON.parse()",
+		"body": [
+			"var ${1:obj} = JSON.parse($0);",
+		],
+		"description": "JSON.转js对象"
+	},
+	"js对象转JSON": {
+		"prefix": "JSON.stringify()",
+		"body": [
+			"var ${1:obj} = JSON.stringify($0);",
+		],
+		"description": "js对象转JSON"
+	},
+	"模板": {
+		"prefix": "template",
+		"body": [
+			"template('${1:eleID}',${0:backData})",
+		],
+		"description": "模板"
+	},
+	"xhrget": {
+		"prefix": "xhrget",
+		"body": [
+			"var ${0:xhr} = new XMLHttpRequest();",
+            "${0:xhr}.open('get', 'https://autumnfish.cn/api/joke/list?num=3');",
+			"${0:xhr}.onreadystatechange = function () {",
+				"\tif (${0:xhr}.readyState == 4) {",
+					"\t\tvar data = JSON.parse(${0:xhr}.response);",
+				"\t}",
+            "};",
+           "${0:xhr}.send();",
+		],
+		"description": "xhrget"
+	},
+	"xhrpost": {
+		"prefix": "xhrpost",
+		"body": [
+			"var ${0:xhr} = new XMLHttpRequest();",
+			"${0:xhr}.open('post', 'https://autumnfish.cn/api/user/check');",
+			"${0:xhr}.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');",
+            "${0:xhr}.onreadystatechange = function () {",
+				"\tif (${0:xhr}.readyState == 4) {",
+					"\t\tvar data = JSON.parse(${0:xhr}.response);",
+				"\t}",
+            "};",
+           "${0:xhr}.send('key=value');",
+		],
+		"description": "xhrpost"
+	},
+}

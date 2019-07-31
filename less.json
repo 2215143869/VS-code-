@@ -1,0 +1,187 @@
+// {
+// 	// Place your snippets for css here. Each snippet is defined under a snippet name and has a prefix, body and 
+// 	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+// 	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+// 	// same ids are connected.
+// 	// Example:
+// 	"width": {
+// 		"prefix": "w",
+// 		"body": [
+// 			".width(${1:width});",
+// 		],
+// 	},
+// 	"height": {
+// 		"prefix": "h",
+// 		"body": [
+// 			".height(${1:height});",
+// 		],
+// 	},
+// 	"width,height": {
+// 		"prefix": "wh",
+// 		"body": [
+// 			".width-height(${1:width},${2:height});",
+// 		],
+// 	},
+// 	"font-size": {
+// 		"prefix": "font-size",
+// 		"body": [
+// 			".font-size(${1:size});",
+// 		],
+// 	},
+// 	"padding-top": {
+// 		"prefix": "padding-top",
+// 		"body": [
+// 			".padding-top(${1:size});",
+// 		],
+// 	},
+// 	"padding-bottom": {
+// 		"prefix": "padding-bottom",
+// 		"body": [
+// 			".padding-bottom(${1:size});",
+// 		],
+// 	},
+// 	"padding-left": {
+// 		"prefix": "padding-left",
+// 		"body": [
+// 			".padding-left(${1:size});",
+// 		],
+// 	},
+// 	"padding-right": {
+// 		"prefix": "padding-right",
+// 		"body": [
+// 			".padding-right(${1:size});",
+// 		],
+// 	},
+// 	"padding": {
+// 		"prefix": "p",
+// 		"body": [
+// 			".padding(${1:size},${2:size});",
+// 		],
+// 	},
+// 	"margin-top": {
+// 		"prefix": "mat",
+// 		"body": [
+// 			".margin-top(${1:size});",
+// 		],
+// 	},
+// 	"margin-bottom": {
+// 		"prefix": "mab",
+// 		"body": [
+// 			".margin-bottom(${1:size});",
+// 		],
+// 	},
+// 	"margin-left": {
+// 		"prefix": "mal",
+// 		"body": [
+// 			".margin-left(${1:size});",
+// 		],
+// 	},
+// 	"margin-right": {
+// 		"prefix": "mar",
+// 		"body": [
+// 			".margin-right(${1:size});",
+// 		],
+// 	},
+// 	"margin": {
+// 		"prefix": "m",
+// 		"body": [
+// 			".margin(${1:size},${2:size});",
+// 		],
+// 	},
+// 	"line-height": {
+// 		"prefix": "lh",
+// 		"body": [
+// 			".line-height(${1:size});",
+// 		],
+// 	},
+// 	"maxmin": {
+// 		"prefix": ".maxmin",
+// 		"body": [
+// 			".maxmin;",
+// 		],
+// 	},
+// 	"center": {
+// 		"prefix": ".center",
+// 		"body": [
+// 			".center(${1:0},${2:0});",
+// 		],
+// 	},
+// 	"border": {
+// 		"prefix": "border",
+// 		"body": [
+// 			".border(${1:size},${2:solid},${3:color});",
+// 		],
+// 	},
+// 	"border-left": {
+// 		"prefix": "border-left",
+// 		"body": [
+// 			".border-left(${1:size},${2:solid},${3:color});",
+// 		],
+// 	},
+// 	"border-right": {
+// 		"prefix": "border-right",
+// 		"body": [
+// 			".border-right(${1:size},${2:solid},${3:color});",
+// 		],
+// 	},
+// 	"border-top": {
+// 		"prefix": "border-top",
+// 		"body": [
+// 			".border-top(${1:size},${2:solid},${3:color});",
+// 		],
+// 	},
+// 	"border-bottom": {
+// 		"prefix": "border-bottom",
+// 		"body": [
+// 			".border-bottom(${1:size},${2:solid},${3:color});",
+// 		],
+// 	},
+// 	"background-image": {
+// 		"prefix": ".bgi(@x, @y)",
+// 		"body": [
+// 			".bgi(${1:X},${2:Y});",
+// 		],
+// 	},
+// 	"border-radius": {
+// 		"prefix": "border-radius",
+// 		"body": [
+// 			".border-radius(${1:size});",
+// 		],
+// 	},
+// 	"left": {
+// 		"prefix": "l",
+// 		"body": [
+// 			".left(${1:size});",
+// 		],
+// 	},
+// 	"bottom": {
+// 		"prefix": "b",
+// 		"body": [
+// 			".bottom(${1:size});",
+// 		],
+// 	},
+// 	"top": {
+// 		"prefix": "t",
+// 		"body": [
+// 			".top(${1:size});",
+// 		],
+// 	},
+// 	"right": {
+// 		"prefix": "r",
+// 		"body": [
+// 			".right(${1:size});",
+// 		],
+// 	},
+// 	"hover-text-decoration-none": {
+// 		"prefix": ".hover-text-decoration-none",
+// 		"body": [
+// 			".hover-text-decoration-none;",
+// 		],
+// 	},
+// 	"text-indent": {
+// 		"prefix": ".text-indent",
+// 		"body": [
+// 			".text-indent(${1:size});",
+// 		],
+// 	},
+// }
