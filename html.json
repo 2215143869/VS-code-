@@ -55,6 +55,13 @@
 	// 	],
 	// 	"description": "{{$value.}}"
 	// },
+	"v-text": {
+		"prefix": "v-text",
+		"body": [
+			"v-text='${0:msg}'",
+		],
+		"description": "v-text"
+	},
 	"v-cloak": {
 		"prefix": "v-cloak",
 		"body": [
