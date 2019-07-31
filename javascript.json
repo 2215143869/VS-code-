@@ -344,7 +344,7 @@
 		"prefix": "function",
 		"body": [
 			"function $0() {",
-			"};",
+			"}",
 		],
 		"description": "函数"
 	},
@@ -1173,6 +1173,34 @@
 		],
 		"description": "jQ键盘弹起"
 	},
+	"鼠标按下": {
+		"prefix": "mousedown",
+		"body": [
+			"'mousedown'",
+		],
+		"description": "鼠标按下"
+	},
+	"鼠标弹起": {
+		"prefix": "mouseup",
+		"body": [
+			"'mouseup'",
+		],
+		"description": "鼠标弹起"
+	},
+	"失去焦点": {
+		"prefix": "blur",
+		"body": [
+			"'blur'",
+		],
+		"description": "失去焦点"
+	},
+	"成为焦点": {
+		"prefix": "focus",
+		"body": [
+			"'focus'",
+		],
+		"description": "成为焦点"
+	},
 	"display": {
 		"prefix": "display",
 		"body": [
@@ -1201,34 +1229,6 @@
 			"'translateX($1)'$0",
 		],
 		"description": "位移"
-	},
-	"鼠标按下": {
-		"prefix": "mousedown",
-		"body": [
-			"'mousedown'",
-		],
-		"description": "鼠标按下"
-	},
-	"鼠标弹起": {
-		"prefix": "mouseup",
-		"body": [
-			"'mouseup'",
-		],
-		"description": "鼠标弹起"
-	},
-	"失去焦点": {
-		"prefix": "blur",
-		"body": [
-			"'blur'",
-		],
-		"description": "失去焦点"
-	},
-	"成为焦点": {
-		"prefix": "focus",
-		"body": [
-			"'focus'",
-		],
-		"description": "成为焦点"
 	},
 	"旋转": {
 		"prefix": "rotate",
@@ -1345,5 +1345,30 @@
            "${0:xhr}.send('key=value');",
 		],
 		"description": "xhrpost"
+	},
+
+	// Vue
+	"vue": {
+		"prefix": "vue",
+		"body": [
+			"var ${1:vm} = new Vue({",
+				"\tel: '#app',",
+				"\tdata: {",
+					"\t\t$0",
+				"\t},",
+			"});",
+		],
+		"description": "vue"
+	},
+	"methods:": {
+		"prefix": "methods:",
+		"body": [
+			"methods:{",
+				"\t${1:even}:function () {",
+                    "\t\t$0",
+                "\t},",
+			"}",
+		],
+		"description": "methods:"
 	},
 }
