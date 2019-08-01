@@ -121,21 +121,21 @@
 		],
 		"description": "鼠标移动"
 	},
-	"jQ点击": {
+	"鼠标点击": {
 		"prefix": "@click",
 		"body": [
 			"@click='$0'",
 		],
 		"description": "jQ点击"
 	},
-	"jQ键盘按下": {
+	"键盘按下": {
 		"prefix": "@keydown",
 		"body": [
 			"@keydown='$0'",
 		],
 		"description": "jQ键盘按下"
 	},
-	"jQ键盘弹起": {
+	"键盘弹起": {
 		"prefix": "@keyup",
 		"body": [
 			"@keyup='$0'",
@@ -169,5 +169,33 @@
 			"@focus='$0'",
 		],
 		"description": "成为焦点"
+	},
+	"阻止冒泡": {
+		"prefix": ".stop",
+		"body": [
+			".stop",
+		],
+		"description": "阻止冒泡"
+	},
+	"阻止默认行为": {
+		"prefix": ".prevent",
+		"body": [
+			".prevent",
+		],
+		"description": "阻止默认行为"
+	},
+	"事件捕获": {
+		"prefix": ".capture",
+		"body": [
+			".capture",
+		],
+		"description": "事件捕获"
+	},
+	"只触发事件源": {
+		"prefix": ".self",
+		"body": [
+			".self",
+		],
+		"description": "只触发事件源"
 	},
 }

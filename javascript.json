@@ -218,7 +218,7 @@
 	"设置循环计时器": {
 		"prefix": "setIn",
 		"body": [
-			"setInterval(function () {",
+			"setInterval(() => {",
 			"\t$0",
 			"},30);",
 		],
@@ -227,7 +227,7 @@
 	"设置单次计时器": {
 		"prefix": "setT",
 		"body": [
-			"setTimeout(function () {",
+			"setTimeout(() => {",
 			"\t$0",
 			"},1000);",
 		],
@@ -597,14 +597,14 @@
 	"截取字符串(指定长度)": {
 		"prefix": ".substr",
 		"body": [
-			".substr(${1:开始下标},${0:截取长度},);",
+			".substr(${1:开始下标},${0:截取长度});",
 		],
 		"description": "截取字符串(指定长度)"
 	},
 	"截取字符串(指定下标)": {
 		"prefix": ".substring",
 		"body": [
-			".substring(${1:开始下标},${0:<结束下标},);",
+			".substring(${1:开始下标},${0:<结束下标});",
 		],
 		"description": "截取字符串(指定下标)"
 	},
@@ -1059,13 +1059,6 @@
 		],
 		"description": "淡入淡出切换"
 	},
-	"<tag></tag>": {
-		"prefix": "<tag>",
-		"body": [
-			"'<${1:div}$2>$0</${1:div}>'",
-		],
-		"description": "<tag>"
-	},
 	"遍历每个元素": {
 		"prefix": ".each",
 		"body": [
@@ -1352,7 +1345,7 @@
 		"prefix": "vue",
 		"body": [
 			"var ${1:vm} = new Vue({",
-				"\tel: '#app',",
+				"\tel: '$2',",
 				"\tdata: {",
 					"\t\t$0",
 				"\t},",
@@ -1370,5 +1363,21 @@
 			"}",
 		],
 		"description": "methods:"
+	},
+
+	// html标签
+	"<a></a>": {
+		"prefix": "<a>",
+		"body": [
+			"<a href='#'>$0</a>",
+		],
+		"description": "<a>"
+	},
+	"<tag></tag>": {
+		"prefix": "<tag>",
+		"body": [
+			"<${1:div}>$0</${1:div}>",
+		],
+		"description": "<tag>"
 	},
 }
