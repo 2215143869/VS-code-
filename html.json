@@ -58,16 +58,44 @@
 	"v-text": {
 		"prefix": "v-text",
 		"body": [
-			"v-text='${0:msg}'",
+			"v-text=\"${0:msg}\"",
 		],
 		"description": "v-text"
 	},
 	"v-html": {
 		"prefix": "v-html",
 		"body": [
-			"v-html='${0:msg}'",
+			"v-html=\"${0:msg}\"",
 		],
 		"description": "v-html"
+	},
+	"v-model": {
+		"prefix": "v-model",
+		"body": [
+			"v-model=\"${0:msg}\"",
+		],
+		"description": "v-model"
+	},
+	"v-if": {
+		"prefix": "v-if",
+		"body": [
+			"v-if=\"${0:flag}\"",
+		],
+		"description": "v-if"
+	},
+	"v-show": {
+		"prefix": "v-show",
+		"body": [
+			"v-show=\"${0:flag}\"",
+		],
+		"description": "v-show"
+	},
+	"v-for": {
+		"prefix": "v-for",
+		"body": [
+			"v-for=\"(item,i) in ${0:list}\" :key=\"i\"",
+		],
+		"description": "v-for"
 	},
 	"{{}}": {
 		"prefix": "{{}}",
@@ -76,97 +104,97 @@
 		],
 		"description": "{{}}"
 	},
-	"script type='text/html'": {
-		"prefix": "script type='text/html",
+	"script type=\"text/html\"": {
+		"prefix": "script type=\"text/html\"",
 		"body": [
-			"<script id='temp_$0' type='text/html'>",
+			"<script id=\"temp_$0\" type=\"text/html\">",
 			"</script>",
 		],
-		"description": "script type='text/html"
+		"description": "script type=\"text/html\""
 	},
 
 	// 事件
 	"鼠标移入": {
 		"prefix": "@mouseenter",
 		"body": [
-			"@mouseenter='$0'",
+			"@mouseenter=\"$0\"",
 		],
 		"description": "鼠标移入"
 	},
 	"鼠标移出": {
 		"prefix": "@mouseleave",
 		"body": [
-			"@mouseleave='$0'",
+			"@mouseleave=\"$0\"",
 		],
 		"description": "鼠标移出"
 	},
 	"值改变事件": {
 		"prefix": "@change",
 		"body": [
-			"@change='$0'",
+			"@change=\"$0\"",
 		],
 		"description": "值改变事件"
 	},
 	"鼠标移入(触发冒泡)": {
 		"prefix": "@mouseover",
 		"body": [
-			"@mouseover='$0'",
+			"@mouseover=\"$0\"",
 		],
 		"description": "鼠标移入(触发冒泡)"
 	},
 	"鼠标移动": {
 		"prefix": "@mousemove",
 		"body": [
-			"@mousemove='$0'",
+			"@mousemove=\"$0\"",
 		],
 		"description": "鼠标移动"
 	},
 	"鼠标点击": {
 		"prefix": "@click",
 		"body": [
-			"@click='$0'",
+			"@click=\"$0\"",
 		],
 		"description": "jQ点击"
 	},
 	"键盘按下": {
 		"prefix": "@keydown",
 		"body": [
-			"@keydown='$0'",
+			"@keydown=\"$0\"",
 		],
 		"description": "jQ键盘按下"
 	},
 	"键盘弹起": {
 		"prefix": "@keyup",
 		"body": [
-			"@keyup='$0'",
+			"@keyup=\"$0\"",
 		],
 		"description": "jQ键盘弹起"
 	},
 	"鼠标按下": {
 		"prefix": "@mousedown",
 		"body": [
-			"@mousedown='$0'",
+			"@mousedown=\"$0\"",
 		],
 		"description": "鼠标按下"
 	},
 	"鼠标弹起": {
 		"prefix": "@mouseup",
 		"body": [
-			"@mouseup='$0'",
+			"@mouseup=\"$0\"",
 		],
 		"description": "鼠标弹起"
 	},
 	"失去焦点": {
 		"prefix": "@blur",
 		"body": [
-			"@blur='$0'",
+			"@blur=\"$0\"",
 		],
 		"description": "失去焦点"
 	},
 	"成为焦点": {
 		"prefix": "@focus",
 		"body": [
-			"@focus='$0'",
+			"@focus=\"$0\"",
 		],
 		"description": "成为焦点"
 	},

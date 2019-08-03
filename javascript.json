@@ -558,8 +558,8 @@
 	"遍历数组函数": {
 		"prefix": ".forEach",
 		"body": [
-			".forEach(function (ele,index) {",
-				"\t$0",
+			".forEach((item,index) => {",
+			"\t$0",
 			"});",
 		],
 		"description": "遍历数组函数"
@@ -570,6 +570,13 @@
 			".join('$0');",
 		],
 		"description": "数组链接字符串"
+	},
+	"数组删除替换元素": {
+		"prefix": ".splice()",
+		"body": [
+			".splice(${1:开始下标},${0:删除数量});"
+		],
+		"description": "数组删除替换元素"
 	},
 	//字符串方法
 	"替换字符串中字符": {
@@ -614,12 +621,40 @@
 		],
 		"description": "从前往后查找字符"
 	},
+	"查找数据": {
+		"prefix": ".includes",
+		"body": [
+			".includes('${0:查找字符}')",
+		],
+		"description": "查找数据"
+	},
+	"把字符串中的大写转换成小写": {
+		"prefix": ".toLowerCase",
+		"body": [
+			".toLowerCase()",
+		],
+		"description": "把字符串中的大写转换成小写"
+	},
 	"去除字符串前后空格": {
 		"prefix": ".trim()",
 		"body": [
 			".trim()$0",
 		],
 		"description": "去除字符串前后空格"
+	},
+	"从头部填充字符": {
+		"prefix": ".padStart()",
+		"body": [
+			".padStart(${1:填充后长度},'${0:填充字符}')",
+		],
+		"description": "从头部填充字符"
+	},
+	"从尾部填充字符": {
+		"prefix": ".padEnd()",
+		"body": [
+			".padEnd(${1:填充后长度},'${0:填充字符}')",
+		],
+		"description": "从尾部填充字符"
 	},
 	//日期对象方法
 	"获取当前毫秒数": {
@@ -710,7 +745,7 @@
 		"prefix": "$function",
 		"body": [
 			"$(function () {",
-				"\t$0",
+			"\t$0",
 			"});",
 		],
 		"description": "入口函数"
@@ -1058,14 +1093,14 @@
 		],
 		"description": "淡入淡出切换"
 	},
-	"遍历每个元素": {
+	"JQ遍历每个元素": {
 		"prefix": ".each",
 		"body": [
-			".each(function (index,element) {",
-			"\t${0:$(element)}",
+			".each((index,item) => {",
+			"\t${0:$(item)}",
 			"})",
 		],
-		"description": "遍历每个元素"
+		"description": "JQ遍历每个元素"
 	},
 	"添加元素": {
 		"prefix": ".append",
@@ -1211,7 +1246,7 @@
 	"改变": {
 		"prefix": "transform",
 		"body": [
-			"'transform' : $0",
+			"'transform' : ${1:'translateX($2)'}$0",
 		],
 		"description": "改变"
 	},
@@ -1313,13 +1348,13 @@
 		"prefix": "xhrget",
 		"body": [
 			"var ${0:xhr} = new XMLHttpRequest();",
-            "${0:xhr}.open('get', 'https://autumnfish.cn/api/joke/list?num=3');",
+			"${0:xhr}.open('get', 'https://autumnfish.cn/api/joke/list?num=3');",
 			"${0:xhr}.onreadystatechange = function () {",
-				"\tif (${0:xhr}.readyState == 4) {",
-					"\t\tvar data = JSON.parse(${0:xhr}.response);",
-				"\t}",
-            "};",
-           "${0:xhr}.send();",
+			"\tif (${0:xhr}.readyState == 4) {",
+			"\t\tvar data = JSON.parse(${0:xhr}.response);",
+			"\t}",
+			"};",
+			"${0:xhr}.send();",
 		],
 		"description": "xhrget"
 	},
@@ -1329,25 +1364,23 @@
 			"var ${0:xhr} = new XMLHttpRequest();",
 			"${0:xhr}.open('post', 'https://autumnfish.cn/api/user/check');",
 			"${0:xhr}.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');",
-            "${0:xhr}.onreadystatechange = function () {",
-				"\tif (${0:xhr}.readyState == 4) {",
-					"\t\tvar data = JSON.parse(${0:xhr}.response);",
-				"\t}",
-            "};",
-           "${0:xhr}.send('key=value');",
+			"${0:xhr}.onreadystatechange = function () {",
+			"\tif (${0:xhr}.readyState == 4) {",
+			"\t\tvar data = JSON.parse(${0:xhr}.response);",
+			"\t}",
+			"};",
+			"${0:xhr}.send('key=value');",
 		],
 		"description": "xhrpost"
 	},
-
 	// Vue
 	"vue": {
 		"prefix": "vue",
 		"body": [
 			"var ${1:vm} = new Vue({",
-				"\tel: '$2',",
-				"\tdata: {",
-					"\t\t$0",
-				"\t},",
+			"\tel: '$2',",
+			"\tdata: {$0},",
+			"\tmethods:{}",
 			"});",
 		],
 		"description": "vue"
@@ -1356,12 +1389,41 @@
 		"prefix": "methods:",
 		"body": [
 			"methods:{",
-				"\t${1:even}:function () {",
-                    "\t\t$0",
-                "\t},",
+			"\t${1:even}:function () {",
+			"\t\t$0",
+			"\t},",
 			"}",
 		],
 		"description": "methods:"
+	},
+	"全局过滤器": {
+		"prefix": "Vue.filter",
+		"body": [
+			"Vue.filter('${1:msgFormat}',function (msg,str) {",
+				"\treturn msg.replace(/${2:原字符}/g, str);",
+			"});",
+		],
+		"description": "全局过滤器"
+	},
+	"局部过滤器": {
+		"prefix": "filters:{}",
+		"body": [
+			"filters: {",
+				"\tmsgFormat(msg, str) { ",
+					"\t\treturn msg.replace(/${0:原字符}/g, str);",
+                "\t},",
+            "}",
+		],
+		"description": "局部过滤器"
+	},
+	"(){}:": {
+		"prefix": "}}",
+		"body": [
+			"(){",
+              "\t$0"   ,   
+			"},",
+		],
+		"description": "(){}:"
 	},
 
 	// html标签
