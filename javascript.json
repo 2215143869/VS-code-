@@ -38,6 +38,21 @@
 		],
 		"description": "外部函数"
 	},
+	"声明常量": {
+		"prefix": "con",
+		"body": [
+			"const $0",
+		],
+		"description": "声明常量"
+	},
+	"箭头函数": {
+		"prefix": "=.",
+		"body": [
+			"($0) => {",
+			"}",
+		],
+		"description": "箭头函数"
+	},
 	//事件类型
 	"拖拽的元素在区域内移动": {
 		"prefix": ".ondragover ",
@@ -189,21 +204,21 @@
 	"根据标签名获取元素": {
 		"prefix": "getTagName",
 		"body": [
-			"var ${0:li}List = document.getElementsByTagName('${0:li}');",
+			"let ${0:li}List = document.getElementsByTagName('${0:li}');",
 		],
 		"description": "根据标签名获取元素"
 	},
 	"根据类名获取元素": {
 		"prefix": "getclassname",
 		"body": [
-			"var ${0:one}List = document.getElementsByClassName('${0:one}');",
+			"let ${0:one}List = document.getElementsByClassName('${0:one}');",
 		],
 		"description": "根据类名获取元素"
 	},
 	"根据id获取元素": {
 		"prefix": "getid",
 		"body": [
-			"var ${0:box} = document.getElementById('${0:box}');",
+			"let ${0:box} = document.getElementById('${0:box}');",
 		],
 		"description": "根据id获取元素"
 	},
@@ -334,10 +349,18 @@
 	"遍历数组": {
 		"prefix": "forarr",
 		"body": [
-			"for(var ${1:i} = 0;${1:i} < ${0:arr}.length;${1:i}++){",
+			"for(let ${1:i} = 0;${1:i} < ${0:arr}.length;${1:i}++){",
 			"};",
 		],
 		"description": "数组快速for循环遍历"
+	},
+	"迭代器": {
+		"prefix": "forof",
+		"body": [
+			"for(let item of ${0:arr}){",
+			"};",
+		],
+		"description": "迭代器"
 	},
 	"函数": {
 		"prefix": "function",
@@ -350,9 +373,9 @@
 	"自调用函数": {
 		"prefix": "function (w)",
 		"body": [
-			"(function (w) {",
+			";(function (w) {",
 			"\t$0",
-			"})(window);",
+			"}(window));",
 		],
 		"description": "自调用函数"
 	},
@@ -389,14 +412,14 @@
 	"for循环": {
 		"prefix": "for",
 		"body": [
-			"for (var ${1:i} = ${2:0}; ${1:i} < ${0:0}; ${1:i}++) {",
+			"for (let ${1:i} = ${2:0}; ${1:i} < ${0:0}; ${1:i}++) {",
 			"};",
 		],
 	},
 	"forin": {
 		"prefix": "forin",
 		"body": [
-			"for (var key in ${0:obj}) {",
+			"for (let key in ${0:obj}) {",
 			"};",
 		],
 	},
@@ -474,8 +497,8 @@
 		"prefix": "getRandom",
 		"body": [
 			"function  getRandom(${1:min}, ${0:max}) {",
-			"var min = Math.ceil(min);",
-			"var max = Math.floor(max);",
+			"let min = Math.ceil(min);",
+			"let max = Math.floor(max);",
 			"return Math.floor(Math.random() * (max - min + 1) + min);",
 			"};",
 		],
@@ -678,38 +701,6 @@
 			"});"
 		],
 		"description": "ajax请求"
-	},
-	// "form to ajax": {
-	// 	"prefix": "form-ajax",
-	// 	"body": [
-	// 		"$('#form').on('submit',function(e){",
-	// 		"//禁用表单默认提交事件",
-	// 		"e.preventDefault();",
-	// 		"$.ajax({",
-	// 		"url:'',",
-	// 		"type:'get',",
-	// 		"dataType:'json',",
-	// 		"data:'',",
-	// 		"success: function(data){",
-	// 		"};",
-	// 		"});",
-	// 		"});"
-	// 	],
-	// 	"description": "表单提交ajax请求"
-	// },
-	"express-server": {
-		"prefix": "express",
-		"body": [
-			"//1.导入模块",
-			"const express = require('express');",
-			"//2.创建服务器",
-			"let app = express();",
-			"//3.开启服务器",
-			"app.listen(3000,()=>{",
-			"console.log('success');",
-			"});"
-		],
-		"description": "快速搭建express服务器"
 	},
 	//CSS样式类型
 	"设置左偏移": {
@@ -1310,7 +1301,7 @@
 	"$.ajaxFormData": {
 		"prefix": "$.ajaxFormData",
 		"body": [
-			"var fd = new FormData($('form')[0]);",
+			"let fd = new FormData($('form')[0]);",
 			"$.ajax({",
 			"\ttype:'${1:post}',",
 			"\turl:'$2',",
@@ -1326,14 +1317,14 @@
 	"JSON.转js对象": {
 		"prefix": "JSON.parse()",
 		"body": [
-			"var ${1:obj} = JSON.parse($0);",
+			"let ${1:obj} = JSON.parse($0);",
 		],
 		"description": "JSON.转js对象"
 	},
 	"js对象转JSON": {
 		"prefix": "JSON.stringify()",
 		"body": [
-			"var ${1:obj} = JSON.stringify($0);",
+			"let ${1:obj} = JSON.stringify($0);",
 		],
 		"description": "js对象转JSON"
 	},
@@ -1347,11 +1338,11 @@
 	"xhrget": {
 		"prefix": "xhrget",
 		"body": [
-			"var ${0:xhr} = new XMLHttpRequest();",
+			"let ${0:xhr} = new XMLHttpRequest();",
 			"${0:xhr}.open('get', 'https://autumnfish.cn/api/joke/list?num=3');",
 			"${0:xhr}.onreadystatechange = function () {",
 			"\tif (${0:xhr}.readyState == 4) {",
-			"\t\tvar data = JSON.parse(${0:xhr}.response);",
+			"\t\tlet data = JSON.parse(${0:xhr}.response);",
 			"\t}",
 			"};",
 			"${0:xhr}.send();",
@@ -1361,12 +1352,12 @@
 	"xhrpost": {
 		"prefix": "xhrpost",
 		"body": [
-			"var ${0:xhr} = new XMLHttpRequest();",
+			"let ${0:xhr} = new XMLHttpRequest();",
 			"${0:xhr}.open('post', 'https://autumnfish.cn/api/user/check');",
 			"${0:xhr}.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');",
 			"${0:xhr}.onreadystatechange = function () {",
 			"\tif (${0:xhr}.readyState == 4) {",
-			"\t\tvar data = JSON.parse(${0:xhr}.response);",
+			"\t\tlet data = JSON.parse(${0:xhr}.response);",
 			"\t}",
 			"};",
 			"${0:xhr}.send('key=value');",
@@ -1377,8 +1368,8 @@
 	"vue": {
 		"prefix": "vue",
 		"body": [
-			"var ${1:vm} = new Vue({",
-			"\tel: '$2',",
+			"const ${1:vm} = new Vue({",
+			"\tel: '${2:#app}',",
 			"\tdata: {$0},",
 			"\tmethods:{}",
 			"});",
@@ -1400,7 +1391,7 @@
 		"prefix": "Vue.filter",
 		"body": [
 			"Vue.filter('${1:msgFormat}',function (msg,str) {",
-				"\treturn msg.replace(/${2:原字符}/g, str);",
+			"\treturn msg.replace(/${2:原字符}/g, str);",
 			"});",
 		],
 		"description": "全局过滤器"
@@ -1409,23 +1400,38 @@
 		"prefix": "filters:{}",
 		"body": [
 			"filters: {",
-				"\tmsgFormat(msg, str) { ",
-					"\t\treturn msg.replace(/${0:原字符}/g, str);",
-                "\t},",
-            "}",
+			"\tmsgFormat(msg, str) { ",
+			"\t\treturn msg.replace(/${0:原字符}/g, str);",
+			"\t},",
+			"}",
 		],
 		"description": "局部过滤器"
 	},
-	"(){}:": {
-		"prefix": "}}",
+	"Vue.config.keyCode:": {
+		"prefix": "Vue.config.keyCode",
 		"body": [
-			"(){",
-              "\t$0"   ,   
-			"},",
+			"Vue.config.keyCode.$1 = $0;"
 		],
-		"description": "(){}:"
+		"description": "Vue.config.keyCode:"
 	},
-
+	"this.$http.get": {
+		"prefix": "this.$http.get",
+		"body": [
+			"this.${1:$}http.get('${2:url}',{params : {$3}}).then(res => {",
+			"\t$0",
+			"});",
+		],
+		"description": "this.$http.get"
+	},
+	"this.$http.post": {
+		"prefix": "this.$http.post",
+		"body": [
+			"this.${1:$}http.post('${2:url}',{$3},{emulateJSON:true}).then(res => {",
+			"\t$0",
+			"});",
+		],
+		"description": "this.$http.post"
+	},
 	// html标签
 	"<a></a>": {
 		"prefix": "<a>",
@@ -1440,5 +1446,138 @@
 			"<${1:div}>$0</${1:div}>",
 		],
 		"description": "<tag>"
+	},
+	// node.js
+	"创建服务器": {
+		"prefix": "require.http",
+		"body": [
+			"// 导入http模块",
+			"const http = require('http')",
+			"// 创建服务器",
+			"const server = http.createServer((request, response) => {",
+			"\t// 返回内容",
+			"\tresponse.end($0)",
+			"});",
+			"// 开启服务器",
+			"server.listen(8080,() => {})",
+		],
+		"description": "创建服务器"
+	},
+	"require": {
+		"prefix": "require",
+		"body": [
+			"const ${0:fs} = require('${0:fs}')"
+		],
+		"description": "require"
+	},
+	"readFile读取文件": {
+		"prefix": "fs.readFile",
+		"body": [
+			"fs.readFile('${1:url}',(err,data)=>{",
+				"\tif (err) throw err;",
+				"\t$0",
+			"});"
+		],
+	},
+	"readFile写文件": {
+		"prefix": "fs.writeFile",
+		"body": [
+			"fs.writeFile('${1:url}',data, (err) => {",
+				"\tif (err) throw err;",
+				"\t$0",
+			"});",
+		],
+	},
+	"unlink删除文件": {
+		"prefix": "fs.unlink",
+		"body": [
+			"fs.unlink('${1:url}', (err) => {",
+				"\tif (err) throw err;",
+				"\t$0",
+			"});",
+		],
+	},
+	"获取当前文件所在的文件夹绝对路径": {
+		"prefix": "__dirname",
+		"body": [
+			"__dirname",
+		],
+		"description": "获取当前文件所在的文件夹绝对路径"
+	},
+	"拼接路径": {
+		"prefix": "path.join",
+		"body": [
+			"path.join(__dirname,$0);",
+		],
+		"description": "拼接路径"
+	},
+	"express暴露文件夹": {
+		"prefix": "app.use",
+		"body": [
+			"app.use(express.static('${0:file}'));",
+		],
+		"description": "express暴露文件夹"
+	},
+	"express创建get接口": {
+		"prefix": "app.get",
+		"body": [
+			"app.get('/0', (req, res) => {",
+				"\tres.send();",
+			"});",
+		],
+		"description": "express创建get接口"
+	},
+	"express创建post接口": {
+		"prefix": "app.post",
+		"body": [
+			"app.post('/0', (req, res) => {",
+				"\tres.send();",
+			"});",
+		],
+		"description": "express创建post接口"
+	},
+	"创建post接口fromData": {
+		"prefix": "app.post(fromData)",
+		"body": [
+			"app.post('/$1', upload.single(\"$0\"), (req, res) => {",
+				"\tres.send();",
+			"});",
+		],
+		"description": "创建post接口fromData"
+	},
+	"req.query": {
+		"prefix": "req.query",
+		"body": [
+			"req.query",
+		],
+		"description": "req.query"
+	},
+	"快速搭建express服务器": {
+		"prefix": "express",
+		"body": [
+			"//1.导入模块",
+			"const express = require('express');",
+			"const bodyParser = require('body-parser');",
+			"",
+			"//2.创建服务器",
+			"const app = express();",
+			"app.use(bodyParser.urlencoded({ extended: false }));",
+			"$0",
+			"//3.开启服务器",
+			"app.listen(3000,()=>{",
+			"\tconsole.log('success');",
+			"});"
+		],
+		"description": "快速搭建express服务器"
+	},
+	"multer模块": {
+		"prefix": "multer",
+		"body": [
+			"//导入multer模块",
+			"const multer = require('multer');",
+			"//新建一个uploads文件夹.",
+			"const upload = multer({ dest: 'uploads/' });",
+		],
+		"description": "multer模块"
 	},
 }
