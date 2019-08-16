@@ -17,15 +17,6 @@
 			"prompt($0);",
 		],
 	},
-	"闭包函数": {
-		"prefix": "function closure()",
-		"body": [
-			"function closure(){",
-			"\treturn",
-			"};"
-		],
-		"description": "闭包函数"
-	},
 	"外部函数": {
 		"prefix": "function outer()",
 		"body": [
@@ -276,9 +267,9 @@
 		"description": "获取元素真实高度"
 	},
 	"移除计时器": {
-		"prefix": "clIn",
+		"prefix": "clearInterval",
 		"body": [
-			".clearInterval(${0:timeD});",
+			"clearInterval(${0:timeD});",
 		],
 		"description": "移除计时器"
 	},
@@ -578,14 +569,14 @@
 		],
 		"description": "从前往后查找元素"
 	},
-	"遍历数组函数": {
+	"JQ遍历数组函数": {
 		"prefix": ".forEach",
 		"body": [
 			".forEach((item,index) => {",
 			"\t$0",
 			"});",
 		],
-		"description": "遍历数组函数"
+		"description": "JQ遍历数组函数"
 	},
 	"数组链接字符串": {
 		"prefix": ".join()",
@@ -637,13 +628,6 @@
 		],
 		"description": "截取字符串(指定下标)"
 	},
-	"从前往后查找字符": {
-		"prefix": ".indexOf",
-		"body": [
-			".indexOf('${0:查找字符}');",
-		],
-		"description": "从前往后查找字符"
-	},
 	"查找数据": {
 		"prefix": ".includes",
 		"body": [
@@ -686,21 +670,6 @@
 			".getTime()$0",
 		],
 		"description": "获取当前毫秒数"
-	},
-	//老师代码片段
-	"jquery to ajax": {
-		"prefix": "ajax",
-		"body": [
-			"$.ajax({",
-			"url:'',",
-			"type:'get',",
-			"dataType:'json',",
-			"data:'',",
-			"success: function(data){",
-			"};",
-			"});"
-		],
-		"description": "ajax请求"
 	},
 	//CSS样式类型
 	"设置左偏移": {
@@ -1256,9 +1225,9 @@
 		"description": "旋转"
 	},
 	"清空元素中内容": {
-		"prefix": "empty",
+		"prefix": ".empty",
 		"body": [
-			"'empty(=)'$0",
+			".empty()$0",
 		],
 		"description": "清空元素中内容"
 	},
@@ -1305,7 +1274,7 @@
 			"$.ajax({",
 			"\ttype:'${1:post}',",
 			"\turl:'$2',",
-			"\tdata:,",
+			"\tdata:fd,",
 			"\tcontentType:false,",
 			"\tprocessData:false,",
 			"\tsuccess:function(${0:backData}){",
@@ -1317,14 +1286,14 @@
 	"JSON.转js对象": {
 		"prefix": "JSON.parse()",
 		"body": [
-			"let ${1:obj} = JSON.parse($0);",
+			"JSON.parse($0);",
 		],
 		"description": "JSON.转js对象"
 	},
 	"js对象转JSON": {
 		"prefix": "JSON.stringify()",
 		"body": [
-			"let ${1:obj} = JSON.stringify($0);",
+			"JSON.stringify($0);",
 		],
 		"description": "js对象转JSON"
 	},
@@ -1511,18 +1480,41 @@
 		],
 		"description": "拼接路径"
 	},
+	"暴露内容": {
+		"prefix": "module.exports",
+		"body": [
+			"module.exports = {$0};",
+		],
+		"description": "暴露内容"
+	},
 	"express暴露文件夹": {
-		"prefix": "app.use",
+		"prefix": "app.use(express.static(''));",
 		"body": [
 			"app.use(express.static('${0:file}'));",
 		],
 		"description": "express暴露文件夹"
 	},
+	"调用body-parser模块方法": {
+		"prefix": "app.use(bodyParser.urlencoded({ extended: false }))",
+		"body": [
+			"app.use(bodyParser.urlencoded({ extended: false }));",
+		],
+		"description": "调用body-parser模块方法"
+	},
+	"中间件": {
+		"prefix": "app.use((req,res,next) =>)",
+		"body": [
+			"app.use((req, res, next) => {",
+				"\t$0",
+				"\tnext();",
+			"})",
+		],
+		"description": "中间件"
+	},
 	"express创建get接口": {
 		"prefix": "app.get",
 		"body": [
-			"app.get('/0', (req, res) => {",
-				"\tres.send();",
+			"app.get('/$0', (req, res) => {",
 			"});",
 		],
 		"description": "express创建get接口"
@@ -1530,8 +1522,7 @@
 	"express创建post接口": {
 		"prefix": "app.post",
 		"body": [
-			"app.post('/0', (req, res) => {",
-				"\tres.send();",
+			"app.post('/$1', (req, res) => {",
 			"});",
 		],
 		"description": "express创建post接口"
@@ -1540,7 +1531,7 @@
 		"prefix": "app.post(fromData)",
 		"body": [
 			"app.post('/$1', upload.single(\"$0\"), (req, res) => {",
-				"\tres.send();",
+				"\tlet ${0:file} = req.file.filename;",
 			"});",
 		],
 		"description": "创建post接口fromData"
@@ -1552,16 +1543,46 @@
 		],
 		"description": "req.query"
 	},
+	"req.file.filename": {
+		"prefix": "req.file.filename",
+		"body": [
+			"req.file.filename",
+		],
+		"description": "req.file.filename"
+	},
 	"快速搭建express服务器": {
 		"prefix": "express",
 		"body": [
+			"//第三方模块 express body-parser cors path multer mysql",
 			"//1.导入模块",
 			"const express = require('express');",
 			"const bodyParser = require('body-parser');",
+			"const cors = require('cors');",
+			"const path = require('path');",
+			"const fs = require('fs');",
+			"const multer = require('multer');",
+			"var mysql = require('mysql');",
+			"// 设置连接的数据库信息",
+			"var connection = mysql.createConnection({",
+				"\t// 地址",
+				"\thost: 'localhost',",
+				"\t// 用户名",
+				"\tuser: 'root',",
+				"\t// 密码",
+				"\tpassword: 'root',",
+				"\t// 库的名字",
+				"\tdatabase: 'regulus'",
+			"});",
+			"// 连接数据库",
+			"connection.connect();",
+			"//新建一个uploads文件夹.",
+			"const upload = multer({ dest: 'uploads/' });",
 			"",
 			"//2.创建服务器",
 			"const app = express();",
 			"app.use(bodyParser.urlencoded({ extended: false }));",
+			"app.use(cors());",
+			"app.use(express.static('../'));//暴露根目录",
 			"$0",
 			"//3.开启服务器",
 			"app.listen(3000,()=>{",
@@ -1579,5 +1600,69 @@
 			"const upload = multer({ dest: 'uploads/' });",
 		],
 		"description": "multer模块"
+	},
+	"SQL创建表格": {
+		"prefix": "sql.add-table",
+		"body": [
+			"let tableSQL = `create table ${0:tableName}",
+			"(",
+			"id int auto_increment primary key,",
+			"LastName varchar(255),",
+			"FirstName varchar(255)",
+			")`;",
+			"connection.query(tableSQL, (err, results) => {});",
+		],
+		"description": "SQL创建表格"
+	},
+	"SQL基础语法": {
+		"prefix": "sql",
+		"body": [
+			"let ${1:insertSQL} = `$0`;",
+			"connection.query(${1:insertSQL}, (err, results) => {});",
+		],
+		"description": "SQL基础语法"
+	},
+	"SQL查": {
+		"prefix": "sql.get",
+		"body": [
+			"const ${1:getSQL} = `select * from ${2:users} ${0:where id =2}`",
+			"connection.query(${1:getSQL}, (err, data) => {",
+			"\tif (!err) {",
+			"\t\tres.send({",
+			"\t\t\tcode: 200,",
+			"\t\t\tmsg: '获取成功',",
+			"\t\t\tdata: data",
+			"\t\t});",
+			"\t} else {",
+			"\t\tres.send({",
+			"\t\t\tcode: 400,",
+			"\t\t\tmsg: '获取失败',",
+			"\t\t});",
+			"\t}",
+			"})",
+		],
+		"description": "SQL查"
+	},
+	"SQL增": {
+		"prefix": "sql.add",
+		"body": [
+			"let ${1:addSQL} = `insert into ${2:users} ($0) values(",
+			"\t\"${req.body.content}\"",
+			");`",
+			"connection.query(${1:addSQL}, (err, results) => {",
+				"\tif (!err) {",
+				"\t\tres.send({",
+				"\t\t\tcode: 200,",
+				"\t\t\tmsg: '添加成功',",
+				"\t\t});",
+				"\t} else {",
+				"\t\tres.send({",
+				"\t\t\tcode: 400,",
+				"\t\t\tmsg: '添加失败',",
+				"\t\t});",
+				"\t}",
+				"})",
+		],
+		"description": "SQL增"
 	},
 }
