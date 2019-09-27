@@ -1,0 +1,340 @@
+{
+	// Place your snippets for vue-html here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	"target_blank": {
+		"prefix": "_blank",
+		"body": [
+			"_blank",
+		],
+	},
+	"transition": {
+		"prefix": "transition",
+		"body": [
+			"<transition name=\"${0:name}\"></transition>",
+			".${0:name}-enter-active,",
+			".${0:name}-leave-active {",
+			"\ttransition: all 0.5s;",
+			"}",
+			"",
+			".${0:name}-enter,",
+			".${0:name}-leave-to {",
+			"\topacity: 0;",
+			"\ttransform: translateX(150px);",
+			"}",
+		],
+	},
+	"声明式导航": {
+		"prefix": "router-link",
+		"body": [
+			"<router-link to=\"/${1:foo}\">${0:Foo}</router-link>"
+		],
+	},
+	"router内容区": {
+		"prefix": "router-view",
+		"body": [
+			"<router-view></router-view>$0"
+		],
+	},
+	"transition-group": {
+		"prefix": "transition",
+		"body": [
+			"<transition-group name=\"${0:list}\" tag=\"ul\"></transition-group>",
+			".${0:list}-enter-active,",
+			".${0:list}-leave-active {",
+			"\ttransition: all 0.5s;",
+			"}",
+			"",
+			".${0:list}-enter,",
+			".${0:list}-leave-to {",
+			"\topacity: 0;",
+			"\ttransform: translateX(150px);",
+			"}",
+		],
+	},
+	"template": {
+		"prefix": "template",
+		"body": [
+			"<template>$0</template>"
+		],
+		"description": "template",
+	},
+	"v-for": {
+		"prefix": "v-for",
+		"body": [
+			"v-for=\"(item,index) in ${0:list}\" :key=\"index\"",
+		],
+		"description": "v-for"
+	},
+	"鼠标移入": {
+		"prefix": "@mouseenter",
+		"body": [
+			"@mouseenter=\"$0\"",
+		],
+		"description": "鼠标移入"
+	},
+	"鼠标双击": {
+		"prefix": "@dblclick",
+		"body": [
+			"@dblclick=\"$0\"",
+		],
+		"description": "鼠标双击"
+	},
+	"鼠标移出": {
+		"prefix": "@mouseleave",
+		"body": [
+			"@mouseleave=\"$0\"",
+		],
+		"description": "鼠标移出"
+	},
+	"值改变事件": {
+		"prefix": "@change",
+		"body": [
+			"@change=\"$0\"",
+		],
+		"description": "值改变事件"
+	},
+	"鼠标移入(触发冒泡)": {
+		"prefix": "@mouseover",
+		"body": [
+			"@mouseover=\"$0\"",
+		],
+		"description": "鼠标移入(触发冒泡)"
+	},
+	"鼠标移动": {
+		"prefix": "@mousemove",
+		"body": [
+			"@mousemove=\"$0\"",
+		],
+		"description": "鼠标移动"
+	},
+	"鼠标点击": {
+		"prefix": "@click",
+		"body": [
+			"@click=\"$0\"",
+		],
+		"description": "jQ点击"
+	},
+	"键盘按下": {
+		"prefix": "@keydown",
+		"body": [
+			"@keydown$1=\"$0\"",
+		],
+		"description": "jQ键盘按下"
+	},
+	"键盘弹起": {
+		"prefix": "@keyup",
+		"body": [
+			"@keyup$1=\"$0\"",
+		],
+		"description": "jQ键盘弹起"
+	},
+	"鼠标按下": {
+		"prefix": "@mousedown",
+		"body": [
+			"@mousedown=\"$0\"",
+		],
+		"description": "鼠标按下"
+	},
+	"鼠标弹起": {
+		"prefix": "@mouseup",
+		"body": [
+			"@mouseup=\"$0\"",
+		],
+		"description": "鼠标弹起"
+	},
+	"失去焦点": {
+		"prefix": "@blur",
+		"body": [
+			"@blur=\"$0\"",
+		],
+		"description": "失去焦点"
+	},
+	"成为焦点": {
+		"prefix": "@focus",
+		"body": [
+			"@focus=\"$0\"",
+		],
+		"description": "成为焦点"
+	},
+	// 修饰符
+	"去掉前后空格": {
+		"prefix": ".trim",
+		"body": [
+			".trim",
+		],
+		"description": "去掉前后空格"
+	},
+
+	// "事件捕获": {
+	// 	"prefix": ".capture",
+	// 	"body": [
+	// 		".capture",
+	// 	],
+	// 	"description": "事件捕获"
+	// },
+	"只触发事件源": {
+		"prefix": ".self",
+		"body": [
+			".self",
+		],
+		"description": "只触发事件源"
+	},
+	"父组件给子组件传值需要双向绑定时使用的修饰符": {
+		"prefix": ".sync",
+		"body": [
+			".sync",
+		],
+		"description": "父组件给子组件传值需要双向绑定时使用的修饰符"
+	},
+	"判断是否包含": {
+		"prefix": ".includes('$0')",
+		"body": [
+			".includes('$0')",
+		],
+		"description": "判断是否包含"
+	},
+	"长度": {
+		"prefix": ".length",
+		"body": [
+			".length",
+		],
+		"description": "长度"
+	},
+	"动画类名": {
+		"prefix": "animated",
+		"body": [
+			"animated",
+		],
+		"description": "动画类名"
+	},
+	"分割字符串成数组": {
+		"prefix": ".split",
+		"body": [
+			".split('${0:分割处字符}')",
+		],
+		"description": "分割字符串成数组"
+	},
+	"绑定class": {
+		"prefix": ":class",
+		"body": [
+			":class=\"{${0:class}:true}\"",
+		],
+		"description": "绑定class"
+	},
+	"获取路由传入参数": {
+		"prefix": "$route.params.",
+		"body": [
+			"$$route.params.$1",
+		],
+		"description": "获取路由传入参数"
+	},
+	"子组件声明自定义事件,给父组件传值(事件名需要全部小写)": {
+		"prefix": "$emit('click',val)",
+		"body": [
+			"$$emit(${1:update:},${2:$$event})",
+		],
+		"description": "子组件声明自定义事件,给父组件传值"
+	},
+	"事件鼠标移入": {
+		"prefix": "mouseenter",
+		"body": [
+			"'mouseenter'",
+		],
+		"description": "鼠标移入"
+	},
+	"事件鼠标移出": {
+		"prefix": "mouseleave",
+		"body": [
+			"'mouseleave'",
+		],
+		"description": "鼠标移出"
+	},
+	"事件值改变事件": {
+		"prefix": "change",
+		"body": [
+			"'change'",
+		],
+		"description": "值改变事件"
+	},
+	"事件鼠标移入(触发冒泡)": {
+		"prefix": "mouseover",
+		"body": [
+			"'mouseover'",
+		],
+		"description": "鼠标移入(触发冒泡)"
+	},
+	"事件鼠标移动": {
+		"prefix": "mousemove",
+		"body": [
+			"'mousemove'",
+		],
+		"description": "鼠标移动"
+	},
+	"事件jQ点击": {
+		"prefix": "click",
+		"body": [
+			"'click'",
+		],
+		"description": "jQ点击"
+	},
+	"事件jQ键盘按下": {
+		"prefix": "keydown",
+		"body": [
+			"'keydown'",
+		],
+		"description": "jQ键盘按下"
+	},
+	"事件jQ键盘弹起": {
+		"prefix": "keyup",
+		"body": [
+			"'keyup'",
+		],
+		"description": "jQ键盘弹起"
+	},
+	"事件鼠标按下": {
+		"prefix": "mousedown",
+		"body": [
+			"'mousedown'",
+		],
+		"description": "鼠标按下"
+	},
+	"事件鼠标弹起": {
+		"prefix": "mouseup",
+		"body": [
+			"'mouseup'",
+		],
+		"description": "鼠标弹起"
+	},
+	"事件失去焦点": {
+		"prefix": "blur",
+		"body": [
+			"'blur'",
+		],
+		"description": "失去焦点"
+	},
+	"事件成为焦点": {
+		"prefix": "focus",
+		"body": [
+			"'focus'",
+		],
+		"description": "成为焦点"
+	},
+	"vuex仓库属性取值": {
+		"prefix": "$store.state.val",
+		"body": [
+			"$$store.state.$1",
+		],
+		"description": "vuex仓库属性取值"
+	},
+	"编程式路由跳转": {
+		"prefix": "$router.push()",
+		"body": [
+			"$$router.push('$1')",
+		],
+		"description": "编程式路由跳转"
+	},
+	// }
+}

@@ -23,6 +23,79 @@
 		],
 		"description": "The full sample code - html5.",
 	},
+	"target_blank": {
+		"prefix": "_blank",
+		"body": [
+			"_blank",
+		],
+	},
+	"transition": {
+		"prefix": "transition",
+		"body": [
+			"<transition name=\"${0:name}\"></transition>",
+			".${0:name}-enter-active,",
+			".${0:name}-leave-active {",
+			"\ttransition: all 0.5s;",
+			"}",
+			"",
+			".${0:name}-enter,",
+			".${0:name}-leave-to {",
+			"\topacity: 0;",
+			"\ttransform: translateX(150px);",
+			"}",
+		],
+	},
+	"transition-group": {
+		"prefix": "transition",
+		"body": [
+			"<transition-group name=\"${0:list}\" tag=\"ul\"></transition-group>",
+			".${0:list}-enter-active,",
+			".${0:list}-leave-active {",
+			"\ttransition: all 0.5s;",
+			"}",
+			"",
+			".${0:list}-enter,",
+			".${0:list}-leave-to {",
+			"\topacity: 0;",
+			"\ttransform: translateX(150px);",
+			"}",
+		],
+	},
+	"template": {
+		"prefix": "template",
+		"body": [
+			"<template v-if=\"\">$0</template>"
+		],
+		"description": "template",
+	},
+	"Vue-html": {
+		"prefix": "vue-html",
+		"body": [
+			"<!DOCTYPE html>",
+			"<html lang=\"en\">",
+			"<head>",
+			"\t<meta charset=\"UTF-8\">",
+			"\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+			"\t<meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">",
+			"\t<title>Document</title>",
+			"\t<script src=\"https://cdn.jsdelivr.net/npm/vue/dist/vue.js\"></script>",
+			"\t<script src=\"https://unpkg.com/axios/dist/axios.min.js\"></script>",
+			"</head>",
+			"<body>",
+			"\t<div id=\"app\"></div>",
+			"\t<script>",
+			"\t\tconst app = new Vue({",
+			"\t\t\tel: '#app',",
+			"\t\t\tdata: {},",
+			"\t\t\tmethods:{},",
+			"\t\t\tcreated() {},",
+			"\t\t});",
+			"\t</script>",
+			"</body>",
+			"</html>",
+		],
+		"description": "Vue-html",
+	},
 	"if-else": {
 		"prefix": "if-else",
 		"body": [
@@ -55,13 +128,13 @@
 		],
 		"description": "v-cloak"
 	},
-	"v-text": {
-		"prefix": "v-text",
-		"body": [
-			"v-text=\"${0:msg}\"",
-		],
-		"description": "v-text"
-	},
+	// "v-text": {
+	// 	"prefix": "v-text",
+	// 	"body": [
+	// 		"v-text=\"${0:msg}\"",
+	// 	],
+	// 	"description": "v-text"
+	// },
 	"v-html": {
 		"prefix": "v-html",
 		"body": [
@@ -83,6 +156,20 @@
 		],
 		"description": "v-if"
 	},
+	"v-else": {
+		"prefix": "v-else",
+		"body": [
+			"v-else",
+		],
+		"description": "v-else"
+	},
+	"v-else-if": {
+		"prefix": "v-else-if",
+		"body": [
+			"v-else-if=\"${0:flag}\"",
+		],
+		"description": "v-else-if"
+	},
 	"v-show": {
 		"prefix": "v-show",
 		"body": [
@@ -90,10 +177,24 @@
 		],
 		"description": "v-show"
 	},
+	"只渲染一次": {
+		"prefix": "v-once",
+		"body": [
+			"v-once",
+		],
+		"description": "只渲染一次"
+	},
+	"原样输出不解析": {
+		"prefix": "v-pre",
+		"body": [
+			"v-pre",
+		],
+		"description": "原样输出不解析"
+	},
 	"v-for": {
 		"prefix": "v-for",
 		"body": [
-			"v-for=\"(item,i) in ${0:list}\" :key=\"i\"",
+			"v-for=\"(item,index) in ${0:list}\" :key=\"index\"",
 		],
 		"description": "v-for"
 	},
@@ -104,15 +205,14 @@
 		],
 		"description": "{{}}"
 	},
-	"script type=\"text/html\"": {
-		"prefix": "script type=\"text/html\"",
+	"script type=\"text/x-template\"": {
+		"prefix": "script type=\"text/x-template\"",
 		"body": [
-			"<script id=\"temp_$0\" type=\"text/html\">",
+			"<script id=\"$0_tpl\" type=\"text/x-template\">",
 			"</script>",
 		],
-		"description": "script type=\"text/html\""
+		"description": "script type=\"text/x-template\""
 	},
-
 	// 事件
 	"鼠标移入": {
 		"prefix": "@mouseenter",
@@ -120,6 +220,13 @@
 			"@mouseenter=\"$0\"",
 		],
 		"description": "鼠标移入"
+	},
+	"鼠标双击": {
+		"prefix": "@dblclick",
+		"body": [
+			"@dblclick=\"$0\"",
+		],
+		"description": "鼠标双击"
 	},
 	"鼠标移出": {
 		"prefix": "@mouseleave",
@@ -159,14 +266,14 @@
 	"键盘按下": {
 		"prefix": "@keydown",
 		"body": [
-			"@keydown=\"$0\"",
+			"@keydown$1=\"$0\"",
 		],
 		"description": "jQ键盘按下"
 	},
 	"键盘弹起": {
 		"prefix": "@keyup",
 		"body": [
-			"@keyup=\"$0\"",
+			"@keyup$1=\"$0\"",
 		],
 		"description": "jQ键盘弹起"
 	},
@@ -198,12 +305,34 @@
 		],
 		"description": "成为焦点"
 	},
+	// 修饰符
 	"阻止冒泡": {
 		"prefix": ".stop",
 		"body": [
 			".stop",
 		],
 		"description": "阻止冒泡"
+	},
+	"回车键": {
+		"prefix": ".enter",
+		"body": [
+			".enter",
+		],
+		"description": "回车键"
+	},
+	"捕获“删除”和“退格”键": {
+		"prefix": ".delete",
+		"body": [
+			".delete",
+		],
+		"description": "捕获“删除”和“退格”键"
+	},
+	"空格键": {
+		"prefix": ".space",
+		"body": [
+			".space",
+		],
+		"description": "空格键"
 	},
 	"阻止默认行为": {
 		"prefix": ".prevent",
@@ -212,18 +341,81 @@
 		],
 		"description": "阻止默认行为"
 	},
-	"事件捕获": {
-		"prefix": ".capture",
+	"去掉前后空格": {
+		"prefix": ".trim",
 		"body": [
-			".capture",
+			".trim",
 		],
-		"description": "事件捕获"
+		"description": "去掉前后空格"
 	},
+	"字符串转为数值": {
+		"prefix": ".number",
+		"body": [
+			".number",
+		],
+		"description": "字符串转为数值"
+	},
+	"取代input监听change事件": {
+		"prefix": ".lazy",
+		"body": [
+			".lazy",
+		],
+		"description": "取代input监听change事件"
+	},
+	// "事件捕获": {
+	// 	"prefix": ".capture",
+	// 	"body": [
+	// 		".capture",
+	// 	],
+	// 	"description": "事件捕获"
+	// },
 	"只触发事件源": {
 		"prefix": ".self",
 		"body": [
 			".self",
 		],
 		"description": "只触发事件源"
+	},
+	"判断是否包含": {
+		"prefix": ".includes('$0')",
+		"body": [
+			".includes('$0')",
+		],
+		"description": "判断是否包含"
+	},
+	"长度": {
+		"prefix": ".length",
+		"body": [
+			".length",
+		],
+		"description": "长度"
+	},
+	"动画类名": {
+		"prefix": "animated",
+		"body": [
+			"animated",
+		],
+		"description": "动画类名"
+	},
+	"分割字符串成数组": {
+		"prefix": ".split",
+		"body": [
+			".split('${0:分割处字符}')",
+		],
+		"description": "分割字符串成数组"
+	},
+	"绑定class": {
+		"prefix": ":class",
+		"body": [
+			":class=\"{${0:class}:true}\"",
+		],
+		"description": "绑定class"
+	},
+	"获取路由传入参数": {
+		"prefix": "$route.params.",
+		"body": [
+			"$$route.params.$1",
+		],
+		"description": "获取路由传入参数"
 	},
 }

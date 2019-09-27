@@ -37,7 +37,7 @@
 		"description": "声明常量"
 	},
 	"箭头函数": {
-		"prefix": "=.",
+		"prefix": ".fun",
 		"body": [
 			"($0) => {",
 			"}",
@@ -315,6 +315,20 @@
 		],
 		"description": "获取文件的临时路径"
 	},
+	"获取匹配的文本数组": {
+		"prefix": ".match",
+		"body": [
+			".match(/${0:正则表达式}/)",
+		],
+		"description": "获取匹配的文本数组"
+	},
+	"正则表达式": {
+		"prefix": ".test",
+		"body": [
+			"${1:正则表达式}.test('${0:字符串}')",
+		],
+		"description": "正则表达式"
+	},
 	//语法类型
 	"改变函数的this指向,并且返回一个新函数": {
 		"prefix": ".bind",
@@ -538,18 +552,18 @@
 	},
 	//数组方法
 	"数组排序函数": {
-		"prefix": ".sort(function (a, b)",
+		"prefix": ".sort((a, b) =>",
 		"body": [
-			".sort(function (a, b) {",
+			".sort((a, b) => {",
 			"\treturn ${1:a} - ${0:b};",
 			"});$3",
 		],
 		"description": "数组排序函数"
 	},
 	"过滤数组-HTML5": {
-		"prefix": ".filter(function (${1:item})",
+		"prefix": ".filter((${1:item})",
 		"body": [
-			".filter(function (${1:item}) {",
+			".filter((${1:item}) => {",
 			"\treturn ${1:item} < ${2:数值};",
 			"});$3",
 		],
@@ -1267,22 +1281,22 @@
 		],
 		"description": "$.ajax"
 	},
-	"$.ajaxFormData": {
-		"prefix": "$.ajaxFormData",
-		"body": [
-			"let fd = new FormData($('form')[0]);",
-			"$.ajax({",
-			"\ttype:'${1:post}',",
-			"\turl:'$2',",
-			"\tdata:fd,",
-			"\tcontentType:false,",
-			"\tprocessData:false,",
-			"\tsuccess:function(${0:backData}){",
-			"\t}",
-			"});",
-		],
-		"description": "$.ajaxFormData"
-	},
+	// "$.ajaxFormData": {
+	// 	"prefix": "$.ajaxFormData",
+	// 	"body": [
+	// 		"let fd = new FormData($('form')[0]);",
+	// 		"$.ajax({",
+	// 		"\ttype:'${1:post}',",
+	// 		"\turl:'$2',",
+	// 		"\tdata:fd,",
+	// 		"\tcontentType:false,",
+	// 		"\tprocessData:false,",
+	// 		"\tsuccess:function(${0:backData}){",
+	// 		"\t}",
+	// 		"});",
+	// 	],
+	// 	"description": "$.ajaxFormData"
+	// },
 	"JSON.转js对象": {
 		"prefix": "JSON.parse()",
 		"body": [
@@ -1333,89 +1347,6 @@
 		],
 		"description": "xhrpost"
 	},
-	// Vue
-	"vue": {
-		"prefix": "vue",
-		"body": [
-			"const ${1:vm} = new Vue({",
-			"\tel: '${2:#app}',",
-			"\tdata: {$0},",
-			"\tmethods:{}",
-			"});",
-		],
-		"description": "vue"
-	},
-	"methods:": {
-		"prefix": "methods:",
-		"body": [
-			"methods:{",
-			"\t${1:even}:function () {",
-			"\t\t$0",
-			"\t},",
-			"}",
-		],
-		"description": "methods:"
-	},
-	"全局过滤器": {
-		"prefix": "Vue.filter",
-		"body": [
-			"Vue.filter('${1:msgFormat}',function (msg,str) {",
-			"\treturn msg.replace(/${2:原字符}/g, str);",
-			"});",
-		],
-		"description": "全局过滤器"
-	},
-	"局部过滤器": {
-		"prefix": "filters:{}",
-		"body": [
-			"filters: {",
-			"\tmsgFormat(msg, str) { ",
-			"\t\treturn msg.replace(/${0:原字符}/g, str);",
-			"\t},",
-			"}",
-		],
-		"description": "局部过滤器"
-	},
-	"Vue.config.keyCode:": {
-		"prefix": "Vue.config.keyCode",
-		"body": [
-			"Vue.config.keyCode.$1 = $0;"
-		],
-		"description": "Vue.config.keyCode:"
-	},
-	"this.$http.get": {
-		"prefix": "this.$http.get",
-		"body": [
-			"this.${1:$}http.get('${2:url}',{params : {$3}}).then(res => {",
-			"\t$0",
-			"});",
-		],
-		"description": "this.$http.get"
-	},
-	"this.$http.post": {
-		"prefix": "this.$http.post",
-		"body": [
-			"this.${1:$}http.post('${2:url}',{$3},{emulateJSON:true}).then(res => {",
-			"\t$0",
-			"});",
-		],
-		"description": "this.$http.post"
-	},
-	// html标签
-	"<a></a>": {
-		"prefix": "<a>",
-		"body": [
-			"<a href='#'>$0</a>",
-		],
-		"description": "<a>"
-	},
-	"<tag></tag>": {
-		"prefix": "<tag>",
-		"body": [
-			"<${1:div}>$0</${1:div}>",
-		],
-		"description": "<tag>"
-	},
 	// node.js
 	"创建服务器": {
 		"prefix": "require.http",
@@ -1443,8 +1374,8 @@
 		"prefix": "fs.readFile",
 		"body": [
 			"fs.readFile('${1:url}',(err,data)=>{",
-				"\tif (err) throw err;",
-				"\t$0",
+			"\tif (err) throw err;",
+			"\t$0",
 			"});"
 		],
 	},
@@ -1452,8 +1383,8 @@
 		"prefix": "fs.writeFile",
 		"body": [
 			"fs.writeFile('${1:url}',data, (err) => {",
-				"\tif (err) throw err;",
-				"\t$0",
+			"\tif (err) throw err;",
+			"\t$0",
 			"});",
 		],
 	},
@@ -1461,8 +1392,8 @@
 		"prefix": "fs.unlink",
 		"body": [
 			"fs.unlink('${1:url}', (err) => {",
-				"\tif (err) throw err;",
-				"\t$0",
+			"\tif (err) throw err;",
+			"\t$0",
 			"});",
 		],
 	},
@@ -1476,7 +1407,7 @@
 	"拼接路径": {
 		"prefix": "path.join",
 		"body": [
-			"path.join(__dirname,$0);",
+			"path.join(__dirname,$0)",
 		],
 		"description": "拼接路径"
 	},
@@ -1505,37 +1436,37 @@
 		"prefix": "app.use((req,res,next) =>)",
 		"body": [
 			"app.use((req, res, next) => {",
-				"\t$0",
-				"\tnext();",
+			"\t$0",
+			"\tnext();",
 			"})",
 		],
 		"description": "中间件"
 	},
-	"express创建get接口": {
-		"prefix": "app.get",
-		"body": [
-			"app.get('/$0', (req, res) => {",
-			"});",
-		],
-		"description": "express创建get接口"
-	},
-	"express创建post接口": {
-		"prefix": "app.post",
-		"body": [
-			"app.post('/$1', (req, res) => {",
-			"});",
-		],
-		"description": "express创建post接口"
-	},
-	"创建post接口fromData": {
-		"prefix": "app.post(fromData)",
-		"body": [
-			"app.post('/$1', upload.single(\"$0\"), (req, res) => {",
-				"\tlet ${0:file} = req.file.filename;",
-			"});",
-		],
-		"description": "创建post接口fromData"
-	},
+	// "express创建get接口": {
+	// 	"prefix": "router.get",
+	// 	"body": [
+	// 		"router.get('/$0', (req, res) => {",
+	// 		"});",
+	// 	],
+	// 	"description": "express创建get接口"
+	// },
+	// "express创建post接口": {
+	// 	"prefix": "router.post",
+	// 	"body": [
+	// 		"router.post('/$1', (req, res) => {",
+	// 		"});",
+	// 	],
+	// 	"description": "express创建post接口"
+	// },
+	// "创建post接口fromData": {
+	// 	"prefix": "router.post(fromData)",
+	// 	"body": [
+	// 		"router.post('/$1', upload.single(\"$0\"), (req, res) => {",
+	// 		"\tlet ${0:fi le} = req.file.filename;",
+	// 		"});",
+	// 	],
+	// 	"description": "创建post接口fromData"
+	// },
 	"req.query": {
 		"prefix": "req.query",
 		"body": [
@@ -1553,28 +1484,32 @@
 	"快速搭建express服务器": {
 		"prefix": "express",
 		"body": [
-			"//第三方模块 express body-parser cors path multer mysql",
+			"//第三方模块 express body-parser cors multer mysql",
 			"//1.导入模块",
 			"const express = require('express');",
 			"const bodyParser = require('body-parser');",
 			"const cors = require('cors');",
 			"const path = require('path');",
-			"const fs = require('fs');",
 			"const multer = require('multer');",
-			"var mysql = require('mysql');",
+			"const db = require(path.join(__dirname, 'utils', 'db.js'));",
+			"const user = require(path.join(__dirname, 'route', 'user.js'));",
+			"//utils/db.js",
+			"const mysql = require('mysql');",
 			"// 设置连接的数据库信息",
-			"var connection = mysql.createConnection({",
-				"\t// 地址",
-				"\thost: 'localhost',",
-				"\t// 用户名",
-				"\tuser: 'root',",
-				"\t// 密码",
-				"\tpassword: 'root',",
-				"\t// 库的名字",
-				"\tdatabase: 'regulus'",
+			"const connection = mysql.createConnection({",
+			"\t// 地址",
+			"\thost: 'localhost',",
+			"\t// 用户名",
+			"\tuser: 'root',",
+			"\t// 密码",
+			"\tpassword: 'root',",
+			"\t// 库的名字",
+			"\tdatabase: 'xuanyuanjian'",
 			"});",
 			"// 连接数据库",
 			"connection.connect();",
+			"module.exports = {connection};",
+			"",
 			"//新建一个uploads文件夹.",
 			"const upload = multer({ dest: 'uploads/' });",
 			"",
@@ -1582,8 +1517,10 @@
 			"const app = express();",
 			"app.use(bodyParser.urlencoded({ extended: false }));",
 			"app.use(cors());",
-			"app.use(express.static('../'));//暴露根目录",
-			"$0",
+			"app.use(express.static('upload'));//暴露upload目录",
+			"",
+			"app.use('/user', user);",
+			"",
 			"//3.开启服务器",
 			"app.listen(3000,()=>{",
 			"\tconsole.log('success');",
@@ -1591,15 +1528,28 @@
 		],
 		"description": "快速搭建express服务器"
 	},
-	"multer模块": {
-		"prefix": "multer",
+	"路由模块": {
+		"prefix": "express-router",
 		"body": [
-			"//导入multer模块",
-			"const multer = require('multer');",
-			"//新建一个uploads文件夹.",
-			"const upload = multer({ dest: 'uploads/' });",
+			"// 导包",
+			"const express = require('express');",
+			"const path = require('path');",
+			"const db = require(path.join(__dirname, '../utils', 'db.js'));",
+			"// 创建一个路由",
+			"const router = express.Router();",
+			"",
+			"$0",
+			"",
+			"module.exports = router;",
 		],
-		"description": "multer模块"
+		"description": "express-router"
+	},
+	"设置响应头解决跨域": {
+		"prefix": "res.setHeader('Access-Control-Allow-Origin','*')",
+		"body": [
+			"res.setHeader('Access-Control-Allow-Origin','*');",
+		],
+		"description": "设置响应头解决跨域"
 	},
 	"SQL创建表格": {
 		"prefix": "sql.add-table",
@@ -1614,55 +1564,731 @@
 		],
 		"description": "SQL创建表格"
 	},
-	"SQL基础语法": {
-		"prefix": "sql",
-		"body": [
-			"let ${1:insertSQL} = `$0`;",
-			"connection.query(${1:insertSQL}, (err, results) => {});",
-		],
-		"description": "SQL基础语法"
-	},
+	// "SQL基础语法": {
+	// 	"prefix": "sql",
+	// 	"body": [
+	// 		"let ${1:insertSQL} = `$0`;",
+	// 		"connection.query(${1:insertSQL}, (err, results) => {});",
+	// 	],
+	// 	"description": "SQL基础语法"
+	// },
 	"SQL查": {
 		"prefix": "sql.get",
 		"body": [
-			"const ${1:getSQL} = `select * from ${2:users} ${0:where id =2}`",
-			"connection.query(${1:getSQL}, (err, data) => {",
-			"\tif (!err) {",
-			"\t\tres.send({",
-			"\t\t\tcode: 200,",
-			"\t\t\tmsg: '获取成功',",
-			"\t\t\tdata: data",
-			"\t\t});",
-			"\t} else {",
-			"\t\tres.send({",
-			"\t\t\tcode: 400,",
-			"\t\t\tmsg: '获取失败',",
-			"\t\t});",
-			"\t}",
-			"})",
+			"db.connection.query(",
+			"\t`select * from ${2:表名} ${0:where id = 2}`,",
+			"\t(err, results, fields) => {",
+			"\t\tif (!err) {",
+			"\t\t\tres.send({",
+			"\t\t\t\tcode: 200,",
+			"\t\t\t\tmsg: '获取成功',",
+			"\t\t\t\tdata: results",
+			"\t\t\t});",
+			"\t\t} else {",
+			"\t\t\tres.send({",
+			"\t\t\t\tcode: 400,",
+			"\t\t\t\tmsg: '获取失败',",
+			"\t\t\t});",
+			"\t\t}",
+			"\t});",
 		],
 		"description": "SQL查"
 	},
 	"SQL增": {
 		"prefix": "sql.add",
 		"body": [
-			"let ${1:addSQL} = `insert into ${2:users} ($0) values(",
-			"\t\"${req.body.content}\"",
-			");`",
-			"connection.query(${1:addSQL}, (err, results) => {",
-				"\tif (!err) {",
-				"\t\tres.send({",
-				"\t\t\tcode: 200,",
-				"\t\t\tmsg: '添加成功',",
-				"\t\t});",
-				"\t} else {",
-				"\t\tres.send({",
-				"\t\t\tcode: 400,",
-				"\t\t\tmsg: '添加失败',",
-				"\t\t});",
-				"\t}",
-				"})",
+			"db.connection.query(",
+			"\t`insert into ${2:表名} (${0:content}) values(\"${req.body.content}\")`,",
+			"\t(err, results, fields) => {",
+			"\t\tif (!err) {",
+			"\t\t\tres.send({",
+			"\t\t\t\tcode: 200,",
+			"\t\t\t\tmsg: '添加成功',",
+			"\t\t\t});",
+			"\t\t} else {",
+			"\t\t\tres.send({",
+			"\t\t\t\tcode: 400,",
+			"\t\t\t\tmsg: '添加失败',",
+			"\t\t\t});",
+			"\t\t}",
+			"\t});",
 		],
 		"description": "SQL增"
 	},
+	"SQL改": {
+		"prefix": "sql.set",
+		"body": [
+			"db.connection.query(",
+			"\t`update ${2:表名} set ${3:name}=\"${req.body.${3:name}}\" where id = ${req.body.${4:id}}`,",
+			"\t(err, results, fields) => {",
+			"\t\tif (!err) {",
+			"\t\t\tres.send({",
+			"\t\t\t\tcode: 200,",
+			"\t\t\t\tmsg: '编辑成功',",
+			"\t\t\t});",
+			"\t\t} else {",
+			"\t\t\tres.send({",
+			"\t\t\t\tcode: 400,",
+			"\t\t\t\tmsg: '编辑失败',",
+			"\t\t\t});",
+			"\t\t}",
+			"\t});",
+		],
+		"description": "SQL改"
+	},
+	"SQL删": {
+		"prefix": "sql.del",
+		"body": [
+			"db.connection.query(",
+			"\t`delete from ${2:表名} where ${req.query.${0:id}}`,",
+			"\t(err, results, fields) => {",
+			"\t\tif (!err) {",
+			"\t\t\tres.send({",
+			"\t\t\t\tcode: 200,",
+			"\t\t\t\tmsg: '删除成功',",
+			"\t\t\t});",
+			"\t\t} else {",
+			"\t\t\tres.send({",
+			"\t\t\t\tcode: 400,",
+			"\t\t\t\tmsg: '删除失败',",
+			"\t\t\t});",
+			"\t\t}",
+			"\t});",
+		],
+		"description": "SQL删"
+	},
+	// Vue
+	"vue": {
+		"prefix": "vue",
+		"body": [
+			"const app = new Vue({",
+			"\tel: '#app',",
+			"\tdata: {$0},",
+			"\tmethods:{},",
+			"});",
+		],
+		"description": "vue"
+	},
+	// "vue组件": {
+	// 	"prefix": "vue.component",
+	// 	"body": [
+	// 		"Vue.component('${0:tag}', {",
+	// 		"\ttemplate: '#tpl',",
+	// 		"\tdata() {",
+	// 		"\t\treturn {}",
+	// 		"\t},",
+	// 		"\tmethods: {},",
+	// 		"});",
+	// 	],
+	// 	"description": "vue组件"
+	// },
+	"计算属性": {
+		"prefix": "computed:{}",
+		"body": [
+			"computed:{",
+			"\t$0",
+			"},",
+		],
+		"description": "计算属性"
+	},
+	"vue数据改变但DOM未渲染": {
+		"prefix": "beforeUpdate(){}",
+		"body": [
+			"beforeUpdate(){",
+			"\t$0",
+			"},",
+		],
+		"description": "vue数据改变但DOM未渲染"
+	},
+	"vue数据改变且DOM完成渲染后": {
+		"prefix": "updated(){}",
+		"body": [
+			"updated(){",
+			"\t$0",
+			"},",
+		],
+		"description": "vue数据改变且DOM完成渲染后"
+	},
+	"导入组件": {
+		"prefix": "components",
+		"body": [
+			"components:{",
+			"\t$0",
+			"},",
+		],
+		"description": "导入组件"
+	},
+	"vue创建完成之前": {
+		"prefix": "beforeCreate(){}",
+		"body": [
+			"beforeCreate(){",
+			"\t$0",
+			"},",
+		],
+		"description": "vue创建完成之前"
+	},
+	"vue完全创建后": {
+		"prefix": "created(){}",
+		"body": [
+			"created(){",
+			"\t$0",
+			"},",
+		],
+		"description": "vue完全创建后"
+	},
+	"vue数据挂载到DOM之前": {
+		"prefix": "beforeMounted(){}",
+		"body": [
+			"beforeMounted(){",
+			"\t$0",
+			"},",
+		],
+		"description": "vue数据挂载到DOM之前"
+	},
+	"vue数据挂载到DOM后": {
+		"prefix": "mounted(){}",
+		"body": [
+			"mounted(){",
+			"\t$0",
+			"},",
+		],
+		"description": "vue数据挂载到DOM后"
+	},
+	"vue销毁之前": {
+		"prefix": "beforeDestroy(){}",
+		"body": [
+			"beforeDestroy(){",
+			"\t$0",
+			"},",
+		],
+		"description": "vue销毁之前"
+	},
+	"vue实例销毁后": {
+		"prefix": "destroyed(){}",
+		"body": [
+			"destroyed(){",
+			"\t$0",
+			"},",
+		],
+		"description": "vue实例销毁后"
+	},
+	"监听属性": {
+		"prefix": "watch:{}",
+		"body": [
+			"watch:{",
+			"\t$0",
+			"},",
+		],
+		"description": "监听属性"
+	},
+	"全局过滤器": {
+		"prefix": "Vue.filter",
+		"body": [
+			"Vue.filter('${1:format}',function (val) {",
+			"\treturn val;",
+			"});",
+		],
+		"description": "全局过滤器"
+	},
+	"Vue.config.keyCode:": {
+		"prefix": "Vue.config.keyCode",
+		"body": [
+			"Vue.config.keyCode.$1 = $0;"
+		],
+		"description": "Vue.config.keyCode:"
+	},
+	// "this.$http.get": {
+	// 	"prefix": "this.$http.get",
+	// 	"body": [
+	// 		"this.${1:$}http.get('${2:url}',{params : {$3}}).then((res) => {",
+	// 		"\tres = res.body;",
+	// 		"});",
+	// 	],
+	// 	"description": "this.$http.get"
+	// },
+	// "this.$http.post": {
+	// 	"prefix": "this.$http.post",
+	// 	"body": [
+	// 		"this.${1:$}http.post('${2:url}',{$3},{emulateJSON:true}).then((res) => {",
+	// 		"\tres = res.body;",
+	// 		"});",
+	// 	],
+	// 	"description": "this.$http.post"
+	// },
+	// "this.$http.josnp": {
+	// 	"prefix": "this.$http.josnp",
+	// 	"body": [
+	// 		"this.${1:$}http.josnp('${2:url}',{params : {$3}}).then((res) => {",
+	// 		"\tres = res.body;",
+	// 		"});",
+	// 	],
+	// 	"description": "this.$http.josnp"
+	// },
+	"对象方法": {
+		"prefix": "fun",
+		"body": [
+			"(){",
+			"\t$0",
+			"},",
+		],
+		"description": "对象方法"
+	},
+	"设置全局配置": {
+		"prefix": "axios.config",
+		"body": [
+			"import Axios from 'axios';",
+			"import Vue from 'vue';",
+			"import JSONbig from 'json-bigint';",
+			"Vue.prototype.$axios = Axios;",
+			"",
+			"//配置axios全局配置",
+			"Axios.defaults.baseURL = 'http://ttapi.research.itcast.cn'; //设置全局根域名",
+			"Axios.defaults.transformResponse = [",
+			"\tdata => {",
+			"\t\t// 在传递给 then/catch 前，把返回的大数字做安全处理",
+			"try {",
+			"\treturn JSONbig.parse(data);",
+			"} catch {",
+			"\treturn data;",
+			"}",
+			"\t}",
+			"];",
+			"",
+			"// 添加请求拦截器",
+			"Axios.interceptors.request.use(",
+			"\tconfig => {",
+			"\t\treturn config;",
+			"\t},",
+			"\terr => {",
+			"\t\treturn Promise.reject(terr);",
+			"\t}",
+			");",
+			"",
+			"// 添加响应拦截器",
+			"Axios.interceptors.response.use(",
+			"\tresponse => {",
+			"\t\treturn response.data;",
+			"\t},",
+			"\terr => {",
+			"\t\treturn Promise.reject(terr);",
+			"\t}",
+			");",
+			"",
+			"import './api/http'",
+		],
+		"description": "设置全局配置"
+	},
+	"自定义指令": {
+		"prefix": "directives:(){}",
+		"body": [
+			"directives: {",
+			"\tfocus: {",
+			"\t\t//指令的定义",
+			"\t\tinserted: (el) => {",
+			"\t\t\tel.focus()",
+			"\t\t}",
+			"\t}",
+			"},",
+		],
+		"description": "自定义指令"
+	},
+	"修改数据后调用": {
+		"prefix": "this.$nextTick",
+		"body": [
+			"this.$$nextTick(() => {$1})",
+		],
+		"description": "修改数据后调用"
+	},
+	"axios.FormData": {
+		"prefix": "axios.FormData",
+		"body": [
+			"let fd = new FormData();",
+			"fd.append(\"image\", data.file);",
+			"this.$$axios.post(`$1`, fd).then(res => {",
+			"\tconsole.log(res);",
+			"});",
+		],
+		"description": "axios.FormData"
+	},
+	"request-axiosa": {
+		"prefix": "request-axios",
+		"body": [
+			"return request({",
+			"\tmethod: '${1:post}',",
+			"\turl: '${0:url}',",
+			"\tdata: {},",
+			"\tparams:{}",
+			"});",
+		],
+		"description": "request-axiosa"
+	},
+	"axios.get": {
+		"prefix": "axios.get",
+		"body": [
+			"this.$$axios",
+			"\t.get(`${1:url}`, { params: {$2}})",
+			"\t.then(res => {",
+			"\t\tconsole.log(res);",
+			"\t})",
+			// "\t.catch(err => {})",
+		],
+		"description": "axios.get"
+	},
+	"axios.delete": {
+		"prefix": "axios.delete",
+		"body": [
+			"this.$$axios",
+			"\t.delete(`${1:url}`, { params: {$2}})",
+			"\t.then(res => {",
+			"\t\tconsole.log(res);",
+			"\t})",
+			// "\t.catch(err => {})",
+		],
+		"description": "axios.delete"
+	},
+	"抓取错误信息": {
+		"prefix": ".catch( () => {})",
+		"body": [
+			".catch( () => {$0})"
+		],
+		"description": "抓取错误信息"
+	},
+	"axios.post": {
+		"prefix": "axios.post",
+		"body": [
+			"this.$$axios.post(`${1:url}`,{$2})",
+			"\t.then( res => {",
+			"\t\tconsole.log(res);",
+			"\t})",
+		],
+		"description": "axios.post"
+	},
+	// "axios.post": {
+	// 	"prefix": "axios.post",
+	// 	"body": [
+	// 		"this.$$axios({",
+	// 		"\tmethod: 'post',",
+	// 		"\turl: '${1:url}',",
+	// 		"\theaders: {",
+	// 		"\t\t'Content-Type': 'application/x-www-form-urlencoded'",
+	// 		"\t},",
+	// 		"\tdata: {$2},",
+	// 		"\ttransformRequest: [function (data) {",
+	// 		"\t\tlet ret = ''",
+	// 		"\t\tfor (let it in data) {",
+	// 		"\t\t\tret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'",
+	// 		"\t\t}",
+	// 		"\t\treturn ret",
+	// 		"\t}]",
+	// 		"}).then(res => {",
+	// 		"\tres = res.data;",
+	// 		"\tconsole.log(res);",
+	// 		"})",
+	// 	],
+	// 	"description": "axios.post"
+	// },
+	"最后总会调用": {
+		"prefix": ".finally(() => {})",
+		"body": [
+			".finally(() => {$0});",
+		],
+		"description": "最后总会调用"
+	},
+	"滚动插件调用": {
+		"prefix": "new IScroll('#wrapper');",
+		"body": [
+			"this.myScroll = new IScroll('#${0:wrapper}');",
+		],
+		"description": "滚动插件调用"
+	},
+	"通过refs操作DOM": {
+		"prefix": "this.$refs.",
+		"body": [
+			"this.$$refs.$1",
+		],
+		"description": "通过refs操作DOM"
+	},
+	"配置vue-router": {
+		"prefix": "vue-router",
+		"body": [
+			"//axios vue-router json-bigint  npm i element-ui -S   npm install -D less-loader less",
+			"import Vue from 'vue';",
+			"import VueRouter from 'vue-router';",
+			"",
+			"//导入组件",
+			"import Foo from '../components/foo';",
+			"",
+			"<router-link to=\"/foo/vlaue\">Foo</router-link>",
+			"<!--内容区 -->",
+			"<router-view></router-view>",
+			"",
+			"//定义路由规则",
+			"const routes = [",
+			"\t{ path: '/foo/:key', component: Foo }",
+			"];",
+			"",
+			"//创建 router 实例",
+			"Vue.use(VueRouter);",
+			"const router = new VueRouter({",
+			"\troutes,",
+			"\tlinkActiveClass: 'active'//选中添加类名",
+			"});",
+			"",
+			"// 暴露router路由实例",
+			"export default router;",
+			"import router from './router'"
+		],
+		"description": "配置vue-router"
+	},
+	"router编程式导航": {
+		"prefix": "this.$router.push",
+		"body": [
+			"this.$$router.push(`${1:/foo}`);"
+		],
+		"description": "router编程式导航"
+	},
+	"router跳转到上一次记录": {
+		"prefix": "this.$router.back",
+		"body": [
+			"this.$$router.back();"
+		],
+		"description": "router跳转到上一次记录"
+	},
+	"获取路由参数": {
+		"prefix": "this.$route.params.",
+		"body": [
+			"this.$$route.params.$1",
+		],
+		"description": "获取路由参数"
+	},
+	"获取url查询参数": {
+		"prefix": "this.$route.query.",
+		"body": [
+			"this.$$route.query.$1",
+		],
+		"description": "获取url查询参数"
+	},
+	"局部过滤器": {
+		"prefix": "filters:{}",
+		"body": [
+			"filters: {",
+			"\tformat(val) { ",
+			"\t\treturn val;",
+			"\t},",
+			"}",
+		],
+		"description": "局部过滤器"
+	},
+	"import导入组件": {
+		"prefix": "import App from 'url'",
+		"body": [
+			"import ${1:App} from '$0';"
+		],
+		"description": "import导入组件"
+	},
+	"import导入组件中的整个对象": {
+		"prefix": "import * as App from 'url'",
+		"body": [
+			"import * as ${1:App} from '$0';"
+		],
+		"description": "import导入组件中的整个对象"
+	},
+	"注册组件": {
+		"prefix": "Vue.component('${1:标签名}',${0:组件名})",
+		"body": [
+			"Vue.component('${1:标签名}',${0:组件名});"
+		],
+		"description": "注册组件"
+	},
+	"重定向": {
+		"prefix": "redirect: '/b'",
+		"body": [
+			"redirect: '/${0:b}'"
+		],
+		"description": "重定向"
+	},
+	"element-ui": {
+		"prefix": "element-ui",
+		"body": [
+			"import ElementUI from 'element-ui'",
+			"import 'element-ui/lib/theme-chalk/index.css'",
+			"Vue.use(ElementUI)",
+		],
+		"description": "element-ui"
+	},
+	"默认暴露": {
+		"prefix": "export default",
+		"body": [
+			"export default $0",
+		],
+		"description": "默认暴露"
+	},
+	"成功": {
+		"prefix": "success",
+		"body": [
+			"success",
+		],
+		"description": "成功"
+	},
+	"警告": {
+		"prefix": "warning",
+		"body": [
+			"warning",
+		],
+		"description": "警告"
+	},
+	"错误": {
+		"prefix": "error",
+		"body": [
+			"error",
+		],
+		"description": "错误"
+	},
+	"危险": {
+		"prefix": "danger",
+		"body": [
+			"danger",
+		],
+		"description": "危险"
+	},
+	"信息": {
+		"prefix": "info",
+		"body": [
+			"info",
+		],
+		"description": "信息"
+	},
+	"主要": {
+		"prefix": "primary",
+		"body": [
+			"primary",
+		],
+		"description": "主要"
+	},
+	"消息": {
+		"prefix": "message",
+		"body": [
+			"message",
+		],
+		"description": "消息"
+	},
+	"全局前置导航守卫": {
+		"prefix": "router.beforeEach",
+		"body": [
+			"router.beforeEach((to, from, next) => {$0})",
+		],
+		"description": "全局前置导航守卫"
+	},
+	"全局后置导航守卫": {
+		"prefix": "router.afterEach",
+		"body": [
+			"router.afterEach((to, from) => {$0});",
+		],
+		"description": "全局后置导航守卫"
+	},
+	"子组件接收父组件传递的值": {
+		"prefix": "props:[]",
+		"body": [
+			"props:['${1:value}'],",
+			"model:{",
+			"\tprop:'${1:value}',",	
+			"\tevent:'${0:input}'",
+			"},"	,
+		],
+		"description": "子组件接收父组件传递的值"
+	},
+	"子组件声明自定义事件,给父组件传值(事件名需要全部小写)": {
+		"prefix": "this.$emit('click','val')",
+		"body": [
+			"this.$$emit('update:$1',$2);",
+		],
+		"description": "子组件声明自定义事件,给父组件传值(事件名需要全部小写)"
+	},
+	"调用mutations方法给vuex仓库属性赋值": {
+		"prefix": "this.$store.commit('fun',val)",
+		"body": [
+			"this.$$store.commit('$1',$2)",
+		],
+		"description": "调用mutations方法给vuex仓库属性赋值"
+	},
+	"actions异步调用mutations方法给vuex仓库属性赋值": {
+		"prefix": "this.$store.dispatch('fun',val)",
+		"body": [
+			"this.$$store.dispatch('$1',$2)",
+		],
+		"description": "actions异步调用mutations方法给vuex仓库属性赋值"
+	},
+	"vuex仓库属性取值": {
+		"prefix": "this.$store.state.val",
+		"body": [
+			"this.$$store.state.$1",
+		],
+		"description": "vuex仓库属性取值"
+	},
+	"把obj2的所有属性都赋值给obj1": {
+		"prefix": "Object.assign(obj1,obj2)",
+		"body": [
+			"Object.assign($1,$0)",
+		],
+		"description": "把obj2的所有属性都赋值给obj1"
+	},
+	"调用封装的请求": {
+		"prefix": "try",
+		"body": [
+			"try {",
+			"\tlet res = await ${0:userLogin}({",
+			"\t\tmobile: this.mobile,",
+			"\t});",
+			"\tconsole.log(res);",
+			"} catch (err) {",
+			"\tconsole.log(err);",
+			"}",
+		],
+		"description": "调用封装的请求"
+	},
+	"同步修饰": {
+		"prefix": "async",
+		"body": [
+			"async"
+		],
+		"description": "同步修饰"
+	},
+	"动态添加属性触发响应式": {
+		"prefix": "this.$set",
+		"body": [
+			"this.$$set(this.obj,key,val)"
+		],
+		"description": "动态添加属性触发响应式"
+	},
+	"数组去重": {
+		"prefix": "...new Set()",
+		"body": [
+			"...new Set($0)"
+		],
+		"description": "数组去重"
+	},
+	"把图片转成base64": {
+		"prefix": "base64",
+		"body": [
+			"let reader = new FileReader();",
+			"reader.readAsDataURL(imgFile);",
+			"reader.addEventListener(\"load\", res => {});",
+		],
+		"description": "把图片转成base64"
+	},
+	// html标签
+	// "<a></a>": {
+	// 	"prefix": "<a>",
+	// 	"body": [
+	// 		"<a href='#'>$0</a>",
+	// 	],
+	// 	"description": "<a>"
+	// },
+	// "<tag></tag>": {
+	// 	"prefix": "<tag>",
+	// 	"body": [
+	// 		"<${1:div}>$0</${1:div}>",
+	// 	],
+	// 	"description": "<tag>"
+	// },
 }
