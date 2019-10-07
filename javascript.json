@@ -8,13 +8,13 @@
 	"确认选择框": {
 		"prefix": "confirm",
 		"body": [
-			"confirm($0);",
+			"confirm($0)",
 		],
 	},
 	"内容输入框": {
 		"prefix": "prompt",
 		"body": [
-			"prompt($0);",
+			"prompt($0)",
 		],
 	},
 	"外部函数": {
@@ -37,7 +37,7 @@
 		"description": "声明常量"
 	},
 	"箭头函数": {
-		"prefix": ".fun",
+		"prefix": "fun.",
 		"body": [
 			"($0) => {",
 			"}",
@@ -49,15 +49,15 @@
 		"prefix": ".ondragover ",
 		"body": [
 			".ondragover = function(e){",
-			"e.preventDefault();",
+			"e.preventDefault()",
 			"};"
 		],
 		"description": "拖拽的元素在区域内移动"
 	},
 	"阻止默认事件": {
-		"prefix": "e.preventDefault();",
+		"prefix": "e.preventDefault()",
 		"body": [
-			"e.preventDefault();",
+			"e.preventDefault()",
 		],
 		"description": "阻止默认事件"
 	},
@@ -105,7 +105,7 @@
 		"prefix": ".addEventListener",
 		"body": [
 			".addEventListener('${0:事件类型}' , function () {",
-			"});",
+			"})",
 		],
 		"description": "注册事件IE9+兼容"
 	},
@@ -134,13 +134,13 @@
 	"document.querySelector": {
 		"prefix": "document.querySelector",
 		"body": [
-			"document.querySelector('$0');",
+			"document.querySelector('$0')",
 		],
 	},
 	"document.querySelectorAll": {
 		"prefix": "document.querySelectorAll",
 		"body": [
-			"document.querySelectorAll('$0');",
+			"document.querySelectorAll('$0')",
 		],
 	},
 	"获取自定义属性": {
@@ -153,21 +153,21 @@
 	"设置自定义属性": {
 		"prefix": ".setAttribute",
 		"body": [
-			".setAttribute('${1:属性名}','${0:属性值}');",
+			".setAttribute('${1:属性名}','${0:属性值}')",
 		],
 		"description": "设置自定义属性"
 	},
 	"移除自定义属性": {
 		"prefix": ".removeAttribute",
 		"body": [
-			".removeAttribute('${0:属性名}');",
+			".removeAttribute('${0:属性名}')",
 		],
 		"description": "移除自定义属性"
 	},
 	"移除节点": {
 		"prefix": ".removeChild",
 		"body": [
-			"${0:父节点}.removeChild(${1:移除节点});",
+			"${0:父节点}.removeChild(${1:移除节点})",
 		],
 		"description": "移除节点"
 	},
@@ -181,42 +181,42 @@
 	"创建元素节点": {
 		"prefix": "document.createElement",
 		"body": [
-			"document.createElement('${0:标签名}');",
+			"document.createElement('${0:标签名}')",
 		],
 		"description": "创建元素节点"
 	},
 	"用新的子元素替换已有的子元素": {
 		"prefix": "replaceChild",
 		"body": [
-			"replaceChild(${0:新节点},${1:替换节点});",
+			"replaceChild(${0:新节点},${1:替换节点})",
 		],
 		"description": "用新的子元素替换已有的子元素"
 	},
 	"根据标签名获取元素": {
 		"prefix": "getTagName",
 		"body": [
-			"let ${0:li}List = document.getElementsByTagName('${0:li}');",
+			"let ${0:li}List = document.getElementsByTagName('${0:li}')",
 		],
 		"description": "根据标签名获取元素"
 	},
 	"根据类名获取元素": {
 		"prefix": "getclassname",
 		"body": [
-			"let ${0:one}List = document.getElementsByClassName('${0:one}');",
+			"let ${0:one}List = document.getElementsByClassName('${0:one}')",
 		],
 		"description": "根据类名获取元素"
 	},
 	"根据id获取元素": {
 		"prefix": "getid",
 		"body": [
-			"let ${0:box} = document.getElementById('${0:box}');",
+			"let ${0:box} = document.getElementById('${0:box}')",
 		],
 		"description": "根据id获取元素"
 	},
 	"在指定节点前面插入一个节点": {
 		"prefix": ".insertBefore",
 		"body": [
-			".insertBefore(${1:移动节点},${0:插入节点});",
+			".insertBefore(${1:移动节点},${0:插入节点})",
 		],
 		"description": "在指定节点前面插入一个节点"
 	},
@@ -225,7 +225,7 @@
 		"body": [
 			"setInterval(() => {",
 			"\t$0",
-			"},30);",
+			"},30)",
 		],
 		"description": "设置循环计时器"
 	},
@@ -234,7 +234,7 @@
 		"body": [
 			"setTimeout(() => {",
 			"\t$0",
-			"},1000);",
+			"},1000)",
 		],
 		"description": "设置单次计时器"
 	},
@@ -269,14 +269,14 @@
 	"移除计时器": {
 		"prefix": "clearInterval",
 		"body": [
-			"clearInterval(${0:timeD});",
+			"clearInterval(${0:timeD})",
 		],
 		"description": "移除计时器"
 	},
 	"移动节点到父元素最后": {
 		"prefix": ".appendChild",
 		"body": [
-			"${1:父元素}.appendChild(${0:操作元素});",
+			"${1:父元素}.appendChild(${0:操作元素})",
 		],
 		"description": "移动节点到父元素最后"
 	},
@@ -311,7 +311,7 @@
 	"获取文件的临时路径": {
 		"prefix": "URL.createObjectURL",
 		"body": [
-			"URL.createObjectURL(${0:文件});",
+			"URL.createObjectURL(${0:文件})",
 		],
 		"description": "获取文件的临时路径"
 	},
@@ -380,7 +380,7 @@
 		"body": [
 			";(function (w) {",
 			"\t$0",
-			"}(window));",
+			"}(window))",
 		],
 		"description": "自调用函数"
 	},
@@ -410,7 +410,7 @@
 			"\tzIndex: 1,",
 			"\topacity: 0.5,",
 			"\tbackgroundColor: 'rgb(255,20,10)'",
-			"});",
+			"})",
 		],
 		"description": "缓动动画函数"
 	},
@@ -480,14 +480,14 @@
 		"body": [
 			"do {",
 			"\t$0",
-			"} while (${1:condition});"
+			"} while (${1:condition})"
 		],
 		"description": "Do-While Statement"
 	},
 	"Log to the console": {
 		"prefix": "log",
 		"body": [
-			"console.log($0);"
+			"console.log($0)"
 		],
 		"description": "Log to the console"
 	},
@@ -495,23 +495,23 @@
 	"转换成整数": {
 		"prefix": "parseInt",
 		"body": [
-			"parseInt($0);",
+			"parseInt($0)",
 		],
 	},
 	"获得nim-max之间的随机值": {
 		"prefix": "getRandom",
 		"body": [
 			"function  getRandom(${1:min}, ${0:max}) {",
-			"let min = Math.ceil(min);",
-			"let max = Math.floor(max);",
-			"return Math.floor(Math.random() * (max - min + 1) + min);",
+			"let min = Math.ceil(min)",
+			"let max = Math.floor(max)",
+			"return Math.floor(Math.random() * (max - min + 1) + min)",
 			"};",
 		],
 	},
 	"转换成浮点数": {
 		"prefix": "parseFloat",
 		"body": [
-			"parseFloat($0);",
+			"parseFloat($0)",
 		],
 	},
 	"数学-随机数": {
@@ -523,19 +523,19 @@
 	"数学-地板函数": {
 		"prefix": "Math.floor",
 		"body": [
-			"Math.floor($1);",
+			"Math.floor($1)",
 		],
 	},
 	"数学-天花板函数": {
 		"prefix": "Math.ceil",
 		"body": [
-			"Math.ceil($1);",
+			"Math.ceil($1)",
 		],
 	},
 	// "数学-四舍五入": {
 	// 	"prefix": "Math.round",
 	// 	"body": [
-	// 		"Math.round($1);",
+	// 		"Math.round($1)",
 	// 	],
 	// },
 	// "数学-圆周率": {
@@ -547,7 +547,7 @@
 	"数学-绝对值": {
 		"prefix": "Math.abs",
 		"body": [
-			"Math.abs($0);",
+			"Math.abs($0)",
 		],
 	},
 	//数组方法
@@ -556,30 +556,37 @@
 		"body": [
 			".sort((a, b) => {",
 			"\treturn ${1:a} - ${0:b};",
-			"});$3",
+			"})$3",
 		],
 		"description": "数组排序函数"
+	},
+	"截取数组": {
+		"prefix": ".slice(开始下标,结束下标)",
+		"body": [
+			".slice(${1:开始下标},${0:结束下标})"
+		],
+		"description": "截取数组"
 	},
 	"过滤数组-HTML5": {
 		"prefix": ".filter((${1:item})",
 		"body": [
 			".filter((${1:item}) => {",
 			"\treturn ${1:item} < ${2:数值};",
-			"});$3",
+			"})$3",
 		],
 		"description": "过滤数组-HTML5"
 	},
 	"数组尾部添加元素": {
 		"prefix": ".push",
 		"body": [
-			".push($0);",
+			".push($0)",
 		],
 		"description": "数组尾部添加元素"
 	},
 	"从前往后查找元素": {
 		"prefix": ".indexOf()",
 		"body": [
-			".indexOf($0);",
+			".indexOf($0)",
 		],
 		"description": "从前往后查找元素"
 	},
@@ -588,21 +595,21 @@
 		"body": [
 			".forEach((item,index) => {",
 			"\t$0",
-			"});",
+			"})",
 		],
 		"description": "JQ遍历数组函数"
 	},
 	"数组链接字符串": {
 		"prefix": ".join()",
 		"body": [
-			".join('$0');",
+			".join('$0')",
 		],
 		"description": "数组链接字符串"
 	},
 	"数组删除替换元素": {
 		"prefix": ".splice()",
 		"body": [
-			".splice(${1:开始下标},${0:删除数量});"
+			".splice(${1:开始下标},${0:删除数量})"
 		],
 		"description": "数组删除替换元素"
 	},
@@ -610,35 +617,35 @@
 	"替换字符串中字符": {
 		"prefix": ".replace",
 		"body": [
-			".replace(/${1:原字符}/g,'${0:替换字符}');",
+			".replace(/${1:原字符}/g,'${0:替换字符}')",
 		],
 		"description": "替换字符串中字符"
 	},
 	"获取指定下标字符": {
 		"prefix": ".charAt",
 		"body": [
-			".charAt(${0:下标});",
+			".charAt(${0:下标})",
 		],
 		"description": "获取指定下标字符"
 	},
 	"分割字符串成数组": {
 		"prefix": ".split",
 		"body": [
-			".split('${0:分割处字符}');",
+			".split('${0:分割处字符}')",
 		],
 		"description": "分割字符串成数组"
 	},
 	"截取字符串(指定长度)": {
 		"prefix": ".substr",
 		"body": [
-			".substr(${1:开始下标},${0:截取长度});",
+			".substr(${1:开始下标},${0:截取长度})",
 		],
 		"description": "截取字符串(指定长度)"
 	},
 	"截取字符串(指定下标)": {
 		"prefix": ".substring",
 		"body": [
-			".substring(${1:开始下标},${0:<结束下标});",
+			".substring(${1:开始下标},${0:<结束下标})",
 		],
 		"description": "截取字符串(指定下标)"
 	},
@@ -708,309 +715,309 @@
 		"description": "设置背景颜色"
 	},
 	//jQuery
-	".CSS": {
-		"prefix": ".css",
-		"body": [
-			".css({$0})",
-		],
-		"description": ".CSS"
-	},
-	"入口函数": {
-		"prefix": "$function",
-		"body": [
-			"$(function () {",
-			"\t$0",
-			"});",
-		],
-		"description": "入口函数"
-	},
-	".offset": {
-		"prefix": ".offset",
-		"body": [
-			".offset({$0})",
-		],
-		"description": ".offset"
-	},
-	"根据父元素获取边偏移": {
-		"prefix": ".position",
-		"body": [
-			".position({$0})",
-		],
-		"description": "根据父元素获取变偏移"
-	},
-	"根据父元素获取左偏移": {
-		"prefix": ".position.left",
-		"body": [
-			".position().left",
-		],
-		"description": "根据父元素获取左偏移"
-	},
-	"根据父元素获取上偏移": {
-		"prefix": ".position.top",
-		"body": [
-			".position().top",
-		],
-		"description": "根据父元素获取上偏移"
-	},
-	"动画": {
-		"prefix": ".animate",
-		"body": [
-			".animate({$0},1000)",
-		],
-		"description": "动画"
-	},
-	"宽": {
-		"prefix": "width",
-		"body": [
-			"'width': $0",
-		],
-		"description": "宽"
-	},
-	"高": {
-		"prefix": "height",
-		"body": [
-			"'height': $0",
-		],
-		"description": "高"
-	},
-	"左偏移": {
-		"prefix": "left",
-		"body": [
-			"'left': $0",
-		],
-		"description": "左偏移"
-	},
-	"上偏移": {
-		"prefix": "top",
-		"body": [
-			"'top': $0",
-		],
-		"description": "上偏移"
-	},
-	"左浮动": {
-		"prefix": "float",
-		"body": [
-			"'float': '${2:left}'$0",
-		],
-		"description": "左浮动"
-	},
-	"背景": {
-		"prefix": "background",
-		"body": [
-			"'background': '$2'$0",
-		],
-		"description": "背景"
-	},
-	"外边距": {
-		"prefix": "margin",
-		"body": [
-			"'margin': $0",
-		],
-		"description": "外边距"
-	},
-	"内边距": {
-		"prefix": "padding",
-		"body": [
-			"'padding': $0",
-		],
-		"description": "内边距"
-	},
-	"行高": {
-		"prefix": "lineHeight",
-		"body": [
-			"'lineHeight' : '$2'$0",
-		],
-		"description": "行高"
-	},
-	"中心": {
-		"prefix": "center",
-		"body": [
-			"'center'",
-		],
-		"description": "中心"
-	},
-	"边框": {
-		"prefix": "border",
-		"body": [
-			"'border' : '$1px solid $2'",
-		],
-		"description": "边框"
-	},
-	"定位": {
-		"prefix": "position",
-		"body": [
-			"'position' : '${2:absolute}',$0",
-		],
-		"description": "定位"
-	},
-	"溢出": {
-		"prefix": "overflow",
-		"body": [
-			"'overflow' : '${2:hidden}',$0",
-		],
-		"description": "溢出"
-	},
-	"文字水平对齐": {
-		"prefix": "textAlign",
-		"body": [
-			"'textAlign' : '${2:center}',$0",
-		],
-		"description": "文字水平对齐"
-	},
-	"显示元素": {
-		"prefix": ".show",
-		"body": [
-			".show();$0",
-		],
-		"description": "显示元素"
-	},
-	"相对定位": {
-		"prefix": "relative",
-		"body": [
-			"'relative'",
-		],
-		"description": "相对定位"
-	},
-	"绝对定位": {
-		"prefix": "absolute",
-		"body": [
-			"'absolute'",
-		],
-		"description": "绝对定位"
-	},
-	"隐藏元素": {
-		"prefix": ".hide",
-		"body": [
-			".hide();$0",
-		],
-		"description": "隐藏元素"
-	},
-	"透明度": {
-		"prefix": "opacity",
-		"body": [
-			"'opacity' : $0",
-		],
-		"description": "透明度"
-	},
-	"过渡": {
-		"prefix": "transition",
-		"body": [
-			"'transition' : '${0:all 1s}'",
-		],
-		"description": "过渡"
-	},
-	"字体大小": {
-		"prefix": "fontSize",
-		"body": [
-			"'fontSize' : $0",
-		],
-		"description": "字体大小"
-	},
-	"颜色": {
-		"prefix": "color",
-		"body": [
-			"'color' : '$2'$0",
-		],
-		"description": "颜色"
-	},
-	"字体": {
-		"prefix": "fontFamily",
-		"body": [
-			"'fontFamily' : '$2'$0",
-		],
-		"description": "字体"
-	},
-	"层级": {
-		"prefix": "zIndex",
-		"body": [
-			"'zIndex' : $0",
-		],
-		"description": "层级"
-	},
-	"$()": {
-		"prefix": "$$",
-		"body": [
-			"$('#$0')",
-		],
-		"description": "$()"
-	},
-	"增加class类名": {
-		"prefix": ".addClass",
-		"body": [
-			".addClass('$0')",
-		],
-		"description": "增加class类名"
-	},
-	"移除class类名": {
-		"prefix": ".removeClass",
-		"body": [
-			".removeClass('$0')",
-		],
-		"description": "移除class类名"
-	},
-	"判断是否有该class类名": {
-		"prefix": ".hasClass",
-		"body": [
-			".hasClass('$0')",
-		],
-		"description": "判断是否有该class类名"
-	},
-	"value": {
-		"prefix": ".val",
-		"body": [
-			".val('$0')",
-		],
-		"description": "value"
-	},
-	"切换class类名": {
-		"prefix": ".toggleClass",
-		"body": [
-			".toggleClass('$0')",
-		],
-		"description": "切换class类名"
-	},
-	"下一个兄弟元素": {
-		"prefix": ".next",
-		"body": [
-			".next()$0",
-		],
-		"description": "下一个兄弟元素"
-	},
-	"上一个兄弟元素": {
-		"prefix": ".prev",
-		"body": [
-			".prev()$0",
-		],
-		"description": "上一个兄弟元素"
-	},
-	"后面的所有兄弟元素": {
-		"prefix": ".nextAll",
-		"body": [
-			".nextAll()$0",
-		],
-		"description": "后面的所有兄弟元素"
-	},
-	"前面的所有兄弟元素": {
-		"prefix": ".prevAll",
-		"body": [
-			".prevAll()$0",
-		],
-		"description": "前面的所有兄弟元素"
-	},
-	"获得其他的兄弟元素": {
-		"prefix": ".siblings",
-		"body": [
-			".siblings()$0",
-		],
-		"description": "获得其他的兄弟元素"
-	},
-	"修复断链": {
-		"prefix": ".end",
-		"body": [
-			".end()$0",
-		],
-		"description": "修复断链"
-	},
+	// ".CSS": {
+	// 	"prefix": ".css",
+	// 	"body": [
+	// 		".css({$0})",
+	// 	],
+	// 	"description": ".CSS"
+	// },
+	// "入口函数": {
+	// 	"prefix": "$function",
+	// 	"body": [
+	// 		"$(function () {",
+	// 		"\t$0",
+	// 		"})",
+	// 	],
+	// 	"description": "入口函数"
+	// },
+	// ".offset": {
+	// 	"prefix": ".offset",
+	// 	"body": [
+	// 		".offset({$0})",
+	// 	],
+	// 	"description": ".offset"
+	// },
+	// "根据父元素获取边偏移": {
+	// 	"prefix": ".position",
+	// 	"body": [
+	// 		".position({$0})",
+	// 	],
+	// 	"description": "根据父元素获取变偏移"
+	// },
+	// "根据父元素获取左偏移": {
+	// 	"prefix": ".position.left",
+	// 	"body": [
+	// 		".position().left",
+	// 	],
+	// 	"description": "根据父元素获取左偏移"
+	// },
+	// "根据父元素获取上偏移": {
+	// 	"prefix": ".position.top",
+	// 	"body": [
+	// 		".position().top",
+	// 	],
+	// 	"description": "根据父元素获取上偏移"
+	// },
+	// "动画": {
+	// 	"prefix": ".animate",
+	// 	"body": [
+	// 		".animate({$0},1000)",
+	// 	],
+	// 	"description": "动画"
+	// },
+	// "宽": {
+	// 	"prefix": "width",
+	// 	"body": [
+	// 		"'width': $0",
+	// 	],
+	// 	"description": "宽"
+	// },
+	// "高": {
+	// 	"prefix": "height",
+	// 	"body": [
+	// 		"'height': $0",
+	// 	],
+	// 	"description": "高"
+	// },
+	// "左偏移": {
+	// 	"prefix": "left",
+	// 	"body": [
+	// 		"'left': $0",
+	// 	],
+	// 	"description": "左偏移"
+	// },
+	// "上偏移": {
+	// 	"prefix": "top",
+	// 	"body": [
+	// 		"'top': $0",
+	// 	],
+	// 	"description": "上偏移"
+	// },
+	// "左浮动": {
+	// 	"prefix": "float",
+	// 	"body": [
+	// 		"'float': '${2:left}'$0",
+	// 	],
+	// 	"description": "左浮动"
+	// },
+	// "背景": {
+	// 	"prefix": "background",
+	// 	"body": [
+	// 		"'background': '$2'$0",
+	// 	],
+	// 	"description": "背景"
+	// },
+	// "外边距": {
+	// 	"prefix": "margin",
+	// 	"body": [
+	// 		"'margin': $0",
+	// 	],
+	// 	"description": "外边距"
+	// },
+	// "内边距": {
+	// 	"prefix": "padding",
+	// 	"body": [
+	// 		"'padding': $0",
+	// 	],
+	// 	"description": "内边距"
+	// },
+	// "行高": {
+	// 	"prefix": "lineHeight",
+	// 	"body": [
+	// 		"'lineHeight' : '$2'$0",
+	// 	],
+	// 	"description": "行高"
+	// },
+	// "中心": {
+	// 	"prefix": "center",
+	// 	"body": [
+	// 		"'center'",
+	// 	],
+	// 	"description": "中心"
+	// },
+	// "边框": {
+	// 	"prefix": "border",
+	// 	"body": [
+	// 		"'border' : '$1px solid $2'",
+	// 	],
+	// 	"description": "边框"
+	// },
+	// "定位": {
+	// 	"prefix": "position",
+	// 	"body": [
+	// 		"'position' : '${2:absolute}',$0",
+	// 	],
+	// 	"description": "定位"
+	// },
+	// "溢出": {
+	// 	"prefix": "overflow",
+	// 	"body": [
+	// 		"'overflow' : '${2:hidden}',$0",
+	// 	],
+	// 	"description": "溢出"
+	// },
+	// "文字水平对齐": {
+	// 	"prefix": "textAlign",
+	// 	"body": [
+	// 		"'textAlign' : '${2:center}',$0",
+	// 	],
+	// 	"description": "文字水平对齐"
+	// },
+	// "显示元素": {
+	// 	"prefix": ".show",
+	// 	"body": [
+	// 		".show()$0",
+	// 	],
+	// 	"description": "显示元素"
+	// },
+	// "相对定位": {
+	// 	"prefix": "relative",
+	// 	"body": [
+	// 		"'relative'",
+	// 	],
+	// 	"description": "相对定位"
+	// },
+	// "绝对定位": {
+	// 	"prefix": "absolute",
+	// 	"body": [
+	// 		"'absolute'",
+	// 	],
+	// 	"description": "绝对定位"
+	// },
+	// "隐藏元素": {
+	// 	"prefix": ".hide",
+	// 	"body": [
+	// 		".hide()$0",
+	// 	],
+	// 	"description": "隐藏元素"
+	// },
+	// "透明度": {
+	// 	"prefix": "opacity",
+	// 	"body": [
+	// 		"'opacity' : $0",
+	// 	],
+	// 	"description": "透明度"
+	// },
+	// "过渡": {
+	// 	"prefix": "transition",
+	// 	"body": [
+	// 		"'transition' : '${0:all 1s}'",
+	// 	],
+	// 	"description": "过渡"
+	// },
+	// "字体大小": {
+	// 	"prefix": "fontSize",
+	// 	"body": [
+	// 		"'fontSize' : $0",
+	// 	],
+	// 	"description": "字体大小"
+	// },
+	// "颜色": {
+	// 	"prefix": "color",
+	// 	"body": [
+	// 		"'color' : '$2'$0",
+	// 	],
+	// 	"description": "颜色"
+	// },
+	// "字体": {
+	// 	"prefix": "fontFamily",
+	// 	"body": [
+	// 		"'fontFamily' : '$2'$0",
+	// 	],
+	// 	"description": "字体"
+	// },
+	// "层级": {
+	// 	"prefix": "zIndex",
+	// 	"body": [
+	// 		"'zIndex' : $0",
+	// 	],
+	// 	"description": "层级"
+	// },
+	// "$()": {
+	// 	"prefix": "$$",
+	// 	"body": [
+	// 		"$('#$0')",
+	// 	],
+	// 	"description": "$()"
+	// },
+	// "增加class类名": {
+	// 	"prefix": ".addClass",
+	// 	"body": [
+	// 		".addClass('$0')",
+	// 	],
+	// 	"description": "增加class类名"
+	// },
+	// "移除class类名": {
+	// 	"prefix": ".removeClass",
+	// 	"body": [
+	// 		".removeClass('$0')",
+	// 	],
+	// 	"description": "移除class类名"
+	// },
+	// "判断是否有该class类名": {
+	// 	"prefix": ".hasClass",
+	// 	"body": [
+	// 		".hasClass('$0')",
+	// 	],
+	// 	"description": "判断是否有该class类名"
+	// },
+	// "value": {
+	// 	"prefix": ".val",
+	// 	"body": [
+	// 		".val('$0')",
+	// 	],
+	// 	"description": "value"
+	// },
+	// "切换class类名": {
+	// 	"prefix": ".toggleClass",
+	// 	"body": [
+	// 		".toggleClass('$0')",
+	// 	],
+	// 	"description": "切换class类名"
+	// },
+	// "下一个兄弟元素": {
+	// 	"prefix": ".next",
+	// 	"body": [
+	// 		".next()$0",
+	// 	],
+	// 	"description": "下一个兄弟元素"
+	// },
+	// "上一个兄弟元素": {
+	// 	"prefix": ".prev",
+	// 	"body": [
+	// 		".prev()$0",
+	// 	],
+	// 	"description": "上一个兄弟元素"
+	// },
+	// "后面的所有兄弟元素": {
+	// 	"prefix": ".nextAll",
+	// 	"body": [
+	// 		".nextAll()$0",
+	// 	],
+	// 	"description": "后面的所有兄弟元素"
+	// },
+	// "前面的所有兄弟元素": {
+	// 	"prefix": ".prevAll",
+	// 	"body": [
+	// 		".prevAll()$0",
+	// 	],
+	// 	"description": "前面的所有兄弟元素"
+	// },
+	// "获得其他的兄弟元素": {
+	// 	"prefix": ".siblings",
+	// 	"body": [
+	// 		".siblings()$0",
+	// 	],
+	// 	"description": "获得其他的兄弟元素"
+	// },
+	// "修复断链": {
+	// 	"prefix": ".end",
+	// 	"body": [
+	// 		".end()$0",
+	// 	],
+	// 	"description": "修复断链"
+	// },
 	"获得最后一个元素": {
 		"prefix": ".last",
 		"body": [
@@ -1025,57 +1032,57 @@
 		],
 		"description": "获得第一个元素"
 	},
-	"滑入": {
-		"prefix": ".slideUp",
-		"body": [
-			".slideUp()$0",
-		],
-		"description": "滑入"
-	},
-	"滑出": {
-		"prefix": ".slideDown",
-		"body": [
-			".slideDown()$0",
-		],
-		"description": "滑出"
-	},
-	"滑入滑出切换": {
-		"prefix": ".slideToggle",
-		"body": [
-			".slideToggle()$0",
-		],
-		"description": "滑入滑出切换"
-	},
-	"淡入": {
-		"prefix": ".fadeIn",
-		"body": [
-			".fadeIn()$0",
-		],
-		"description": "淡入"
-	},
-	"淡出": {
-		"prefix": ".fadeOut",
-		"body": [
-			".fadeOut()$0",
-		],
-		"description": "淡出"
-	},
-	"淡入淡出切换": {
-		"prefix": ".fadeToggle",
-		"body": [
-			".fadeToggle()$0",
-		],
-		"description": "淡入淡出切换"
-	},
-	"JQ遍历每个元素": {
-		"prefix": ".each",
-		"body": [
-			".each((index,item) => {",
-			"\t${0:$(item)}",
-			"})",
-		],
-		"description": "JQ遍历每个元素"
-	},
+	// "滑入": {
+	// 	"prefix": ".slideUp",
+	// 	"body": [
+	// 		".slideUp()$0",
+	// 	],
+	// 	"description": "滑入"
+	// },
+	// "滑出": {
+	// 	"prefix": ".slideDown",
+	// 	"body": [
+	// 		".slideDown()$0",
+	// 	],
+	// 	"description": "滑出"
+	// },
+	// "滑入滑出切换": {
+	// 	"prefix": ".slideToggle",
+	// 	"body": [
+	// 		".slideToggle()$0",
+	// 	],
+	// 	"description": "滑入滑出切换"
+	// },
+	// "淡入": {
+	// 	"prefix": ".fadeIn",
+	// 	"body": [
+	// 		".fadeIn()$0",
+	// 	],
+	// 	"description": "淡入"
+	// },
+	// "淡出": {
+	// 	"prefix": ".fadeOut",
+	// 	"body": [
+	// 		".fadeOut()$0",
+	// 	],
+	// 	"description": "淡出"
+	// },
+	// "淡入淡出切换": {
+	// 	"prefix": ".fadeToggle",
+	// 	"body": [
+	// 		".fadeToggle()$0",
+	// 	],
+	// 	"description": "淡入淡出切换"
+	// },
+	// "JQ遍历每个元素": {
+	// 	"prefix": ".each",
+	// 	"body": [
+	// 		".each((index,item) => {",
+	// 		"\t${0:$(item)}",
+	// 		"})",
+	// 	],
+	// 	"description": "JQ遍历每个元素"
+	// },
 	"添加元素": {
 		"prefix": ".append",
 		"body": [
@@ -1083,189 +1090,189 @@
 		],
 		"description": "添加元素"
 	},
-	"添加元素到": {
-		"prefix": ".appendTo",
-		"body": [
-			".appendTo($0)",
-		],
-		"description": "添加元素到"
-	},
-	"获取第一个匹配元素外部宽度（默认包括补白和边框）": {
-		"prefix": ".outerWidth",
-		"body": [
-			".outerWidth()$0",
-		],
-		"description": "获取第一个匹配元素外部宽度（默认包括补白和边框）"
-	},
-	"获取第一个匹配元素外部高度（默认包括补白和边框）": {
-		"prefix": ".outerHeight",
-		"body": [
-			".outerHeight()$0",
-		],
-		"description": "获取第一个匹配元素外部高度（默认包括补白和边框）"
-	},
-	"元素标签文本内容": {
-		"prefix": ".text",
-		"body": [
-			".text($1)$0",
-		],
-		"description": "元素标签文本内容"
-	},
-	"获取父元素": {
-		"prefix": ".parent",
-		"body": [
-			".parent()$0",
-		],
-		"description": "获取父元素"
-	},
-	"鼠标移入": {
-		"prefix": "mouseenter",
-		"body": [
-			"'mouseenter'",
-		],
-		"description": "鼠标移入"
-	},
-	"鼠标移出": {
-		"prefix": "mouseleave",
-		"body": [
-			"'mouseleave'",
-		],
-		"description": "鼠标移出"
-	},
-	"值改变事件": {
-		"prefix": "change",
-		"body": [
-			"'change'",
-		],
-		"description": "值改变事件"
-	},
-	"鼠标移入(触发冒泡)": {
-		"prefix": "mouseover",
-		"body": [
-			"'mouseover'",
-		],
-		"description": "鼠标移入(触发冒泡)"
-	},
-	"鼠标移动": {
-		"prefix": "mousemove",
-		"body": [
-			"'mousemove'",
-		],
-		"description": "鼠标移动"
-	},
-	"jQ点击": {
-		"prefix": "click",
-		"body": [
-			"'click'",
-		],
-		"description": "jQ点击"
-	},
-	"jQ键盘按下": {
-		"prefix": "keydown",
-		"body": [
-			"'keydown'",
-		],
-		"description": "jQ键盘按下"
-	},
-	"jQ键盘弹起": {
-		"prefix": "keyup",
-		"body": [
-			"'keyup'",
-		],
-		"description": "jQ键盘弹起"
-	},
-	"鼠标按下": {
-		"prefix": "mousedown",
-		"body": [
-			"'mousedown'",
-		],
-		"description": "鼠标按下"
-	},
-	"鼠标弹起": {
-		"prefix": "mouseup",
-		"body": [
-			"'mouseup'",
-		],
-		"description": "鼠标弹起"
-	},
-	"失去焦点": {
-		"prefix": "blur",
-		"body": [
-			"'blur'",
-		],
-		"description": "失去焦点"
-	},
-	"成为焦点": {
-		"prefix": "focus",
-		"body": [
-			"'focus'",
-		],
-		"description": "成为焦点"
-	},
-	"display": {
-		"prefix": "display",
-		"body": [
-			"'display': '${1:block}'$0",
-		],
-		"description": "display"
-	},
-	"jQ绑定事件": {
-		"prefix": ".on(事件,子元素,函数)",
-		"body": [
-			".on(${0:'click'},function () {",
-			"})",
-		],
-		"description": "jQ绑定事件"
-	},
-	"改变": {
-		"prefix": "transform",
-		"body": [
-			"'transform' : ${1:'translateX($2)'}$0",
-		],
-		"description": "改变"
-	},
-	"位移": {
-		"prefix": "translate",
-		"body": [
-			"'translateX($1)'$0",
-		],
-		"description": "位移"
-	},
-	"旋转": {
-		"prefix": "rotate",
-		"body": [
-			"'rotate($1deg)'$0",
-		],
-		"description": "旋转"
-	},
-	"清空元素中内容": {
-		"prefix": ".empty",
-		"body": [
-			".empty()$0",
-		],
-		"description": "清空元素中内容"
-	},
-	"操作属性": {
-		"prefix": ".attr",
-		"body": [
-			".attr('$0')",
-		],
-		"description": "操作属性"
-	},
-	"结束队列中的动画": {
-		"prefix": ".stop(true,false)",
-		"body": [
-			".stop(true,false)",
-		],
-		"description": "结束队列中的动画"
-	},
-	"触发事件": {
-		"prefix": ".trigger(触发事件)",
-		"body": [
-			".trigger(${0:'click'})",
-		],
-		"description": "触发事件"
-	},
+	// "添加元素到": {
+	// 	"prefix": ".appendTo",
+	// 	"body": [
+	// 		".appendTo($0)",
+	// 	],
+	// 	"description": "添加元素到"
+	// },
+	// "获取第一个匹配元素外部宽度（默认包括补白和边框）": {
+	// 	"prefix": ".outerWidth",
+	// 	"body": [
+	// 		".outerWidth()$0",
+	// 	],
+	// 	"description": "获取第一个匹配元素外部宽度（默认包括补白和边框）"
+	// },
+	// "获取第一个匹配元素外部高度（默认包括补白和边框）": {
+	// 	"prefix": ".outerHeight",
+	// 	"body": [
+	// 		".outerHeight()$0",
+	// 	],
+	// 	"description": "获取第一个匹配元素外部高度（默认包括补白和边框）"
+	// },
+	// "元素标签文本内容": {
+	// 	"prefix": ".text",
+	// 	"body": [
+	// 		".text($1)$0",
+	// 	],
+	// 	"description": "元素标签文本内容"
+	// },
+	// "获取父元素": {
+	// 	"prefix": ".parent",
+	// 	"body": [
+	// 		".parent()$0",
+	// 	],
+	// 	"description": "获取父元素"
+	// },
+	// "鼠标移入": {
+	// 	"prefix": "mouseenter",
+	// 	"body": [
+	// 		"'mouseenter'",
+	// 	],
+	// 	"description": "鼠标移入"
+	// },
+	// "鼠标移出": {
+	// 	"prefix": "mouseleave",
+	// 	"body": [
+	// 		"'mouseleave'",
+	// 	],
+	// 	"description": "鼠标移出"
+	// },
+	// "值改变事件": {
+	// 	"prefix": "change",
+	// 	"body": [
+	// 		"'change'",
+	// 	],
+	// 	"description": "值改变事件"
+	// },
+	// "鼠标移入(触发冒泡)": {
+	// 	"prefix": "mouseover",
+	// 	"body": [
+	// 		"'mouseover'",
+	// 	],
+	// 	"description": "鼠标移入(触发冒泡)"
+	// },
+	// "鼠标移动": {
+	// 	"prefix": "mousemove",
+	// 	"body": [
+	// 		"'mousemove'",
+	// 	],
+	// 	"description": "鼠标移动"
+	// },
+	// "jQ点击": {
+	// 	"prefix": "click",
+	// 	"body": [
+	// 		"'click'",
+	// 	],
+	// 	"description": "jQ点击"
+	// },
+	// "jQ键盘按下": {
+	// 	"prefix": "keydown",
+	// 	"body": [
+	// 		"'keydown'",
+	// 	],
+	// 	"description": "jQ键盘按下"
+	// },
+	// "jQ键盘弹起": {
+	// 	"prefix": "keyup",
+	// 	"body": [
+	// 		"'keyup'",
+	// 	],
+	// 	"description": "jQ键盘弹起"
+	// },
+	// "鼠标按下": {
+	// 	"prefix": "mousedown",
+	// 	"body": [
+	// 		"'mousedown'",
+	// 	],
+	// 	"description": "鼠标按下"
+	// },
+	// "鼠标弹起": {
+	// 	"prefix": "mouseup",
+	// 	"body": [
+	// 		"'mouseup'",
+	// 	],
+	// 	"description": "鼠标弹起"
+	// },
+	// "失去焦点": {
+	// 	"prefix": "blur",
+	// 	"body": [
+	// 		"'blur'",
+	// 	],
+	// 	"description": "失去焦点"
+	// },
+	// "成为焦点": {
+	// 	"prefix": "focus",
+	// 	"body": [
+	// 		"'focus'",
+	// 	],
+	// 	"description": "成为焦点"
+	// },
+	// "display": {
+	// 	"prefix": "display",
+	// 	"body": [
+	// 		"'display': '${1:block}'$0",
+	// 	],
+	// 	"description": "display"
+	// },
+	// "jQ绑定事件": {
+	// 	"prefix": ".on(事件,子元素,函数)",
+	// 	"body": [
+	// 		".on(${0:'click'},function () {",
+	// 		"})",
+	// 	],
+	// 	"description": "jQ绑定事件"
+	// },
+	// "改变": {
+	// 	"prefix": "transform",
+	// 	"body": [
+	// 		"'transform' : ${1:'translateX($2)'}$0",
+	// 	],
+	// 	"description": "改变"
+	// },
+	// "位移": {
+	// 	"prefix": "translate",
+	// 	"body": [
+	// 		"'translateX($1)'$0",
+	// 	],
+	// 	"description": "位移"
+	// },
+	// "旋转": {
+	// 	"prefix": "rotate",
+	// 	"body": [
+	// 		"'rotate($1deg)'$0",
+	// 	],
+	// 	"description": "旋转"
+	// },
+	// "清空元素中内容": {
+	// 	"prefix": ".empty",
+	// 	"body": [
+	// 		".empty()$0",
+	// 	],
+	// 	"description": "清空元素中内容"
+	// },
+	// "操作属性": {
+	// 	"prefix": ".attr",
+	// 	"body": [
+	// 		".attr('$0')",
+	// 	],
+	// 	"description": "操作属性"
+	// },
+	// "结束队列中的动画": {
+	// 	"prefix": ".stop(true,false)",
+	// 	"body": [
+	// 		".stop(true,false)",
+	// 	],
+	// 	"description": "结束队列中的动画"
+	// },
+	// "触发事件": {
+	// 	"prefix": ".trigger(触发事件)",
+	// 	"body": [
+	// 		".trigger(${0:'click'})",
+	// 	],
+	// 	"description": "触发事件"
+	// },
 	// ajax
 	"$.ajax": {
 		"prefix": "$.ajax",
@@ -1277,14 +1284,14 @@
 			"\tdataType:'json',",
 			"\tsuccess:function(${0:backData}){",
 			"\t}",
-			"});",
+			"})",
 		],
 		"description": "$.ajax"
 	},
 	// "$.ajaxFormData": {
 	// 	"prefix": "$.ajaxFormData",
 	// 	"body": [
-	// 		"let fd = new FormData($('form')[0]);",
+	// 		"let fd = new FormData($('form')[0])",
 	// 		"$.ajax({",
 	// 		"\ttype:'${1:post}',",
 	// 		"\turl:'$2',",
@@ -1293,76 +1300,76 @@
 	// 		"\tprocessData:false,",
 	// 		"\tsuccess:function(${0:backData}){",
 	// 		"\t}",
-	// 		"});",
+	// 		"})",
 	// 	],
 	// 	"description": "$.ajaxFormData"
 	// },
 	"JSON.转js对象": {
 		"prefix": "JSON.parse()",
 		"body": [
-			"JSON.parse($0);",
+			"JSON.parse($0)",
 		],
 		"description": "JSON.转js对象"
 	},
 	"js对象转JSON": {
 		"prefix": "JSON.stringify()",
 		"body": [
-			"JSON.stringify($0);",
+			"JSON.stringify($0)",
 		],
 		"description": "js对象转JSON"
 	},
-	"模板": {
-		"prefix": "template",
-		"body": [
-			"template('${1:eleID}',${0:backData})",
-		],
-		"description": "模板"
-	},
-	"xhrget": {
-		"prefix": "xhrget",
-		"body": [
-			"let ${0:xhr} = new XMLHttpRequest();",
-			"${0:xhr}.open('get', 'https://autumnfish.cn/api/joke/list?num=3');",
-			"${0:xhr}.onreadystatechange = function () {",
-			"\tif (${0:xhr}.readyState == 4) {",
-			"\t\tlet data = JSON.parse(${0:xhr}.response);",
-			"\t}",
-			"};",
-			"${0:xhr}.send();",
-		],
-		"description": "xhrget"
-	},
-	"xhrpost": {
-		"prefix": "xhrpost",
-		"body": [
-			"let ${0:xhr} = new XMLHttpRequest();",
-			"${0:xhr}.open('post', 'https://autumnfish.cn/api/user/check');",
-			"${0:xhr}.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');",
-			"${0:xhr}.onreadystatechange = function () {",
-			"\tif (${0:xhr}.readyState == 4) {",
-			"\t\tlet data = JSON.parse(${0:xhr}.response);",
-			"\t}",
-			"};",
-			"${0:xhr}.send('key=value');",
-		],
-		"description": "xhrpost"
-	},
+	// "模板": {
+	// 	"prefix": "template",
+	// 	"body": [
+	// 		"template('${1:eleID}',${0:backData})",
+	// 	],
+	// 	"description": "模板"
+	// },
+	// "xhrget": {
+	// 	"prefix": "xhrget",
+	// 	"body": [
+	// 		"let ${0:xhr} = new XMLHttpRequest()",
+	// 		"${0:xhr}.open('get', 'https://autumnfish.cn/api/joke/list?num=3')",
+	// 		"${0:xhr}.onreadystatechange = function () {",
+	// 		"\tif (${0:xhr}.readyState == 4) {",
+	// 		"\t\tlet data = JSON.parse(${0:xhr}.response)",
+	// 		"\t}",
+	// 		"};",
+	// 		"${0:xhr}.send()",
+	// 	],
+	// 	"description": "xhrget"
+	// },
+	// "xhrpost": {
+	// 	"prefix": "xhrpost",
+	// 	"body": [
+	// 		"let ${0:xhr} = new XMLHttpRequest()",
+	// 		"${0:xhr}.open('post', 'https://autumnfish.cn/api/user/check')",
+	// 		"${0:xhr}.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')",
+	// 		"${0:xhr}.onreadystatechange = function () {",
+	// 		"\tif (${0:xhr}.readyState == 4) {",
+	// 		"\t\tlet data = JSON.parse(${0:xhr}.response)",
+	// 		"\t}",
+	// 		"};",
+	// 		"${0:xhr}.send('key=value')",
+	// 	],
+	// 	"description": "xhrpost"
+	// },
 	// node.js
-	"创建服务器": {
-		"prefix": "require.http",
-		"body": [
-			"// 导入http模块",
-			"const http = require('http')",
-			"// 创建服务器",
-			"const server = http.createServer((request, response) => {",
-			"\t// 返回内容",
-			"\tresponse.end($0)",
-			"});",
-			"// 开启服务器",
-			"server.listen(8080,() => {})",
-		],
-		"description": "创建服务器"
-	},
+	// "创建服务器": {
+	// 	"prefix": "require.http",
+	// 	"body": [
+	// 		"// 导入http模块",
+	// 		"const http = require('http')",
+	// 		"// 创建服务器",
+	// 		"const server = http.createServer((request, response) => {",
+	// 		"\t// 返回内容",
+	// 		"\tresponse.end($0)",
+	// 		"})",
+	// 		"// 开启服务器",
+	// 		"server.listen(8080,() => {})",
+	// 	],
+	// 	"description": "创建服务器"
+	// },
 	"require": {
 		"prefix": "require",
 		"body": [
@@ -1370,33 +1377,33 @@
 		],
 		"description": "require"
 	},
-	"readFile读取文件": {
-		"prefix": "fs.readFile",
-		"body": [
-			"fs.readFile('${1:url}',(err,data)=>{",
-			"\tif (err) throw err;",
-			"\t$0",
-			"});"
-		],
-	},
-	"readFile写文件": {
-		"prefix": "fs.writeFile",
-		"body": [
-			"fs.writeFile('${1:url}',data, (err) => {",
-			"\tif (err) throw err;",
-			"\t$0",
-			"});",
-		],
-	},
-	"unlink删除文件": {
-		"prefix": "fs.unlink",
-		"body": [
-			"fs.unlink('${1:url}', (err) => {",
-			"\tif (err) throw err;",
-			"\t$0",
-			"});",
-		],
-	},
+	// "readFile读取文件": {
+	// 	"prefix": "fs.readFile",
+	// 	"body": [
+	// 		"fs.readFile('${1:url}',(err,data)=>{",
+	// 		"\tif (err) throw err;",
+	// 		"\t$0",
+	// 		"})"
+	// 	],
+	// },
+	// "readFile写文件": {
+	// 	"prefix": "fs.writeFile",
+	// 	"body": [
+	// 		"fs.writeFile('${1:url}',data, (err) => {",
+	// 		"\tif (err) throw err;",
+	// 		"\t$0",
+	// 		"})",
+	// 	],
+	// },
+	// "unlink删除文件": {
+	// 	"prefix": "fs.unlink",
+	// 	"body": [
+	// 		"fs.unlink('${1:url}', (err) => {",
+	// 		"\tif (err) throw err;",
+	// 		"\t$0",
+	// 		"})",
+	// 	],
+	// },
 	"获取当前文件所在的文件夹绝对路径": {
 		"prefix": "__dirname",
 		"body": [
@@ -1411,42 +1418,42 @@
 		],
 		"description": "拼接路径"
 	},
-	"暴露内容": {
-		"prefix": "module.exports",
-		"body": [
-			"module.exports = {$0};",
-		],
-		"description": "暴露内容"
-	},
-	"express暴露文件夹": {
-		"prefix": "app.use(express.static(''));",
-		"body": [
-			"app.use(express.static('${0:file}'));",
-		],
-		"description": "express暴露文件夹"
-	},
-	"调用body-parser模块方法": {
-		"prefix": "app.use(bodyParser.urlencoded({ extended: false }))",
-		"body": [
-			"app.use(bodyParser.urlencoded({ extended: false }));",
-		],
-		"description": "调用body-parser模块方法"
-	},
-	"中间件": {
-		"prefix": "app.use((req,res,next) =>)",
-		"body": [
-			"app.use((req, res, next) => {",
-			"\t$0",
-			"\tnext();",
-			"})",
-		],
-		"description": "中间件"
-	},
+	// "暴露内容": {
+	// 	"prefix": "module.exports",
+	// 	"body": [
+	// 		"module.exports = {$0};",
+	// 	],
+	// 	"description": "暴露内容"
+	// },
+	// "express暴露文件夹": {
+	// 	"prefix": "app.use(express.static(''))",
+	// 	"body": [
+	// 		"app.use(express.static('${0:file}'))",
+	// 	],
+	// 	"description": "express暴露文件夹"
+	// },
+	// "调用body-parser模块方法": {
+	// 	"prefix": "app.use(bodyParser.urlencoded({ extended: false }))",
+	// 	"body": [
+	// 		"app.use(bodyParser.urlencoded({ extended: false }))",
+	// 	],
+	// 	"description": "调用body-parser模块方法"
+	// },
+	// "中间件": {
+	// 	"prefix": "app.use((req,res,next) =>)",
+	// 	"body": [
+	// 		"app.use((req, res, next) => {",
+	// 		"\t$0",
+	// 		"\tnext()",
+	// 		"})",
+	// 	],
+	// 	"description": "中间件"
+	// },
 	// "express创建get接口": {
 	// 	"prefix": "router.get",
 	// 	"body": [
 	// 		"router.get('/$0', (req, res) => {",
-	// 		"});",
+	// 		"})",
 	// 	],
 	// 	"description": "express创建get接口"
 	// },
@@ -1454,7 +1461,7 @@
 	// 	"prefix": "router.post",
 	// 	"body": [
 	// 		"router.post('/$1', (req, res) => {",
-	// 		"});",
+	// 		"})",
 	// 	],
 	// 	"description": "express创建post接口"
 	// },
@@ -1463,200 +1470,200 @@
 	// 	"body": [
 	// 		"router.post('/$1', upload.single(\"$0\"), (req, res) => {",
 	// 		"\tlet ${0:fi le} = req.file.filename;",
-	// 		"});",
+	// 		"})",
 	// 	],
 	// 	"description": "创建post接口fromData"
 	// },
-	"req.query": {
-		"prefix": "req.query",
-		"body": [
-			"req.query",
-		],
-		"description": "req.query"
-	},
-	"req.file.filename": {
-		"prefix": "req.file.filename",
-		"body": [
-			"req.file.filename",
-		],
-		"description": "req.file.filename"
-	},
-	"快速搭建express服务器": {
-		"prefix": "express",
-		"body": [
-			"//第三方模块 express body-parser cors multer mysql",
-			"//1.导入模块",
-			"const express = require('express');",
-			"const bodyParser = require('body-parser');",
-			"const cors = require('cors');",
-			"const path = require('path');",
-			"const multer = require('multer');",
-			"const db = require(path.join(__dirname, 'utils', 'db.js'));",
-			"const user = require(path.join(__dirname, 'route', 'user.js'));",
-			"//utils/db.js",
-			"const mysql = require('mysql');",
-			"// 设置连接的数据库信息",
-			"const connection = mysql.createConnection({",
-			"\t// 地址",
-			"\thost: 'localhost',",
-			"\t// 用户名",
-			"\tuser: 'root',",
-			"\t// 密码",
-			"\tpassword: 'root',",
-			"\t// 库的名字",
-			"\tdatabase: 'xuanyuanjian'",
-			"});",
-			"// 连接数据库",
-			"connection.connect();",
-			"module.exports = {connection};",
-			"",
-			"//新建一个uploads文件夹.",
-			"const upload = multer({ dest: 'uploads/' });",
-			"",
-			"//2.创建服务器",
-			"const app = express();",
-			"app.use(bodyParser.urlencoded({ extended: false }));",
-			"app.use(cors());",
-			"app.use(express.static('upload'));//暴露upload目录",
-			"",
-			"app.use('/user', user);",
-			"",
-			"//3.开启服务器",
-			"app.listen(3000,()=>{",
-			"\tconsole.log('success');",
-			"});"
-		],
-		"description": "快速搭建express服务器"
-	},
-	"路由模块": {
-		"prefix": "express-router",
-		"body": [
-			"// 导包",
-			"const express = require('express');",
-			"const path = require('path');",
-			"const db = require(path.join(__dirname, '../utils', 'db.js'));",
-			"// 创建一个路由",
-			"const router = express.Router();",
-			"",
-			"$0",
-			"",
-			"module.exports = router;",
-		],
-		"description": "express-router"
-	},
-	"设置响应头解决跨域": {
-		"prefix": "res.setHeader('Access-Control-Allow-Origin','*')",
-		"body": [
-			"res.setHeader('Access-Control-Allow-Origin','*');",
-		],
-		"description": "设置响应头解决跨域"
-	},
-	"SQL创建表格": {
-		"prefix": "sql.add-table",
-		"body": [
-			"let tableSQL = `create table ${0:tableName}",
-			"(",
-			"id int auto_increment primary key,",
-			"LastName varchar(255),",
-			"FirstName varchar(255)",
-			")`;",
-			"connection.query(tableSQL, (err, results) => {});",
-		],
-		"description": "SQL创建表格"
-	},
+	// "req.query": {
+	// 	"prefix": "req.query",
+	// 	"body": [
+	// 		"req.query",
+	// 	],
+	// 	"description": "req.query"
+	// },
+	// "req.file.filename": {
+	// 	"prefix": "req.file.filename",
+	// 	"body": [
+	// 		"req.file.filename",
+	// 	],
+	// 	"description": "req.file.filename"
+	// },
+	// "快速搭建express服务器": {
+	// 	"prefix": "express",
+	// 	"body": [
+	// 		"//第三方模块 express body-parser cors multer mysql",
+	// 		"//1.导入模块",
+	// 		"const express = require('express')",
+	// 		"const bodyParser = require('body-parser')",
+	// 		"const cors = require('cors')",
+	// 		"const path = require('path')",
+	// 		"const multer = require('multer')",
+	// 		"const db = require(path.join(__dirname, 'utils', 'db.js'))",
+	// 		"const user = require(path.join(__dirname, 'route', 'user.js'))",
+	// 		"//utils/db.js",
+	// 		"const mysql = require('mysql')",
+	// 		"// 设置连接的数据库信息",
+	// 		"const connection = mysql.createConnection({",
+	// 		"\t// 地址",
+	// 		"\thost: 'localhost',",
+	// 		"\t// 用户名",
+	// 		"\tuser: 'root',",
+	// 		"\t// 密码",
+	// 		"\tpassword: 'root',",
+	// 		"\t// 库的名字",
+	// 		"\tdatabase: 'xuanyuanjian'",
+	// 		"})",
+	// 		"// 连接数据库",
+	// 		"connection.connect()",
+	// 		"module.exports = {connection};",
+	// 		"",
+	// 		"//新建一个uploads文件夹.",
+	// 		"const upload = multer({ dest: 'uploads/' })",
+	// 		"",
+	// 		"//2.创建服务器",
+	// 		"const app = express()",
+	// 		"app.use(bodyParser.urlencoded({ extended: false }))",
+	// 		"app.use(cors())",
+	// 		"app.use(express.static('upload'))//暴露upload目录",
+	// 		"",
+	// 		"app.use('/user', user)",
+	// 		"",
+	// 		"//3.开启服务器",
+	// 		"app.listen(3000,()=>{",
+	// 		"\tconsole.log('success')",
+	// 		"})"
+	// 	],
+	// 	"description": "快速搭建express服务器"
+	// },
+	// "路由模块": {
+	// 	"prefix": "express-router",
+	// 	"body": [
+	// 		"// 导包",
+	// 		"const express = require('express')",
+	// 		"const path = require('path')",
+	// 		"const db = require(path.join(__dirname, '../utils', 'db.js'))",
+	// 		"// 创建一个路由",
+	// 		"const router = express.Router()",
+	// 		"",
+	// 		"$0",
+	// 		"",
+	// 		"module.exports = router;",
+	// 	],
+	// 	"description": "express-router"
+	// },
+	// "设置响应头解决跨域": {
+	// 	"prefix": "res.setHeader('Access-Control-Allow-Origin','*')",
+	// 	"body": [
+	// 		"res.setHeader('Access-Control-Allow-Origin','*')",
+	// 	],
+	// 	"description": "设置响应头解决跨域"
+	// },
+	// "SQL创建表格": {
+	// 	"prefix": "sql.add-table",
+	// 	"body": [
+	// 		"let tableSQL = `create table ${0:tableName}",
+	// 		"(",
+	// 		"id int auto_increment primary key,",
+	// 		"LastName varchar(255),",
+	// 		"FirstName varchar(255)",
+	// 		")`;",
+	// 		"connection.query(tableSQL, (err, results) => {})",
+	// 	],
+	// 	"description": "SQL创建表格"
+	// },
 	// "SQL基础语法": {
 	// 	"prefix": "sql",
 	// 	"body": [
 	// 		"let ${1:insertSQL} = `$0`;",
-	// 		"connection.query(${1:insertSQL}, (err, results) => {});",
+	// 		"connection.query(${1:insertSQL}, (err, results) => {})",
 	// 	],
 	// 	"description": "SQL基础语法"
 	// },
-	"SQL查": {
-		"prefix": "sql.get",
-		"body": [
-			"db.connection.query(",
-			"\t`select * from ${2:表名} ${0:where id = 2}`,",
-			"\t(err, results, fields) => {",
-			"\t\tif (!err) {",
-			"\t\t\tres.send({",
-			"\t\t\t\tcode: 200,",
-			"\t\t\t\tmsg: '获取成功',",
-			"\t\t\t\tdata: results",
-			"\t\t\t});",
-			"\t\t} else {",
-			"\t\t\tres.send({",
-			"\t\t\t\tcode: 400,",
-			"\t\t\t\tmsg: '获取失败',",
-			"\t\t\t});",
-			"\t\t}",
-			"\t});",
-		],
-		"description": "SQL查"
-	},
-	"SQL增": {
-		"prefix": "sql.add",
-		"body": [
-			"db.connection.query(",
-			"\t`insert into ${2:表名} (${0:content}) values(\"${req.body.content}\")`,",
-			"\t(err, results, fields) => {",
-			"\t\tif (!err) {",
-			"\t\t\tres.send({",
-			"\t\t\t\tcode: 200,",
-			"\t\t\t\tmsg: '添加成功',",
-			"\t\t\t});",
-			"\t\t} else {",
-			"\t\t\tres.send({",
-			"\t\t\t\tcode: 400,",
-			"\t\t\t\tmsg: '添加失败',",
-			"\t\t\t});",
-			"\t\t}",
-			"\t});",
-		],
-		"description": "SQL增"
-	},
-	"SQL改": {
-		"prefix": "sql.set",
-		"body": [
-			"db.connection.query(",
-			"\t`update ${2:表名} set ${3:name}=\"${req.body.${3:name}}\" where id = ${req.body.${4:id}}`,",
-			"\t(err, results, fields) => {",
-			"\t\tif (!err) {",
-			"\t\t\tres.send({",
-			"\t\t\t\tcode: 200,",
-			"\t\t\t\tmsg: '编辑成功',",
-			"\t\t\t});",
-			"\t\t} else {",
-			"\t\t\tres.send({",
-			"\t\t\t\tcode: 400,",
-			"\t\t\t\tmsg: '编辑失败',",
-			"\t\t\t});",
-			"\t\t}",
-			"\t});",
-		],
-		"description": "SQL改"
-	},
-	"SQL删": {
-		"prefix": "sql.del",
-		"body": [
-			"db.connection.query(",
-			"\t`delete from ${2:表名} where ${req.query.${0:id}}`,",
-			"\t(err, results, fields) => {",
-			"\t\tif (!err) {",
-			"\t\t\tres.send({",
-			"\t\t\t\tcode: 200,",
-			"\t\t\t\tmsg: '删除成功',",
-			"\t\t\t});",
-			"\t\t} else {",
-			"\t\t\tres.send({",
-			"\t\t\t\tcode: 400,",
-			"\t\t\t\tmsg: '删除失败',",
-			"\t\t\t});",
-			"\t\t}",
-			"\t});",
-		],
-		"description": "SQL删"
-	},
+	// "SQL查": {
+	// 	"prefix": "sql.get",
+	// 	"body": [
+	// 		"db.connection.query(",
+	// 		"\t`select * from ${2:表名} ${0:where id = 2}`,",
+	// 		"\t(err, results, fields) => {",
+	// 		"\t\tif (!err) {",
+	// 		"\t\t\tres.send({",
+	// 		"\t\t\t\tcode: 200,",
+	// 		"\t\t\t\tmsg: '获取成功',",
+	// 		"\t\t\t\tdata: results",
+	// 		"\t\t\t})",
+	// 		"\t\t} else {",
+	// 		"\t\t\tres.send({",
+	// 		"\t\t\t\tcode: 400,",
+	// 		"\t\t\t\tmsg: '获取失败',",
+	// 		"\t\t\t})",
+	// 		"\t\t}",
+	// 		"\t})",
+	// 	],
+	// 	"description": "SQL查"
+	// },
+	// "SQL增": {
+	// 	"prefix": "sql.add",
+	// 	"body": [
+	// 		"db.connection.query(",
+	// 		"\t`insert into ${2:表名} (${0:content}) values(\"${req.body.content}\")`,",
+	// 		"\t(err, results, fields) => {",
+	// 		"\t\tif (!err) {",
+	// 		"\t\t\tres.send({",
+	// 		"\t\t\t\tcode: 200,",
+	// 		"\t\t\t\tmsg: '添加成功',",
+	// 		"\t\t\t})",
+	// 		"\t\t} else {",
+	// 		"\t\t\tres.send({",
+	// 		"\t\t\t\tcode: 400,",
+	// 		"\t\t\t\tmsg: '添加失败',",
+	// 		"\t\t\t})",
+	// 		"\t\t}",
+	// 		"\t})",
+	// 	],
+	// 	"description": "SQL增"
+	// },
+	// "SQL改": {
+	// 	"prefix": "sql.set",
+	// 	"body": [
+	// 		"db.connection.query(",
+	// 		"\t`update ${2:表名} set ${3:name}=\"${req.body.${3:name}}\" where id = ${req.body.${4:id}}`,",
+	// 		"\t(err, results, fields) => {",
+	// 		"\t\tif (!err) {",
+	// 		"\t\t\tres.send({",
+	// 		"\t\t\t\tcode: 200,",
+	// 		"\t\t\t\tmsg: '编辑成功',",
+	// 		"\t\t\t})",
+	// 		"\t\t} else {",
+	// 		"\t\t\tres.send({",
+	// 		"\t\t\t\tcode: 400,",
+	// 		"\t\t\t\tmsg: '编辑失败',",
+	// 		"\t\t\t})",
+	// 		"\t\t}",
+	// 		"\t})",
+	// 	],
+	// 	"description": "SQL改"
+	// },
+	// "SQL删": {
+	// 	"prefix": "sql.del",
+	// 	"body": [
+	// 		"db.connection.query(",
+	// 		"\t`delete from ${2:表名} where ${req.query.${0:id}}`,",
+	// 		"\t(err, results, fields) => {",
+	// 		"\t\tif (!err) {",
+	// 		"\t\t\tres.send({",
+	// 		"\t\t\t\tcode: 200,",
+	// 		"\t\t\t\tmsg: '删除成功',",
+	// 		"\t\t\t})",
+	// 		"\t\t} else {",
+	// 		"\t\t\tres.send({",
+	// 		"\t\t\t\tcode: 400,",
+	// 		"\t\t\t\tmsg: '删除失败',",
+	// 		"\t\t\t})",
+	// 		"\t\t}",
+	// 		"\t})",
+	// 	],
+	// 	"description": "SQL删"
+	// },
 	// Vue
 	"vue": {
 		"prefix": "vue",
@@ -1665,7 +1672,7 @@
 			"\tel: '#app',",
 			"\tdata: {$0},",
 			"\tmethods:{},",
-			"});",
+			"})",
 		],
 		"description": "vue"
 	},
@@ -1678,7 +1685,7 @@
 	// 		"\t\treturn {}",
 	// 		"\t},",
 	// 		"\tmethods: {},",
-	// 		"});",
+	// 		"})",
 	// 	],
 	// 	"description": "vue组件"
 	// },
@@ -1786,7 +1793,7 @@
 		"body": [
 			"Vue.filter('${1:format}',function (val) {",
 			"\treturn val;",
-			"});",
+			"})",
 		],
 		"description": "全局过滤器"
 	},
@@ -1802,7 +1809,7 @@
 	// 	"body": [
 	// 		"this.${1:$}http.get('${2:url}',{params : {$3}}).then((res) => {",
 	// 		"\tres = res.body;",
-	// 		"});",
+	// 		"})",
 	// 	],
 	// 	"description": "this.$http.get"
 	// },
@@ -1811,7 +1818,7 @@
 	// 	"body": [
 	// 		"this.${1:$}http.post('${2:url}',{$3},{emulateJSON:true}).then((res) => {",
 	// 		"\tres = res.body;",
-	// 		"});",
+	// 		"})",
 	// 	],
 	// 	"description": "this.$http.post"
 	// },
@@ -1820,7 +1827,7 @@
 	// 	"body": [
 	// 		"this.${1:$}http.josnp('${2:url}',{params : {$3}}).then((res) => {",
 	// 		"\tres = res.body;",
-	// 		"});",
+	// 		"})",
 	// 	],
 	// 	"description": "this.$http.josnp"
 	// },
@@ -1847,7 +1854,7 @@
 			"\tdata => {",
 			"\t\t// 在传递给 then/catch 前，把返回的大数字做安全处理",
 			"try {",
-			"\treturn JSONbig.parse(data);",
+			"\treturn JSONbig.parse(data)",
 			"} catch {",
 			"\treturn data;",
 			"}",
@@ -1860,9 +1867,9 @@
 			"\t\treturn config;",
 			"\t},",
 			"\terr => {",
-			"\t\treturn Promise.reject(terr);",
+			"\t\treturn Promise.reject(err)",
 			"\t}",
-			");",
+			")",
 			"",
 			"// 添加响应拦截器",
 			"Axios.interceptors.response.use(",
@@ -1870,9 +1877,9 @@
 			"\t\treturn response.data;",
 			"\t},",
 			"\terr => {",
-			"\t\treturn Promise.reject(terr);",
+			"\t\treturn Promise.reject(err)",
 			"\t}",
-			");",
+			")",
 			"",
 			"import './api/http'",
 		],
@@ -1902,11 +1909,11 @@
 	"axios.FormData": {
 		"prefix": "axios.FormData",
 		"body": [
-			"let fd = new FormData();",
-			"fd.append(\"image\", data.file);",
+			"let fd = new FormData()",
+			"fd.append(\"image\", data.file)",
 			"this.$$axios.post(`$1`, fd).then(res => {",
-			"\tconsole.log(res);",
-			"});",
+			"\tconsole.log(res)",
+			"})",
 		],
 		"description": "axios.FormData"
 	},
@@ -1918,7 +1925,7 @@
 			"\turl: '${0:url}',",
 			"\tdata: {},",
 			"\tparams:{}",
-			"});",
+			"})",
 		],
 		"description": "request-axiosa"
 	},
@@ -1928,7 +1935,7 @@
 			"this.$$axios",
 			"\t.get(`${1:url}`, { params: {$2}})",
 			"\t.then(res => {",
-			"\t\tconsole.log(res);",
+			"\t\tconsole.log(res)",
 			"\t})",
 			// "\t.catch(err => {})",
 		],
@@ -1940,7 +1947,7 @@
 			"this.$$axios",
 			"\t.delete(`${1:url}`, { params: {$2}})",
 			"\t.then(res => {",
-			"\t\tconsole.log(res);",
+			"\t\tconsole.log(res)",
 			"\t})",
 			// "\t.catch(err => {})",
 		],
@@ -1958,7 +1965,7 @@
 		"body": [
 			"this.$$axios.post(`${1:url}`,{$2})",
 			"\t.then( res => {",
-			"\t\tconsole.log(res);",
+			"\t\tconsole.log(res)",
 			"\t})",
 		],
 		"description": "axios.post"
@@ -1982,7 +1989,7 @@
 	// 		"\t}]",
 	// 		"}).then(res => {",
 	// 		"\tres = res.data;",
-	// 		"\tconsole.log(res);",
+	// 		"\tconsole.log(res)",
 	// 		"})",
 	// 	],
 	// 	"description": "axios.post"
@@ -1990,14 +1997,14 @@
 	"最后总会调用": {
 		"prefix": ".finally(() => {})",
 		"body": [
-			".finally(() => {$0});",
+			".finally(() => {$0})",
 		],
 		"description": "最后总会调用"
 	},
 	"滚动插件调用": {
-		"prefix": "new IScroll('#wrapper');",
+		"prefix": "new IScroll('#wrapper')",
 		"body": [
-			"this.myScroll = new IScroll('#${0:wrapper}');",
+			"this.myScroll = new IScroll('#${0:wrapper}')",
 		],
 		"description": "滚动插件调用"
 	},
@@ -2028,11 +2035,11 @@
 			"];",
 			"",
 			"//创建 router 实例",
-			"Vue.use(VueRouter);",
+			"Vue.use(VueRouter)",
 			"const router = new VueRouter({",
 			"\troutes,",
 			"\tlinkActiveClass: 'active'//选中添加类名",
-			"});",
+			"})",
 			"",
 			"// 暴露router路由实例",
 			"export default router;",
@@ -2043,14 +2050,14 @@
 	"router编程式导航": {
 		"prefix": "this.$router.push",
 		"body": [
-			"this.$$router.push(`${1:/foo}`);"
+			"this.$$router.push(`${1:/foo}`)"
 		],
 		"description": "router编程式导航"
 	},
 	"router跳转到上一次记录": {
 		"prefix": "this.$router.back",
 		"body": [
-			"this.$$router.back();"
+			"this.$$router.back()"
 		],
 		"description": "router跳转到上一次记录"
 	},
@@ -2096,7 +2103,7 @@
 	"注册组件": {
 		"prefix": "Vue.component('${1:标签名}',${0:组件名})",
 		"body": [
-			"Vue.component('${1:标签名}',${0:组件名});"
+			"Vue.component('${1:标签名}',${0:组件名})"
 		],
 		"description": "注册组件"
 	},
@@ -2182,7 +2189,7 @@
 	"全局后置导航守卫": {
 		"prefix": "router.afterEach",
 		"body": [
-			"router.afterEach((to, from) => {$0});",
+			"router.afterEach((to, from) => {$0})",
 		],
 		"description": "全局后置导航守卫"
 	},
@@ -2191,16 +2198,16 @@
 		"body": [
 			"props:['${1:value}'],",
 			"model:{",
-			"\tprop:'${1:value}',",	
+			"\tprop:'${1:value}',",
 			"\tevent:'${0:input}'",
-			"},"	,
+			"},",
 		],
 		"description": "子组件接收父组件传递的值"
 	},
 	"子组件声明自定义事件,给父组件传值(事件名需要全部小写)": {
 		"prefix": "this.$emit('click','val')",
 		"body": [
-			"this.$$emit('update:$1',$2);",
+			"this.$$emit('update:$1',$2)",
 		],
 		"description": "子组件声明自定义事件,给父组件传值(事件名需要全部小写)"
 	},
@@ -2238,10 +2245,10 @@
 			"try {",
 			"\tlet res = await ${0:userLogin}({",
 			"\t\tmobile: this.mobile,",
-			"\t});",
-			"\tconsole.log(res);",
+			"\t})",
+			"\tconsole.log(res)",
 			"} catch (err) {",
-			"\tconsole.log(err);",
+			"\tconsole.log(err)",
 			"}",
 		],
 		"description": "调用封装的请求"
@@ -2270,9 +2277,9 @@
 	"把图片转成base64": {
 		"prefix": "base64",
 		"body": [
-			"let reader = new FileReader();",
-			"reader.readAsDataURL(imgFile);",
-			"reader.addEventListener(\"load\", res => {});",
+			"let reader = new FileReader()",
+			"reader.readAsDataURL(imgFile)",
+			"reader.addEventListener(\"load\", res => {})",
 		],
 		"description": "把图片转成base64"
 	},
@@ -2291,4 +2298,326 @@
 	// 	],
 	// 	"description": "<tag>"
 	// },
+	// -----------------------------Reat--------------------------------
+	"React组件": {
+		"prefix": "React-component",
+		"body": [
+			"import React from 'react'",
+			"import './index.scss'",
+			"",
+			"export default class ${1:componentName} extends React.Component{",
+			"\tstate = {};",
+			"\trender (){",
+			"\t\treturn (<div className=\"$1\">$0</div>)",
+			"\t}",
+			"}",
+		],
+		"description": "React组件"
+	},
+	"React创建bus": {
+		"prefix": "React-bus",
+		"body": [
+			"import {EventEmitter} from 'events';",
+			"export default new EventEmitter()",
+		],
+		"description": "React创建bus"
+	},
+	"React-ref": {
+		"prefix": "ref",
+		"body": [
+			"ref={val => this.$0 = val}"
+		],
+		"description": "React-ref"
+	},
+	"bus上传值": {
+		"prefix": "bus.emit",
+		"body": [
+			"bus.emit('{1:fun}',$0)",
+		],
+		"description": "bus上传值"
+	},
+	"bus获取值": {
+		"prefix": "bus.on",
+		"body": [
+			"bus.on('${1:fun}',data => {$0})",
+		],
+		"description": "bus获取值"
+	},
+	"React实例DOM完成渲染时": {
+		"prefix": "componentDidMount",
+		"body": [
+			"componentDidMount(){$0};",
+		],
+		"description": "React实例DOM完成渲染时"
+	},
+	"React实例将要销毁时": {
+		"prefix": "componentWillUnmount",
+		"body": [
+			"componentWillUnmount(){$0};",
+		],
+		"description": "React实例将要销毁时"
+	},
+	"React修改当前实例的state值": {
+		"prefix": "this.setState",
+		"body": [
+			"this.setState({$0})",
+		],
+		"description": "React修改当前实例的state值"
+	},
+	"map遍历数组": {
+		"prefix": ".map",
+		"body": [
+			".map((item,index) => {",
+			"\treturn <li key={index}></li>$0",
+			"})",
+		],
+		"description": "map遍历数组"
+	},
+	"div": {
+		"prefix": "div",
+		"body": [
+			"<div className=\"$0\"></div>"
+		],
+		"description": "div"
+	},
+	// ---------------------------------React  Style
+	"宽": {
+		"prefix": "width",
+		"body": [
+			"width: $0",
+		],
+		"description": "宽"
+	},
+	"高": {
+		"prefix": "height",
+		"body": [
+			"height: $0",
+		],
+		"description": "高"
+	},
+	"左偏移": {
+		"prefix": "left",
+		"body": [
+			"left: $0",
+		],
+		"description": "左偏移"
+	},
+	"上偏移": {
+		"prefix": "top",
+		"body": [
+			"top: $0",
+		],
+		"description": "上偏移"
+	},
+	"左浮动": {
+		"prefix": "float",
+		"body": [
+			"float: '${2:left}'$0",
+		],
+		"description": "左浮动"
+	},
+	"背景": {
+		"prefix": "background",
+		"body": [
+			"background: '$2'$0",
+		],
+		"description": "背景"
+	},
+	"外边距": {
+		"prefix": "margin",
+		"body": [
+			"margin: $0",
+		],
+		"description": "外边距"
+	},
+	"内边距": {
+		"prefix": "padding",
+		"body": [
+			"padding: $0",
+		],
+		"description": "内边距"
+	},
+	"行高": {
+		"prefix": "lineHeight",
+		"body": [
+			"lineHeight : '$2'$0",
+		],
+		"description": "行高"
+	},
+	"中心": {
+		"prefix": "center",
+		"body": [
+			"center",
+		],
+		"description": "中心"
+	},
+	"边框": {
+		"prefix": "border",
+		"body": [
+			"border : '$1px solid $2'",
+		],
+		"description": "边框"
+	},
+	"定位": {
+		"prefix": "position",
+		"body": [
+			"position : '${2:absolute}',$0",
+		],
+		"description": "定位"
+	},
+	"溢出": {
+		"prefix": "overflow",
+		"body": [
+			"overflow : '${2:hidden}',$0",
+		],
+		"description": "溢出"
+	},
+	"文字水平对齐": {
+		"prefix": "textAlign",
+		"body": [
+			"textAlign : '${2:center}',$0",
+		],
+		"description": "文字水平对齐"
+	},
+	"相对定位": {
+		"prefix": "relative",
+		"body": [
+			"relative",
+		],
+		"description": "相对定位"
+	},
+	"绝对定位": {
+		"prefix": "absolute",
+		"body": [
+			"absolute",
+		],
+		"description": "绝对定位"
+	},
+	"透明度": {
+		"prefix": "opacity",
+		"body": [
+			"opacity : $0",
+		],
+		"description": "透明度"
+	},
+	"过渡": {
+		"prefix": "transition",
+		"body": [
+			"transition : '${0:all 1s}'",
+		],
+		"description": "过渡"
+	},
+	"字体大小": {
+		"prefix": "fontSize",
+		"body": [
+			"fontSize : $0",
+		],
+		"description": "字体大小"
+	},
+	"颜色": {
+		"prefix": "color",
+		"body": [
+			"color : '$2'$0",
+		],
+		"description": "颜色"
+	},
+	"字体": {
+		"prefix": "fontFamily",
+		"body": [
+			"fontFamily : '$2'$0",
+		],
+		"description": "字体"
+	},
+	"层级": {
+		"prefix": "zIndex",
+		"body": [
+			"zIndex : $0",
+		],
+		"description": "层级"
+	},
+	// -----------------------------React 事件
+	"鼠标移入": {
+		"prefix": "onMouseenter",
+		"body": [
+			"onMouseenter={() => this.${0:fun}()}",
+		],
+		"description": "鼠标移入"
+	},
+	"鼠标移出": {
+		"prefix": "onMouseleave",
+		"body": [
+			"onMouseleave={() => this.${0:fun}()}",
+		],
+		"description": "鼠标移出"
+	},
+	"值改变事件": {
+		"prefix": "onChange",
+		"body": [
+			"onChange={() => this.${0:fun}()}",
+		],
+		"description": "值改变事件"
+	},
+	"鼠标移入(触发冒泡)": {
+		"prefix": "onMouseover",
+		"body": [
+			"onMouseover={() => this.${0:fun}()}",
+		],
+		"description": "鼠标移入(触发冒泡)"
+	},
+	"鼠标移动": {
+		"prefix": "onMousemove",
+		"body": [
+			"onMousemove={() => this.${0:fun}()}",
+		],
+		"description": "鼠标移动"
+	},
+	"jQ点击": {
+		"prefix": "onClick",
+		"body": [
+			"onClick={() => this.${0:fun}()}",
+		],
+		"description": "jQ点击"
+	},
+	"jQ键盘按下": {
+		"prefix": "onKeydown",
+		"body": [
+			"onKeydown={() => this.${0:fun}()}",
+		],
+		"description": "jQ键盘按下"
+	},
+	"jQ键盘弹起": {
+		"prefix": "onKeyup",
+		"body": [
+			"onKeyup={() => this.${0:fun}()}",
+		],
+		"description": "jQ键盘弹起"
+	},
+	"鼠标按下": {
+		"prefix": "onMousedown",
+		"body": [
+			"onMousedown={() => this.${0:fun}()}",
+		],
+		"description": "鼠标按下"
+	},
+	"鼠标弹起": {
+		"prefix": "onMouseup",
+		"body": [
+			"onMouseup={() => this.${0:fun}()}",
+		],
+		"description": "鼠标弹起"
+	},
+	"失去焦点": {
+		"prefix": "onBlur",
+		"body": [
+			"onBlur={() => this.${0:fun}()}",
+		],
+		"description": "失去焦点"
+	},
+	"成为焦点": {
+		"prefix": "onFocus",
+		"body": [
+			"onFocus={() => this.${0:fun}()}",
+		],
+		"description": "成为焦点"
+	},
 }
