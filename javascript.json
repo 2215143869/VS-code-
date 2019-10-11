@@ -37,7 +37,7 @@
 		"description": "声明常量"
 	},
 	"箭头函数": {
-		"prefix": "fun.",
+		"prefix": "funn",
 		"body": [
 			"($1) => {$0}"
 		],
@@ -103,7 +103,7 @@
 	"注册事件": {
 		"prefix": ".addEventListener",
 		"body": [
-			".addEventListener('${0:事件类型}' , function () {",
+			".addEventListener('${0:事件类型}' , () => {",
 			"})",
 		],
 		"description": "注册事件IE9+兼容"
@@ -559,9 +559,7 @@
 	"过滤数组-HTML5": {
 		"prefix": ".filter((${1:item})",
 		"body": [
-			".filter((${1:item}) => {",
-			"\treturn ${1:item} < ${2:数值};",
-			"})$3",
+			".filter((item) => {$0})",
 		],
 		"description": "过滤数组-HTML5"
 	},
@@ -582,9 +580,7 @@
 	"JQ遍历数组函数": {
 		"prefix": ".forEach",
 		"body": [
-			".forEach((item,index) => {",
-			"\t$0",
-			"})",
+			".forEach((item) => {$0})",
 		],
 		"description": "JQ遍历数组函数"
 	},
@@ -2300,7 +2296,7 @@
 		"prefix": ".map",
 		"body": [
 			".map((item,index) => {",
-			"\treturn <li key={index}></li>$0",
+			"\treturn $0",
 			"})",
 		],
 		"description": "map遍历数组"

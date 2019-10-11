@@ -37,7 +37,7 @@
 		"description": "声明常量"
 	},
 	"箭头函数": {
-		"prefix": "fun.",
+		"prefix": "funn",
 		"body": [
 			"($1) => {$0}"
 		],
@@ -103,7 +103,7 @@
 	"注册事件": {
 		"prefix": ".addEventListener",
 		"body": [
-			".addEventListener('${0:事件类型}' , function () {",
+			".addEventListener('${0:事件类型}' , () => {",
 			"})",
 		],
 		"description": "注册事件IE9+兼容"
@@ -541,11 +541,9 @@
 		"description": "返回数组匹配的第一项数据"
 	},
 	"过滤数组-HTML5": {
-		"prefix": ".filter((${1:item})",
+		"prefix": ".filter((item)=>{})",
 		"body": [
-			".filter((${1:item}) => {",
-			"\treturn ${1:item} < ${2:数值};",
-			"})$3",
+			".filter((item) => {$0})",
 		],
 		"description": "过滤数组-HTML5"
 	},
@@ -566,9 +564,7 @@
 	"JQ遍历数组函数": {
 		"prefix": ".forEach",
 		"body": [
-			".forEach((item,index) => {",
-			"\t$0",
-			"})",
+			".forEach((item) => {$0})",
 		],
 		"description": "JQ遍历数组函数"
 	},
@@ -999,12 +995,55 @@
 			"",
 			"export default class ${1:componentName} extends React.Component{",
 			"\tstate = {};",
-			"\trender (){",
-			"\t\treturn (<div className=\"$1\">$0</div>)",
+			"\trender() {",
+			"\t\treturn (",
+			"\t\t\t<div className=\"${1:componentName}\">$0</div>",
+			"\t\t)",
 			"\t}",
-			"}",
+			"\tcomponentWillUnmount(){",
+			"\t\tthis.setState = (state,callback) => {return}",
+			"\t}",
+			"}"
 		],
 		"description": "React组件"
+	},
+	"React-redux组件": {
+		"prefix": "React-component-redux",
+		"body": [
+			"import React from 'react'",
+			"import './index.scss'",
+			"import { connect } from \"react-redux\";",
+			"import {init} from '../../store/actionCreate';",
+			"",
+			"class ${1:componentName} extends React.Component{",
+			"\tstate = {};",
+			"\tcomponentWillReceiveProps(newProps) {",
+			"\t}",
+			"\trender() {",
+			"\t\treturn (",
+			"\t\t\t<div className=\"${1:componentName}\">$0</div>",
+			"\t\t)",
+			"\t}",
+			"}",
+			"",
+			"const mapStateToProps = (state) => { return { propsData: state } }",
+			"",
+			"const mapDispatchToProps = {init};",
+			"",
+			"export default connect(",
+			"\tmapStateToProps,",
+			"\tmapDispatchToProps",
+			")(${1:componentName});",
+		],
+		"description": "React-redux组件"
+	},
+	"React路由配置": {
+		"prefix": "react-router-base",
+		"body": [
+			"import { HashRouter as Router, Switch, Route, Link, Redirect } from \"react-router-dom\";",
+			"<Redirect exact from=\"/\" to=\"/goods\" />",
+		],
+		"description": "React路由配置"
 	},
 	"React-ref": {
 		"prefix": "ref",
@@ -1052,7 +1091,7 @@
 		"prefix": ".map",
 		"body": [
 			".map((item,index) => {",
-			"\treturn <li key={index}></li>$0",
+			"\treturn $0",
 			"})",
 		],
 		"description": "map遍历数组"
@@ -1173,7 +1212,7 @@
 	"中心": {
 		"prefix": "center",
 		"body": [
-			"center",
+			"'center'",
 		],
 		"description": "中心"
 	},
@@ -1208,14 +1247,14 @@
 	"相对定位": {
 		"prefix": "relative",
 		"body": [
-			"relative",
+			"'relative'",
 		],
 		"description": "相对定位"
 	},
 	"绝对定位": {
 		"prefix": "absolute",
 		"body": [
-			"absolute",
+			"'absolute'",
 		],
 		"description": "绝对定位"
 	},
