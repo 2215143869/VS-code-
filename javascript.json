@@ -39,8 +39,7 @@
 	"箭头函数": {
 		"prefix": "fun.",
 		"body": [
-			"($0) => {",
-			"}",
+			"($1) => {$0}"
 		],
 		"description": "箭头函数"
 	},
@@ -399,21 +398,6 @@
 		],
 		"description": "对象原型添加方法"
 	},
-	"缓动动画函数": {
-		"prefix": "animationSlow",
-		"body": [
-			"animationSlow(${1:box}, {",
-			"\tleft: $2,",
-			"\ttop: $3,",
-			"\twidth: $4,",
-			"\theight: $5,",
-			"\tzIndex: 1,",
-			"\topacity: 0.5,",
-			"\tbackgroundColor: 'rgb(255,20,10)'",
-			"})",
-		],
-		"description": "缓动动画函数"
-	},
 	"for循环": {
 		"prefix": "for",
 		"body": [
@@ -440,12 +424,10 @@
 		"prefix": "switch",
 		"body": [
 			"switch ($1) {",
-			"\tcase $0:{",
+			"\tcase $0:",
 			"\t\tbreak;",
-			"\t};",
-			"\tdefault:{",
+			"\tdefault:",
 			"\t\tbreak;",
-			"\t};",
 			"};",
 		],
 	},
@@ -552,13 +534,20 @@
 	},
 	//数组方法
 	"数组排序函数": {
-		"prefix": ".sort((a, b) =>",
+		"prefix": ".sort()",
 		"body": [
 			".sort((a, b) => {",
 			"\treturn ${1:a} - ${0:b};",
 			"})$3",
 		],
 		"description": "数组排序函数"
+	},
+	"返回数组匹配的第一项数据": {
+		"prefix": ".find(item => {})",
+		"body": [
+			".find(item => {$0})"
+		],
+		"description": "返回数组匹配的第一项数据"
 	},
 	"截取数组": {
 		"prefix": ".slice(开始下标,结束下标)",
@@ -2299,21 +2288,6 @@
 	// 	"description": "<tag>"
 	// },
 	// -----------------------------Reat--------------------------------
-	"React组件": {
-		"prefix": "React-component",
-		"body": [
-			"import React from 'react'",
-			"import './index.scss'",
-			"",
-			"export default class ${1:componentName} extends React.Component{",
-			"\tstate = {};",
-			"\trender (){",
-			"\t\treturn (<div className=\"$1\">$0</div>)",
-			"\t}",
-			"}",
-		],
-		"description": "React组件"
-	},
 	"React创建bus": {
 		"prefix": "React-bus",
 		"body": [
@@ -2321,48 +2295,6 @@
 			"export default new EventEmitter()",
 		],
 		"description": "React创建bus"
-	},
-	"React-ref": {
-		"prefix": "ref",
-		"body": [
-			"ref={val => this.$0 = val}"
-		],
-		"description": "React-ref"
-	},
-	"bus上传值": {
-		"prefix": "bus.emit",
-		"body": [
-			"bus.emit('{1:fun}',$0)",
-		],
-		"description": "bus上传值"
-	},
-	"bus获取值": {
-		"prefix": "bus.on",
-		"body": [
-			"bus.on('${1:fun}',data => {$0})",
-		],
-		"description": "bus获取值"
-	},
-	"React实例DOM完成渲染时": {
-		"prefix": "componentDidMount",
-		"body": [
-			"componentDidMount(){$0};",
-		],
-		"description": "React实例DOM完成渲染时"
-	},
-	"React实例将要销毁时": {
-		"prefix": "componentWillUnmount",
-		"body": [
-			"componentWillUnmount(){$0};",
-		],
-		"description": "React实例将要销毁时"
-	},
-	"React修改当前实例的state值": {
-		"prefix": "this.setState",
-		"body": [
-			"this.setState({$0})",
-		],
-		"description": "React修改当前实例的state值"
 	},
 	"map遍历数组": {
 		"prefix": ".map",
@@ -2373,12 +2305,47 @@
 		],
 		"description": "map遍历数组"
 	},
-	"div": {
-		"prefix": "div",
+	"redux配置": {
+		"prefix": "redux_base",
 		"body": [
-			"<div className=\"$0\"></div>"
+			"// --------------------------index.js---------------------------",
+			"import { createStore, applyMiddleware, compose } from 'redux';",
+			"import thunk from 'redux-thunk';",
+			"import reducers from './reducers';",
+			"const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;",
+			"const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)))",
+			"export default store;",
+			"// --------------------------reducer.js---------------------------",
+			"import {ADD} from './actionType'",
+			"export default (num = 0,action) => {",
+			"\tswitch (action.type) {",
+			"\t\tcase ADD:",
+			"\t\t\treturn num + action.count",
+			"\t\tcase MINUS:",
+			"\t\t\treturn num - action.count",
+			"\t\tdefault:",
+			"\t\t\treturn num",
+			"\t}",
+			"}",
+			"// --------------------------actionType.js---------------------------",
+			"export const ADD = 'ADD'",
+			"// --------------------------actionCreator.js---------------------------",
+			"import {ADD} from './actionType'",
+			"export const add = count  => {",
+			"\treturn {",
+			"\t\ttype: ADD,",
+			"\t\tcount",
+			"\t}",
+			"}",
+			"export const addAsync = count => {",
+			"\treturn dispatch => {",
+			"\t\tsetTimeout(() => {",
+			"\t\t\tdispatch(add(count))",
+			"\t\t}, 2000);",
+			"\t}",
+			"}",
 		],
-		"description": "div"
+		"description": "redux配置"
 	},
 	// ---------------------------------React  Style
 	"宽": {
@@ -2534,90 +2501,5 @@
 			"zIndex : $0",
 		],
 		"description": "层级"
-	},
-	// -----------------------------React 事件
-	"鼠标移入": {
-		"prefix": "onMouseenter",
-		"body": [
-			"onMouseenter={() => this.${0:fun}()}",
-		],
-		"description": "鼠标移入"
-	},
-	"鼠标移出": {
-		"prefix": "onMouseleave",
-		"body": [
-			"onMouseleave={() => this.${0:fun}()}",
-		],
-		"description": "鼠标移出"
-	},
-	"值改变事件": {
-		"prefix": "onChange",
-		"body": [
-			"onChange={() => this.${0:fun}()}",
-		],
-		"description": "值改变事件"
-	},
-	"鼠标移入(触发冒泡)": {
-		"prefix": "onMouseover",
-		"body": [
-			"onMouseover={() => this.${0:fun}()}",
-		],
-		"description": "鼠标移入(触发冒泡)"
-	},
-	"鼠标移动": {
-		"prefix": "onMousemove",
-		"body": [
-			"onMousemove={() => this.${0:fun}()}",
-		],
-		"description": "鼠标移动"
-	},
-	"jQ点击": {
-		"prefix": "onClick",
-		"body": [
-			"onClick={() => this.${0:fun}()}",
-		],
-		"description": "jQ点击"
-	},
-	"jQ键盘按下": {
-		"prefix": "onKeydown",
-		"body": [
-			"onKeydown={() => this.${0:fun}()}",
-		],
-		"description": "jQ键盘按下"
-	},
-	"jQ键盘弹起": {
-		"prefix": "onKeyup",
-		"body": [
-			"onKeyup={() => this.${0:fun}()}",
-		],
-		"description": "jQ键盘弹起"
-	},
-	"鼠标按下": {
-		"prefix": "onMousedown",
-		"body": [
-			"onMousedown={() => this.${0:fun}()}",
-		],
-		"description": "鼠标按下"
-	},
-	"鼠标弹起": {
-		"prefix": "onMouseup",
-		"body": [
-			"onMouseup={() => this.${0:fun}()}",
-		],
-		"description": "鼠标弹起"
-	},
-	"失去焦点": {
-		"prefix": "onBlur",
-		"body": [
-			"onBlur={() => this.${0:fun}()}",
-		],
-		"description": "失去焦点"
-	},
-	"成为焦点": {
-		"prefix": "onFocus",
-		"body": [
-			"onFocus={() => this.${0:fun}()}",
-		],
-		"description": "成为焦点"
 	},
 }

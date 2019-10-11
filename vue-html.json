@@ -75,6 +75,41 @@
 		],
 		"description": "鼠标移入"
 	},
+	"触摸开始（手指放在触摸屏上）": {
+		"prefix": "@touchstart",
+		"body": [
+			"@touchstart=\"$0\"",
+		],
+		"description": "触摸开始（手指放在触摸屏上）"
+	},
+	"拖动（手指在触摸屏上移动）": {
+		"prefix": "@touchmove",
+		"body": [
+			"@touchmove=\"$0\"",
+		],
+		"description": "拖动（手指在触摸屏上移动）"
+	},
+	"触摸结束（手指从触摸屏上移开）": {
+		"prefix": "@touchend",
+		"body": [
+			"@touchend=\"$0\"",
+		],
+		"description": "触摸结束（手指从触摸屏上移开）"
+	},
+	"移动的手指进入一个dom元素。": {
+		"prefix": "@touchenter",
+		"body": [
+			"@touchenter=\"$0\"",
+		],
+		"description": "移动的手指进入一个dom元素。"
+	},
+	"移动的手指离开一个dom元素": {
+		"prefix": "@touchleave",
+		"body": [
+			"@touchleave=\"$0\"",
+		],
+		"description": "移动的手指离开一个dom元素"
+	},
 	"鼠标双击": {
 		"prefix": "@dblclick",
 		"body": [
