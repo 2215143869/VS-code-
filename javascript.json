@@ -641,12 +641,19 @@
 		],
 		"description": "查找数据"
 	},
-	"把字符串中的大写转换成小写": {
+	"把字符串转换成小写": {
 		"prefix": ".toLowerCase",
 		"body": [
 			".toLowerCase()",
 		],
-		"description": "把字符串中的大写转换成小写"
+		"description": "把字符串转换成小写"
+	},
+	"把字符串转换成大写": {
+		"prefix": ".toUpperCase",
+		"body": [
+			".toUpperCase()",
+		],
+		"description": "把字符串转换成大写"
 	},
 	"去除字符串前后空格": {
 		"prefix": ".trim()",
@@ -1905,7 +1912,7 @@
 	"request-axiosa": {
 		"prefix": "request-axios",
 		"body": [
-			"return request({",
+			"return axios({",
 			"\tmethod: '${1:post}',",
 			"\turl: '${0:url}',",
 			"\tdata: {},",
@@ -2228,13 +2235,9 @@
 		"prefix": "try",
 		"body": [
 			"try {",
-			"\tlet res = await ${0:userLogin}({",
-			"\t\tmobile: this.mobile,",
-			"\t})",
+			"\tlet res = await ${0:userLogin}()",
 			"\tconsole.log(res)",
-			"} catch (err) {",
-			"\tconsole.log(err)",
-			"}",
+			"} catch (err) {}",
 		],
 		"description": "调用封装的请求"
 	},
@@ -2302,7 +2305,7 @@
 		"description": "map遍历数组"
 	},
 	"redux配置": {
-		"prefix": "redux_base",
+		"prefix": "react-redux_base",
 		"body": [
 			"// --------------------------index.js---------------------------",
 			"import { createStore, applyMiddleware, compose } from 'redux';",
@@ -2311,14 +2314,12 @@
 			"const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;",
 			"const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)))",
 			"export default store;",
-			"// --------------------------reducer.js---------------------------",
+			"// --------------------------reducers.js---------------------------",
 			"import {ADD} from './actionType'",
 			"export default (num = 0,action) => {",
 			"\tswitch (action.type) {",
 			"\t\tcase ADD:",
 			"\t\t\treturn num + action.count",
-			"\t\tcase MINUS:",
-			"\t\t\treturn num - action.count",
 			"\t\tdefault:",
 			"\t\t\treturn num",
 			"\t}",
@@ -2340,6 +2341,18 @@
 			"\t\t}, 2000);",
 			"\t}",
 			"}",
+			"",
+			"",
+			"",
+			"import { Provider } from 'react-redux'",
+			"import store from './store'",
+			"const rootElement = document.getElementById('root')",
+			"ReactDOM.render(",
+			"\t<Provider store={store}>",
+			"\t\t<App />",
+			"\t</Provider>,",
+			"\trootElement",
+			")",
 		],
 		"description": "redux配置"
 	},

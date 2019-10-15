@@ -625,12 +625,19 @@
 		],
 		"description": "查找数据"
 	},
-	"把字符串中的大写转换成小写": {
+	"把字符串中换成小写": {
 		"prefix": ".toLowerCase",
 		"body": [
 			".toLowerCase()",
 		],
-		"description": "把字符串中的大写转换成小写"
+		"description": "把字符串中换成小写"
+	},
+	"把字符串转换成大写": {
+		"prefix": ".toUpperCase",
+		"body": [
+			".toUpperCase()",
+		],
+		"description": "把字符串转换成大写"
 	},
 	"去除字符串前后空格": {
 		"prefix": ".trim()",
@@ -931,13 +938,9 @@
 		"prefix": "try",
 		"body": [
 			"try {",
-			"\tlet res = await ${0:userLogin}({",
-			"\t\tmobile: this.mobile,",
-			"\t})",
+			"\tlet res = await ${0:userLogin}()",
 			"\tconsole.log(res)",
-			"} catch (err) {",
-			"\tconsole.log(err)",
-			"}",
+			"} catch (err) {}",
 		],
 		"description": "调用封装的请求"
 	},
@@ -991,7 +994,7 @@
 		"prefix": "React-component",
 		"body": [
 			"import React from 'react'",
-			"import './index.scss'",
+			"import styles from './index.module.scss'",
 			"",
 			"export default class ${1:componentName} extends React.Component{",
 			"\tstate = {};",
@@ -999,9 +1002,6 @@
 			"\t\treturn (",
 			"\t\t\t<div className=\"${1:componentName}\">$0</div>",
 			"\t\t)",
-			"\t}",
-			"\tcomponentWillUnmount(){",
-			"\t\tthis.setState = (state,callback) => {return}",
 			"\t}",
 			"}"
 		],
@@ -1011,7 +1011,7 @@
 		"prefix": "React-component-redux",
 		"body": [
 			"import React from 'react'",
-			"import './index.scss'",
+			"import styles from './index.module.scss'",
 			"import { connect } from \"react-redux\";",
 			"import {init} from '../../store/actionCreate';",
 			"",
@@ -1026,7 +1026,7 @@
 			"\t}",
 			"}",
 			"",
-			"const mapStateToProps = (state) => { return { propsData: state } }",
+			"const mapStateToProps = (state) => { return { data: state } }",
 			"",
 			"const mapDispatchToProps = {init};",
 			"",
@@ -1036,6 +1036,23 @@
 			")(${1:componentName});",
 		],
 		"description": "React-redux组件"
+	},
+	"className": {
+		"prefix": "class",
+		"body": [
+			"className={styles.$0}"
+		],
+		"description": "className"
+	},
+	"constructor": {
+		"prefix": "constructor(props){}",
+		"body": [
+			"constructor(props) {",
+			"\tsuper(props);",
+			"\tthis.state = {$0};",
+			"}",
+		],
+		"description": "constructor"
 	},
 	"React路由配置": {
 		"prefix": "react-router-base",
@@ -1076,7 +1093,9 @@
 	"React实例将要销毁时": {
 		"prefix": "componentWillUnmount",
 		"body": [
-			"componentWillUnmount(){$0};",
+			"componentWillUnmount() {",
+			"\tthis.setState = (state, callback) => {return}",
+			"}",
 		],
 		"description": "React实例将要销毁时"
 	},
