@@ -92,6 +92,13 @@
 		],
 		"description": "元素拖拽结束"
 	},
+	"获取元素的位置对象": {
+		"prefix": ".getBoundingClientRect()",
+		"body": [
+			".getBoundingClientRect()",
+		],
+		"description": "获取元素的位置对象"
+	},
 	"元素拖拽中": {
 		"prefix": ".ondrag ",
 		"body": [
@@ -130,17 +137,19 @@
 		"description": "获取事件名称"
 	},
 	//网页元素API
-	"document.querySelector": {
-		"prefix": "document.querySelector",
+	"根据选择器获取所有匹配的元素": {
+		"prefix": ".querySelectorAll()",
 		"body": [
-			"document.querySelector('$0')",
+			".querySelectorAll('$0')",
 		],
+		"description": "根据选择器获取所有匹配的元素"
 	},
-	"document.querySelectorAll": {
-		"prefix": "document.querySelectorAll",
+	"根据选择器获取第一个元素": {
+		"prefix": ".querySelector()",
 		"body": [
-			"document.querySelectorAll('$0')",
+			".querySelector('$0')",
 		],
+		"description": "根据选择器获取第一个元素"
 	},
 	"获取自定义属性": {
 		"prefix": ".getAttribute",
@@ -1000,7 +1009,7 @@
 			"\tstate = {};",
 			"\trender() {",
 			"\t\treturn (",
-			"\t\t\t<div className=\"${1:componentName}\">$0</div>",
+			"\t\t\t<div className={styles.${1:componentName}}>$0</div>",
 			"\t\t)",
 			"\t}",
 			"}"
@@ -1021,7 +1030,7 @@
 			"\t}",
 			"\trender() {",
 			"\t\treturn (",
-			"\t\t\t<div className=\"${1:componentName}\">$0</div>",
+			"\t\t\t<div className={${styles.1:componentName}}>$0</div>",
 			"\t\t)",
 			"\t}",
 			"}",
@@ -1098,6 +1107,13 @@
 			"}",
 		],
 		"description": "React实例将要销毁时"
+	},
+	"props值改变时": {
+		"prefix": "componentWillReceiveProps",
+		"body": [
+			"componentWillReceiveProps(newProps) {$0}",
+		],
+		"description": "props值改变时"
 	},
 	"React修改当前实例的state值": {
 		"prefix": "this.setState",
@@ -1439,4 +1455,15 @@
 		],
 		"description": "移动的手指离开一个dom元素"
 	},
+	// 临时
+
+
+	"懒加载组件": {
+		"prefix": "this.$lazyLoading",
+		"body": [
+			"this.$$lazyLoading($1)"
+		],
+		"description": "懒加载组件"
+	},
+
 }

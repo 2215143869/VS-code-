@@ -130,18 +130,6 @@
 		"description": "获取事件名称"
 	},
 	//网页元素API
-	"document.querySelector": {
-		"prefix": "document.querySelector",
-		"body": [
-			"document.querySelector('$0')",
-		],
-	},
-	"document.querySelectorAll": {
-		"prefix": "document.querySelectorAll",
-		"body": [
-			"document.querySelectorAll('$0')",
-		],
-	},
 	"获取自定义属性": {
 		"prefix": ".getAttribute",
 		"body": [
@@ -212,6 +200,20 @@
 		],
 		"description": "根据id获取元素"
 	},
+	"根据选择器获取所有匹配的元素": {
+		"prefix": ".querySelectorAll()",
+		"body": [
+			".querySelectorAll('$0')",
+		],
+		"description": "根据选择器获取所有匹配的元素"
+	},
+	"根据选择器获取第一个元素": {
+		"prefix": ".querySelector()",
+		"body": [
+			".querySelector('$0')",
+		],
+		"description": "根据选择器获取第一个元素"
+	},
 	"在指定节点前面插入一个节点": {
 		"prefix": ".insertBefore",
 		"body": [
@@ -257,6 +259,13 @@
 			".offsetWidth",
 		],
 		"description": "获取元素真实宽度"
+	},
+	"获取元素的位置对象": {
+		"prefix": ".getBoundingClientRect()",
+		"body": [
+			".getBoundingClientRect()",
+		],
+		"description": "获取元素的位置对象"
 	},
 	"获取元素真实高度": {
 		"prefix": ".offH",
