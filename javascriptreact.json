@@ -60,6 +60,13 @@
 		],
 		"description": "阻止默认事件"
 	},
+	"阻止事件冒泡": {
+		"prefix": "e.stopPropagation()",
+		"body": [
+			"e.stopPropagation()",
+		],
+		"description": "阻止事件冒泡"
+	},
 	"元素结束拖拽时,在区域内": {
 		"prefix": ".ondrop ",
 		"body": [
@@ -746,7 +753,7 @@
 		"body": [
 			"(){",
 			"\t$0",
-			"},",
+			"}",
 		],
 		"description": "对象方法"
 	},
@@ -1006,7 +1013,7 @@
 			"import styles from './index.module.scss'",
 			"",
 			"export default class ${1:componentName} extends React.Component{",
-			"\tstate = {};",
+			"\tstate = {}",
 			"\trender() {",
 			"\t\treturn (",
 			"\t\t\t<div className={styles.${1:componentName}}>$0</div>",
@@ -1021,11 +1028,11 @@
 		"body": [
 			"import React from 'react'",
 			"import styles from './index.module.scss'",
-			"import { connect } from \"react-redux\";",
-			"import {init} from '../../store/actionCreate';",
+			"import { connect } from \"react-redux\"",
+			"import {init} from '../../store/actionCreate'",
 			"",
 			"class ${1:componentName} extends React.Component{",
-			"\tstate = {};",
+			"\tstate = {}",
 			"\tcomponentWillReceiveProps(newProps) {",
 			"\t}",
 			"\trender() {",
@@ -1037,12 +1044,12 @@
 			"",
 			"const mapStateToProps = (state) => { return { data: state } }",
 			"",
-			"const mapDispatchToProps = {init};",
+			"const mapDispatchToProps = {init}",
 			"",
 			"export default connect(",
 			"\tmapStateToProps,",
 			"\tmapDispatchToProps",
-			")(${1:componentName});",
+			")(${1:componentName})",
 		],
 		"description": "React-redux组件"
 	},

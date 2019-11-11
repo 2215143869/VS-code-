@@ -60,6 +60,13 @@
 		],
 		"description": "阻止默认事件"
 	},
+	"阻止事件冒泡": {
+		"prefix": "e.stopPropagation()",
+		"body": [
+			"e.stopPropagation()",
+		],
+		"description": "阻止事件冒泡"
+	},
 	"元素结束拖拽时,在区域内": {
 		"prefix": ".ondrop ",
 		"body": [
