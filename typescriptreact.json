@@ -1,0 +1,1344 @@
+{
+	"获取长度": {
+		"prefix": ".length",
+		"body": [
+			".length",
+		],
+	},
+	"确认选择框": {
+		"prefix": "confirm",
+		"body": [
+			"confirm($0)",
+		],
+	},
+	"内容输入框": {
+		"prefix": "prompt",
+		"body": [
+			"prompt($0)",
+		],
+	},
+	"外部函数": {
+		"prefix": "function outer()",
+		"body": [
+			"function outer(){",
+			"\tfunction closure(){",
+			"\t\treturn",
+			"\t};",
+			"\treturn closure;",
+			"};"
+		],
+		"description": "外部函数"
+	},
+	"声明常量": {
+		"prefix": "con",
+		"body": [
+			"const $0",
+		],
+		"description": "声明常量"
+	},
+	"箭头函数": {
+		"prefix": "fun.",
+		"body": [
+			"($0) => {",
+			"}",
+		],
+		"description": "箭头函数"
+	},
+	//事件类型
+	"拖拽的元素在区域内移动": {
+		"prefix": ".ondragover ",
+		"body": [
+			".ondragover = function(e){",
+			"e.preventDefault()",
+			"};"
+		],
+		"description": "拖拽的元素在区域内移动"
+	},
+	"阻止默认事件": {
+		"prefix": "e.preventDefault()",
+		"body": [
+			"e.preventDefault()",
+		],
+		"description": "阻止默认事件"
+	},
+	"元素结束拖拽时,在区域内": {
+		"prefix": ".ondrop ",
+		"body": [
+			".ondrop = function($0){",
+			"};"
+		],
+		"description": "元素结束拖拽时,在区域内"
+	},
+	"元素拖拽离开": {
+		"prefix": ".dragleave ",
+		"body": [
+			".dragleave = function($0){",
+			"};"
+		],
+		"description": "元素拖拽离开"
+	},
+	"元素拖拽进入": {
+		"prefix": ".dragenter ",
+		"body": [
+			".dragenter = function($0){",
+			"};"
+		],
+		"description": "元素拖拽进入"
+	},
+	"元素拖拽结束": {
+		"prefix": ".ondragend ",
+		"body": [
+			".ondragend = function($0){",
+			"};"
+		],
+		"description": "元素拖拽结束"
+	},
+	"元素拖拽中": {
+		"prefix": ".ondrag ",
+		"body": [
+			".ondrag = function($0){",
+			"};"
+		],
+		"description": "元素拖拽中"
+	},
+	"注册事件": {
+		"prefix": ".addEventListener",
+		"body": [
+			".addEventListener('${0:事件类型}' , function () {",
+			"})",
+		],
+		"description": "注册事件IE9+兼容"
+	},
+	"事件的阶段": {
+		"prefix": "e.eventPhase",
+		"body": [
+			"e.eventPhase",
+		],
+		"description": "事件的阶段"
+	},
+	"事件的真正触发对象": {
+		"prefix": "e.target",
+		"body": [
+			"e.target",
+		],
+		"description": "事件的真正触发对象"
+	},
+	"获取事件名称": {
+		"prefix": "e.type",
+		"body": [
+			"e.type",
+		],
+		"description": "获取事件名称"
+	},
+	//网页元素API
+	"document.querySelector": {
+		"prefix": "document.querySelector",
+		"body": [
+			"document.querySelector('$0')",
+		],
+	},
+	"document.querySelectorAll": {
+		"prefix": "document.querySelectorAll",
+		"body": [
+			"document.querySelectorAll('$0')",
+		],
+	},
+	"获取自定义属性": {
+		"prefix": ".getAttribute",
+		"body": [
+			".getAttribute('${0:属性名}')",
+		],
+		"description": "获取自定义属性"
+	},
+	"设置自定义属性": {
+		"prefix": ".setAttribute",
+		"body": [
+			".setAttribute('${1:属性名}','${0:属性值}')",
+		],
+		"description": "设置自定义属性"
+	},
+	"移除自定义属性": {
+		"prefix": ".removeAttribute",
+		"body": [
+			".removeAttribute('${0:属性名}')",
+		],
+		"description": "移除自定义属性"
+	},
+	"移除节点": {
+		"prefix": ".removeChild",
+		"body": [
+			"${0:父节点}.removeChild(${1:移除节点})",
+		],
+		"description": "移除节点"
+	},
+	"获取子元素节点": {
+		"prefix": ".children",
+		"body": [
+			".children",
+		],
+		"description": "获取子元素节点"
+	},
+	"创建元素节点": {
+		"prefix": "document.createElement",
+		"body": [
+			"document.createElement('${0:标签名}')",
+		],
+		"description": "创建元素节点"
+	},
+	"用新的子元素替换已有的子元素": {
+		"prefix": "replaceChild",
+		"body": [
+			"replaceChild(${0:新节点},${1:替换节点})",
+		],
+		"description": "用新的子元素替换已有的子元素"
+	},
+	"根据标签名获取元素": {
+		"prefix": "getTagName",
+		"body": [
+			"let ${0:li}List = document.getElementsByTagName('${0:li}')",
+		],
+		"description": "根据标签名获取元素"
+	},
+	"根据类名获取元素": {
+		"prefix": "getclassname",
+		"body": [
+			"let ${0:one}List = document.getElementsByClassName('${0:one}')",
+		],
+		"description": "根据类名获取元素"
+	},
+	"根据id获取元素": {
+		"prefix": "getid",
+		"body": [
+			"let ${0:box} = document.getElementById('${0:box}')",
+		],
+		"description": "根据id获取元素"
+	},
+	"在指定节点前面插入一个节点": {
+		"prefix": ".insertBefore",
+		"body": [
+			".insertBefore(${1:移动节点},${0:插入节点})",
+		],
+		"description": "在指定节点前面插入一个节点"
+	},
+	"设置循环计时器": {
+		"prefix": "setIn",
+		"body": [
+			"setInterval(() => {",
+			"\t$0",
+			"},30)",
+		],
+		"description": "设置循环计时器"
+	},
+	"设置单次计时器": {
+		"prefix": "setT",
+		"body": [
+			"setTimeout(() => {",
+			"\t$0",
+			"},1000)",
+		],
+		"description": "设置单次计时器"
+	},
+	"参照最近定位父元素获取左偏移量": {
+		"prefix": ".offL",
+		"body": [
+			".offsetLeft",
+		],
+		"description": "参照最近定位父元素获取左偏移量"
+	},
+	"参照最近定位父元素获取上偏移量": {
+		"prefix": ".offT",
+		"body": [
+			".offsetTop",
+		],
+		"description": "参照最近定位父元素获取上偏移量"
+	},
+	"获取元素真实宽度": {
+		"prefix": ".offW",
+		"body": [
+			".offsetWidth",
+		],
+		"description": "获取元素真实宽度"
+	},
+	"获取元素真实高度": {
+		"prefix": ".offH",
+		"body": [
+			".offsetHeight",
+		],
+		"description": "获取元素真实高度"
+	},
+	"移除计时器": {
+		"prefix": "clearInterval",
+		"body": [
+			"clearInterval(${0:timeD})",
+		],
+		"description": "移除计时器"
+	},
+	"移动节点到父元素最后": {
+		"prefix": ".appendChild",
+		"body": [
+			"${1:父元素}.appendChild(${0:操作元素})",
+		],
+		"description": "移动节点到父元素最后"
+	},
+	"获取水平滚动出去的距离": {
+		"prefix": "scrollLeft",
+		"body": [
+			"document.documentElement.scrollLeft",
+		],
+		"description": "获取水平滚动出去的距离"
+	},
+	"获取垂直滚动出去的距离": {
+		"prefix": "scrollTop",
+		"body": [
+			"document.documentElement.scrollTop",
+		],
+		"description": "获取垂直滚动出去的距离"
+	},
+	"获取相对页面坐标点": {
+		"prefix": "pageX",
+		"body": [
+			"pageX",
+		],
+		"description": "获取相对页面坐标点"
+	},
+	"获取用户拖拽过来的文件": {
+		"prefix": "e.dataTransfer.files",
+		"body": [
+			"e.dataTransfer.files[${0:0}];",
+		],
+		"description": "获取用户拖拽过来的文件"
+	},
+	"获取文件的临时路径": {
+		"prefix": "URL.createObjectURL",
+		"body": [
+			"URL.createObjectURL(${0:文件})",
+		],
+		"description": "获取文件的临时路径"
+	},
+	"获取匹配的文本数组": {
+		"prefix": ".match",
+		"body": [
+			".match(/${0:正则表达式}/)",
+		],
+		"description": "获取匹配的文本数组"
+	},
+	"正则表达式": {
+		"prefix": ".test",
+		"body": [
+			"${1:正则表达式}.test('${0:字符串}')",
+		],
+		"description": "正则表达式"
+	},
+	//语法类型
+	"改变函数的this指向,并且返回一个新函数": {
+		"prefix": ".bind",
+		"body": [
+			".bind($0)",
+		],
+		"description": "改变函数的this指向,并且返回一个新函数"
+	},
+	"改变函数的this指向,并且直接调用函数": {
+		"prefix": ".call",
+		"body": [
+			".call($0)",
+		],
+		"description": "改变函数的this指向,并且直接调用函数"
+	},
+	"改变函数的this指向,并且直接调用函数,参数为数组": {
+		"prefix": ".apply",
+		"body": [
+			".apply($0)",
+		],
+		"description": "改变函数的this指向,并且直接调用函数,参数为数组"
+	},
+	"遍历数组": {
+		"prefix": "forarr",
+		"body": [
+			"for(let ${1:i} = 0;${1:i} < ${0:arr}.length;${1:i}++){",
+			"};",
+		],
+		"description": "数组快速for循环遍历"
+	},
+	"迭代器": {
+		"prefix": "forof",
+		"body": [
+			"for(let item of ${0:arr}){",
+			"};",
+		],
+		"description": "迭代器"
+	},
+	"函数": {
+		"prefix": "function",
+		"body": [
+			"function $0() {",
+			"}",
+		],
+		"description": "函数"
+	},
+	"自调用函数": {
+		"prefix": "function (w)",
+		"body": [
+			";(function (w) {",
+			"\t$0",
+			"}(window))",
+		],
+		"description": "自调用函数"
+	},
+	// "事件e兼容处理": {
+	// 	"prefix": "e = e || window.event;",
+	// 	"body": [
+	// 		"e = e || window.event;",
+	// 	],
+	// 	"description": "事件e兼容处理"
+	// },
+	"对象原型添加方法": {
+		"prefix": ".prototype",
+		"body": [
+			".prototype.${0:方法} = function () {",
+			"};",
+		],
+		"description": "对象原型添加方法"
+	},
+	"缓动动画函数": {
+		"prefix": "animationSlow",
+		"body": [
+			"animationSlow(${1:box}, {",
+			"\tleft: $2,",
+			"\ttop: $3,",
+			"\twidth: $4,",
+			"\theight: $5,",
+			"\tzIndex: 1,",
+			"\topacity: 0.5,",
+			"\tbackgroundColor: 'rgb(255,20,10)'",
+			"})",
+		],
+		"description": "缓动动画函数"
+	},
+	"for循环": {
+		"prefix": "for",
+		"body": [
+			"for (let ${1:i} = ${2:0}; ${1:i} < ${0:0}; ${1:i}++) {",
+			"};",
+		],
+	},
+	"forin": {
+		"prefix": "forin",
+		"body": [
+			"for (let key in ${0:obj}) {",
+			"};",
+		],
+	},
+	"如果..则..  否则如果..则...": {
+		"prefix": "if else else if",
+		"body": [
+			"if (${0:condition}) {",
+			"} else if () {",
+			"}",
+		],
+	},
+	"switch判断": {
+		"prefix": "switch",
+		"body": [
+			"switch ($1) {",
+			"\tcase $0:{",
+			"\t\tbreak;",
+			"\t};",
+			"\tdefault:{",
+			"\t\tbreak;",
+			"\t};",
+			"};",
+		],
+	},
+	"If Statement": {
+		"prefix": "if",
+		"body": [
+			"if (${0:condition}) {",
+			"}"
+		],
+		"description": "If Statement"
+	},
+	"If-Else Statement": {
+		"prefix": "ifelse",
+		"body": [
+			"if (${0:condition}) {",
+			"} else {",
+			"}"
+		],
+		"description": "If-Else Statement"
+	},
+	"While Statement": {
+		"prefix": "while",
+		"body": [
+			"while (${1:condition}) {",
+			"\t$0",
+			"}"
+		],
+		"description": "While Statement"
+	},
+	"Do-While Statement": {
+		"prefix": "dowhile",
+		"body": [
+			"do {",
+			"\t$0",
+			"} while (${1:condition})"
+		],
+		"description": "Do-While Statement"
+	},
+	"Log to the console": {
+		"prefix": "log",
+		"body": [
+			"console.log($0)"
+		],
+		"description": "Log to the console"
+	},
+	//数学对象类型
+	"转换成整数": {
+		"prefix": "parseInt",
+		"body": [
+			"parseInt($0)",
+		],
+	},
+	"获得nim-max之间的随机值": {
+		"prefix": "getRandom",
+		"body": [
+			"function  getRandom(${1:min}, ${0:max}) {",
+			"let min = Math.ceil(min)",
+			"let max = Math.floor(max)",
+			"return Math.floor(Math.random() * (max - min + 1) + min)",
+			"};",
+		],
+	},
+	"转换成浮点数": {
+		"prefix": "parseFloat",
+		"body": [
+			"parseFloat($0)",
+		],
+	},
+	"数学-随机数": {
+		"prefix": "Math.random",
+		"body": [
+			"Math.random()$0",
+		],
+	},
+	"数学-地板函数": {
+		"prefix": "Math.floor",
+		"body": [
+			"Math.floor($1)",
+		],
+	},
+	"数学-天花板函数": {
+		"prefix": "Math.ceil",
+		"body": [
+			"Math.ceil($1)",
+		],
+	},
+	// "数学-四舍五入": {
+	// 	"prefix": "Math.round",
+	// 	"body": [
+	// 		"Math.round($1)",
+	// 	],
+	// },
+	// "数学-圆周率": {
+	// 	"prefix": "Math.PI ",
+	// 	"body": [
+	// 		"Math.PI()$1",
+	// 	],
+	// },
+	"数学-绝对值": {
+		"prefix": "Math.abs",
+		"body": [
+			"Math.abs($0)",
+		],
+	},
+	//数组方法
+	"map遍历数组返回新数据": {
+		"prefix": ".map",
+		"body": [
+			".map((${1:item}) => $0)"
+		],
+	},
+	"过滤数组": {
+		"prefix": ".filter",
+		"body": [
+			".filter((${1:item}) => $0)"
+		],
+	},
+	"判断数组数据": {
+		"prefix": ".some",
+		"body": [
+			".some((${1:item}) => $0)"
+		],
+	},
+	"forEach遍历数组": {
+		"prefix": ".forEach",
+		"body": [
+			".forEach((${1:item}) => $0)"
+		],
+	},
+	"查找数组": {
+		"prefix": ".find",
+		"body": [
+			".find((${1:item}) => $0)"
+		],
+	},
+	"数组排序函数": {
+		"prefix": ".sort((a, b) =>",
+		"body": [
+			".sort((a, b) => a - b)",
+		],
+	},
+	"截取数组": {
+		"prefix": ".slice(开始下标,结束下标)",
+		"body": [
+			".slice(${1:开始下标},${0:结束下标})"
+		],
+		"description": "截取数组"
+	},
+	"数组尾部添加元素": {
+		"prefix": ".push",
+		"body": [
+			".push($0)",
+		],
+		"description": "数组尾部添加元素"
+	},
+	"从前往后查找元素": {
+		"prefix": ".indexOf()",
+		"body": [
+			".indexOf($0)",
+		],
+		"description": "从前往后查找元素"
+	},
+	"JQ遍历数组函数": {
+		"prefix": ".forEach",
+		"body": [
+			".forEach((item,index) => {",
+			"\t$0",
+			"})",
+		],
+		"description": "JQ遍历数组函数"
+	},
+	"数组链接字符串": {
+		"prefix": ".join()",
+		"body": [
+			".join('$0')",
+		],
+		"description": "数组链接字符串"
+	},
+	"数组删除替换元素": {
+		"prefix": ".splice()",
+		"body": [
+			".splice(${1:开始下标},${0:删除数量})"
+		],
+		"description": "数组删除替换元素"
+	},
+	//字符串方法
+	"替换字符串中字符": {
+		"prefix": ".replace",
+		"body": [
+			".replace(/${1:原字符}/g,'${0:替换字符}')",
+		],
+		"description": "替换字符串中字符"
+	},
+	"获取指定下标字符": {
+		"prefix": ".charAt",
+		"body": [
+			".charAt(${0:下标})",
+		],
+		"description": "获取指定下标字符"
+	},
+	"分割字符串成数组": {
+		"prefix": ".split",
+		"body": [
+			".split('${0:分割处字符}')",
+		],
+		"description": "分割字符串成数组"
+	},
+	"截取字符串(指定长度)": {
+		"prefix": ".substr",
+		"body": [
+			".substr(${1:开始下标},${0:截取长度})",
+		],
+		"description": "截取字符串(指定长度)"
+	},
+	"截取字符串(指定下标)": {
+		"prefix": ".substring",
+		"body": [
+			".substring(${1:开始下标},${0:<结束下标})",
+		],
+		"description": "截取字符串(指定下标)"
+	},
+	"查找数据": {
+		"prefix": ".includes",
+		"body": [
+			".includes('${0:查找字符}')",
+		],
+		"description": "查找数据"
+	},
+	"把字符串中的大写转换成小写": {
+		"prefix": ".toLowerCase",
+		"body": [
+			".toLowerCase()",
+		],
+		"description": "把字符串中的大写转换成小写"
+	},
+	"去除字符串前后空格": {
+		"prefix": ".trim()",
+		"body": [
+			".trim()$0",
+		],
+		"description": "去除字符串前后空格"
+	},
+	"从头部填充字符": {
+		"prefix": ".padStart()",
+		"body": [
+			".padStart(${1:填充后长度},'${0:填充字符}')",
+		],
+		"description": "从头部填充字符"
+	},
+	"从尾部填充字符": {
+		"prefix": ".padEnd()",
+		"body": [
+			".padEnd(${1:填充后长度},'${0:填充字符}')",
+		],
+		"description": "从尾部填充字符"
+	},
+	//日期对象方法
+	"获取当前毫秒数": {
+		"prefix": ".getTime",
+		"body": [
+			".getTime()$0",
+		],
+		"description": "获取当前毫秒数"
+	},
+	//CSS样式类型
+	"设置左偏移": {
+		"prefix": ".style.left",
+		"body": [
+			".style.left = $0 + 'px';",
+		],
+		"description": "设置左偏移"
+	},
+	"设置上偏移": {
+		"prefix": ".style.top",
+		"body": [
+			".style.top = $0 + 'px';",
+		],
+		"description": "设置上偏移"
+	},
+	"设置背景颜色": {
+		"prefix": ".style.bgc",
+		"body": [
+			".style.backgroundColor = '$0';",
+		],
+		"description": "设置背景颜色"
+	},
+	//ajax
+	"$.ajax": {
+		"prefix": "$.ajax",
+		"body": [
+			"$.ajax({",
+			"\ttype:'${1:post}',",
+			"\turl:'$2',",
+			"\tdata:{$3},",
+			"\tdataType:'json',",
+			"\tsuccess:function(${0:backData}){",
+			"\t}",
+			"})",
+		],
+		"description": "$.ajax"
+	},
+	"JSON.转js对象": {
+		"prefix": "JSON.parse()",
+		"body": [
+			"JSON.parse($0)",
+		],
+		"description": "JSON.转js对象"
+	},
+	"js对象转JSON": {
+		"prefix": "JSON.stringify()",
+		"body": [
+			"JSON.stringify($0)",
+		],
+		"description": "js对象转JSON"
+	},
+	"require": {
+		"prefix": "require",
+		"body": [
+			"const ${0:fs} = require('${0:fs}')"
+		],
+		"description": "require"
+	},
+	"对象方法": {
+		"prefix": "fun",
+		"body": [
+			"(){",
+			"\t$0",
+			"},",
+		],
+		"description": "对象方法"
+	},
+	"axios.FormData": {
+		"prefix": "axios.FormData",
+		"body": [
+			"let fd = new FormData()",
+			"fd.append(\"image\", data.file)",
+			"this.$$axios.post(`$1`, fd).then(res => {",
+			"\tconsole.log(res)",
+			"})",
+		],
+		"description": "axios.FormData"
+	},
+	"request-axiosa": {
+		"prefix": "request-axios",
+		"body": [
+			"return request({",
+			"\tmethod: '${1:post}',",
+			"\turl: '${0:url}',",
+			"\tdata: {},",
+			"\tparams:{}",
+			"})",
+		],
+		"description": "request-axiosa"
+	},
+	"axios.get": {
+		"prefix": "axios.get",
+		"body": [
+			"this.$$axios",
+			"\t.get(`${1:url}`, { params: {$2}})",
+			"\t.then(res => {",
+			"\t\tconsole.log(res)",
+			"\t})",
+			// "\t.catch(err => {})",
+		],
+		"description": "axios.get"
+	},
+	"axios.delete": {
+		"prefix": "axios.delete",
+		"body": [
+			"this.$$axios",
+			"\t.delete(`${1:url}`, { params: {$2}})",
+			"\t.then(res => {",
+			"\t\tconsole.log(res)",
+			"\t})",
+			// "\t.catch(err => {})",
+		],
+		"description": "axios.delete"
+	},
+	"抓取错误信息": {
+		"prefix": ".catch( () => {})",
+		"body": [
+			".catch( () => {$0})"
+		],
+		"description": "抓取错误信息"
+	},
+	"axios.post": {
+		"prefix": "axios.post",
+		"body": [
+			"this.$$axios.post(`${1:url}`,{$2})",
+			"\t.then( res => {",
+			"\t\tconsole.log(res)",
+			"\t})",
+		],
+		"description": "axios.post"
+	},
+	"最后总会调用": {
+		"prefix": ".finally(() => {})",
+		"body": [
+			".finally(() => {$0})",
+		],
+		"description": "最后总会调用"
+	},
+	"import导入组件": {
+		"prefix": "import App from 'url'",
+		"body": [
+			"import ${1:App} from '$0';"
+		],
+		"description": "import导入组件"
+	},
+	"import导入组件中的整个对象": {
+		"prefix": "import * as App from 'url'",
+		"body": [
+			"import * as ${1:App} from '$0';"
+		],
+		"description": "import导入组件中的整个对象"
+	},
+	"默认暴露": {
+		"prefix": "export default",
+		"body": [
+			"export default $0",
+		],
+		"description": "默认暴露"
+	},
+	"成功": {
+		"prefix": "success",
+		"body": [
+			"success",
+		],
+		"description": "成功"
+	},
+	"警告": {
+		"prefix": "warning",
+		"body": [
+			"warning",
+		],
+		"description": "警告"
+	},
+	"错误": {
+		"prefix": "error",
+		"body": [
+			"error",
+		],
+		"description": "错误"
+	},
+	"危险": {
+		"prefix": "danger",
+		"body": [
+			"danger",
+		],
+		"description": "危险"
+	},
+	"信息": {
+		"prefix": "info",
+		"body": [
+			"info",
+		],
+		"description": "信息"
+	},
+	"主要": {
+		"prefix": "primary",
+		"body": [
+			"primary",
+		],
+		"description": "主要"
+	},
+	"消息": {
+		"prefix": "message",
+		"body": [
+			"message",
+		],
+		"description": "消息"
+	},
+	"把obj2的所有属性都赋值给obj1": {
+		"prefix": "Object.assign(obj1,obj2)",
+		"body": [
+			"Object.assign($1,$0)",
+		],
+		"description": "把obj2的所有属性都赋值给obj1"
+	},
+	"调用封装的请求": {
+		"prefix": "try",
+		"body": [
+			"try {",
+			"\tlet res = await ${0:userLogin}({",
+			"\t\tmobile: this.mobile,",
+			"\t})",
+			"\tconsole.log(res)",
+			"} catch (err) {",
+			"\tconsole.log(err)",
+			"}",
+		],
+		"description": "调用封装的请求"
+	},
+	"同步修饰": {
+		"prefix": "async",
+		"body": [
+			"async"
+		],
+		"description": "同步修饰"
+	},
+	"数组去重": {
+		"prefix": "...new Set()",
+		"body": [
+			"...new Set($0)"
+		],
+		"description": "数组去重"
+	},
+	"把图片转成base64": {
+		"prefix": "base64",
+		"body": [
+			"let reader = new FileReader()",
+			"reader.readAsDataURL(imgFile)",
+			"reader.addEventListener(\"load\", res => {})",
+		],
+		"description": "把图片转成base64"
+	},
+	// html标签
+	// "<a></a>": {
+	// 	"prefix": "<a>",
+	// 	"body": [
+	// 		"<a href='#'>$0</a>",
+	// 	],
+	// 	"description": "<a>"
+	// },
+	// "<tag></tag>": {
+	// 	"prefix": "<tag>",
+	// 	"body": [
+	// 		"<${1:div}>$0</${1:div}>",
+	// 	],
+	// 	"description": "<tag>"
+	// },
+	// -----------------------------Reat--------------------------------
+	"React组件": {
+		"prefix": "React-component",
+		"body": [
+			"import React from \"react\";",
+			"",
+			"interface State {}",
+			"interface Props {}",
+			"",
+			"class ${0:ComponentName} extends React.Component<Props, State> {",
+			"  state: State = {};",
+			"",
+			"  render() {",
+			"    return <></>;",
+			"  }",
+			"}",
+			"",
+			"export default ${0:ComponentName};",
+		],
+		"description": "React组件"
+	},
+	"React-hook组件": {
+		"prefix": "React-hook",
+		"body": [
+			"import React, { useState, useEffect, useCallback, useRef, useMemo } from \"react\";",
+			"",
+			"interface Props {}",
+			"",
+			"function ${0:Component}(props: Props) {",
+			"  const {} = props;",
+			"",
+			"  return <></>;",
+			"}",
+			"",
+			"export default ${0:Component};",
+		],
+	},
+	"useState": {
+		"prefix": "useState",
+		"body": [
+			"const [${1:state}, set_${1:state}] = useState<${0:string}>($2);"
+		],
+	},
+	"useRef": {
+		"prefix": "useRef",
+		"body": [
+			"const $0: any = useRef();"
+		],
+	},
+	"useMemo": {
+		"prefix": "useMemo",
+		"body": [
+			"useMemo(() => {$0}, []);"
+		],
+	},
+	"useEffect": {
+		"prefix": "useEffect",
+		"body": [
+			"useEffect(() => {$0}, []);"
+		],
+	},
+	"useCallback": {
+		"prefix": "useCallback",
+		"body": [
+			"useCallback(() => {$0}, []);"
+		],
+	},
+	// "React创建bus": {
+	// 	"prefix": "React-Create-bus",
+	// 	"body": [
+	// 		"import {EventEmitter} from 'events';",
+	// 		"export default new EventEmitter()",
+	// 	],
+	// 	"description": "React创建bus"
+	// },
+	"React-ref": {
+		"prefix": "ref",
+		"body": [
+			"ref={val => this.$0 = val}"
+		],
+		"description": "React-ref"
+	},
+	"bus上传值": {
+		"prefix": "bus.emit",
+		"body": [
+			"bus.emit('{1:fun}',$0)",
+		],
+		"description": "bus上传值"
+	},
+	"bus获取值": {
+		"prefix": "bus.on",
+		"body": [
+			"bus.on('${1:fun}',data => {$0})",
+		],
+		"description": "bus获取值"
+	},
+	"React实例DOM完成渲染时": {
+		"prefix": "componentDidMount",
+		"body": [
+			"componentDidMount(){$0};",
+		],
+		"description": "React实例DOM完成渲染时"
+	},
+	"React实例将要销毁时": {
+		"prefix": "componentWillUnmount",
+		"body": [
+			"componentWillUnmount(){$0};",
+		],
+		"description": "React实例将要销毁时"
+	},
+	"React修改当前实例的state值": {
+		"prefix": "this.setState",
+		"body": [
+			"this.setState({$0})",
+		],
+		"description": "React修改当前实例的state值"
+	},
+	"div": {
+		"prefix": "div",
+		"body": [
+			"<div className=\"$0\"></div>"
+		],
+		"description": "div"
+	},
+	// ---------------------------------React  Style
+	"宽": {
+		"prefix": "width",
+		"body": [
+			"width: $0",
+		],
+		"description": "宽"
+	},
+	"高": {
+		"prefix": "height",
+		"body": [
+			"height: $0",
+		],
+		"description": "高"
+	},
+	"左偏移": {
+		"prefix": "left",
+		"body": [
+			"left: $0",
+		],
+		"description": "左偏移"
+	},
+	"上偏移": {
+		"prefix": "top",
+		"body": [
+			"top: $0",
+		],
+		"description": "上偏移"
+	},
+	"左浮动": {
+		"prefix": "float",
+		"body": [
+			"float: '${2:left}'$0",
+		],
+		"description": "左浮动"
+	},
+	"背景": {
+		"prefix": "background",
+		"body": [
+			"background: '$2'$0",
+		],
+		"description": "背景"
+	},
+	"外边距": {
+		"prefix": "margin",
+		"body": [
+			"margin: $0",
+		],
+		"description": "外边距"
+	},
+	"内边距": {
+		"prefix": "padding",
+		"body": [
+			"padding: $0",
+		],
+		"description": "内边距"
+	},
+	"行高": {
+		"prefix": "lineHeight",
+		"body": [
+			"lineHeight : '$2'$0",
+		],
+		"description": "行高"
+	},
+	"中心": {
+		"prefix": "center",
+		"body": [
+			"center",
+		],
+		"description": "中心"
+	},
+	"边框": {
+		"prefix": "border",
+		"body": [
+			"border : '$1px solid $2'",
+		],
+		"description": "边框"
+	},
+	"定位": {
+		"prefix": "position",
+		"body": [
+			"position : '${2:absolute}',$0",
+		],
+		"description": "定位"
+	},
+	"溢出": {
+		"prefix": "overflow",
+		"body": [
+			"overflow : '${2:hidden}',$0",
+		],
+		"description": "溢出"
+	},
+	"文字水平对齐": {
+		"prefix": "textAlign",
+		"body": [
+			"textAlign : '${2:center}',$0",
+		],
+		"description": "文字水平对齐"
+	},
+	"相对定位": {
+		"prefix": "relative",
+		"body": [
+			"relative",
+		],
+		"description": "相对定位"
+	},
+	"绝对定位": {
+		"prefix": "absolute",
+		"body": [
+			"absolute",
+		],
+		"description": "绝对定位"
+	},
+	"透明度": {
+		"prefix": "opacity",
+		"body": [
+			"opacity : $0",
+		],
+		"description": "透明度"
+	},
+	"过渡": {
+		"prefix": "transition",
+		"body": [
+			"transition : '${0:all 1s}'",
+		],
+		"description": "过渡"
+	},
+	"字体大小": {
+		"prefix": "fontSize",
+		"body": [
+			"fontSize : $0",
+		],
+		"description": "字体大小"
+	},
+	"颜色": {
+		"prefix": "color",
+		"body": [
+			"color : '$2'$0",
+		],
+		"description": "颜色"
+	},
+	"字体": {
+		"prefix": "fontFamily",
+		"body": [
+			"fontFamily : '$2'$0",
+		],
+		"description": "字体"
+	},
+	"层级": {
+		"prefix": "zIndex",
+		"body": [
+			"zIndex : $0",
+		],
+		"description": "层级"
+	},
+	// -----------------------------React 事件
+	"鼠标移入": {
+		"prefix": "onMouseenter",
+		"body": [
+			"onMouseenter={() => this.${0:fun}()}",
+		],
+		"description": "鼠标移入"
+	},
+	"鼠标移出": {
+		"prefix": "onMouseleave",
+		"body": [
+			"onMouseleave={() => this.${0:fun}()}",
+		],
+		"description": "鼠标移出"
+	},
+	"值改变事件": {
+		"prefix": "onChange",
+		"body": [
+			"onChange={() => this.${0:fun}()}",
+		],
+		"description": "值改变事件"
+	},
+	"鼠标移入(触发冒泡)": {
+		"prefix": "onMouseover",
+		"body": [
+			"onMouseover={() => this.${0:fun}()}",
+		],
+		"description": "鼠标移入(触发冒泡)"
+	},
+	"鼠标移动": {
+		"prefix": "onMousemove",
+		"body": [
+			"onMousemove={() => this.${0:fun}()}",
+		],
+		"description": "鼠标移动"
+	},
+	"jQ点击": {
+		"prefix": "onClick",
+		"body": [
+			"onClick={() => this.${0:fun}()}",
+		],
+		"description": "jQ点击"
+	},
+	"jQ键盘按下": {
+		"prefix": "onKeydown",
+		"body": [
+			"onKeydown={() => this.${0:fun}()}",
+		],
+		"description": "jQ键盘按下"
+	},
+	"jQ键盘弹起": {
+		"prefix": "onKeyup",
+		"body": [
+			"onKeyup={() => this.${0:fun}()}",
+		],
+		"description": "jQ键盘弹起"
+	},
+	"鼠标按下": {
+		"prefix": "onMousedown",
+		"body": [
+			"onMousedown={() => this.${0:fun}()}",
+		],
+		"description": "鼠标按下"
+	},
+	"鼠标弹起": {
+		"prefix": "onMouseup",
+		"body": [
+			"onMouseup={() => this.${0:fun}()}",
+		],
+		"description": "鼠标弹起"
+	},
+	"失去焦点": {
+		"prefix": "onBlur",
+		"body": [
+			"onBlur={() => this.${0:fun}()}",
+		],
+		"description": "失去焦点"
+	},
+	"成为焦点": {
+		"prefix": "onFocus",
+		"body": [
+			"onFocus={() => this.${0:fun}()}",
+		],
+		"description": "成为焦点"
+	},
+}
